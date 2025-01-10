@@ -1,0 +1,112 @@
+*
+	padding: 0
+	margin: 0
+	box-sizing: border-box
+	border: none
+	outline: none
+
+html
+	scroll-behavior: smooth
+
+:root
+	--violet: #CFA2FF
+	--white: #FCFCFC
+	--fuchsia: #FE00A0
+	--fuchsia-hover: #D6088A
+	--fuchsia-pressed: #A40469
+	--haiti: #1B1035
+	--haiti-50: rgba(27, 16, 53, 0.5)
+	--haiti-hover: #564D6C
+	--haiti-pressed: #6D6383
+	--haiti-15: rgba(27, 16, 53, 0.15)
+	--light-violet: #E6CEFF
+	--gray-violet: #EDE7F9
+	--dark-violet: #8A75A1
+	--white-hover: #F2EDF0
+	--white-pressed: #EBE0E7
+	--light-grey: #F3F1F7
+	--system-red: #ED0055
+	--green: #329F63
+	--blue: #6363E5
+
+body
+	color: var(--haiti)
+	background-color: var(--light-grey)
+	font-family: "Sofia Sans Extra Condensed", sans-serif
+	&.is_active
+		overflow: hidden
+
+.container
+	max-width: 1360px
+	width: 100%
+	margin: 0 auto
+	padding: 0 15px
+
+img
+	display: block
+	max-width: 100%
+
+// .fx, .fx-w, .fx-ac, .fx-as, .fx-col, .fx-jb, .fx-ae
+
+[class^="fx-"] 
+  display: flex
+
+.fx
+	&-ac
+		align-items: center
+	&-jc
+		justify-content: center
+	&-col
+		flex-direction: column
+	&-w
+		flex-wrap: wrap
+	&-as
+		align-items: flex-start
+	&-jb
+		justify-content: space-between
+	&-ae
+		align-items: end
+
+.connect
+	position: fixed
+	bottom: 80px
+	right: 40px
+	&__btn
+		padding: 21px
+		text-align: center
+		width: 160px
+		height: 160px
+		border-radius: 50%
+		position: relative
+		z-index: 1
+		&::before
+			content: ''
+			display: block
+			width: 100%
+			height: 100%
+			position: absolute
+			top: 0
+			left: 0
+			z-index: -1
+			background-repeat: no-repeat
+			background-size: contain
+			background-image: url('../img/connect.svg')
+			animation: deg360 10s linear forwards infinite
+
+	img
+		width: 100%
+		height: 100%
+		border-radius: 50%
+
+@media screen and ( max-width: 1500px )
+	.connect
+		&__btn
+			width: 132px
+			height: 132px
+			padding: 18px
+
+@keyframes deg360
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
