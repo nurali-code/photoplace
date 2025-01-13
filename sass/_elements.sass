@@ -5,6 +5,8 @@
 	border: none
 	outline: none
 
+// @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@700&display=swap')
+
 html
 	scroll-behavior: smooth
 
@@ -15,6 +17,7 @@ html
 	--fuchsia-hover: #D6088A
 	--fuchsia-pressed: #A40469
 	--haiti: #1B1035
+	--haiti-80: rgba(27, 16, 53, 0.8)
 	--haiti-50: rgba(27, 16, 53, 0.5)
 	--haiti-hover: #564D6C
 	--haiti-pressed: #6D6383
@@ -33,6 +36,9 @@ body
 	color: var(--haiti)
 	background-color: var(--light-grey)
 	font-family: "Sofia Sans Extra Condensed", sans-serif
+	font-stretch: normal
+	font-optical-sizing: auto
+	font-style: normal
 	&.is_active
 		overflow: hidden
 
@@ -54,6 +60,28 @@ img
 	&-16
 		gap: 16px
 
+input, textarea, select
+	padding: 0 24px
+	min-height: 64px
+	display: block
+	width: 100%
+	margin: 0 0 24px
+	border: 2px solid var(--haiti)
+	border-radius: 6px
+	font-size: 21px
+	line-height: 24px
+	font-family: 'Inter', sans-serif
+	color: var(--haiti)
+	&::placeholder
+		color: var(--haiti-50)
+
+	&:focus,
+	&:hover
+		border-color: var(--haiti) !important
+
+	&:placeholder-shown
+		border-color: var(--haiti-50)
+
 .fx
 	&-ac
 		align-items: center
@@ -70,69 +98,32 @@ img
 	&-ae
 		align-items: end
 
-.connect
-	position: fixed
-	bottom: 80px
-	right: 40px
-	&__btn
-		padding: 21px
-		text-align: center
-		width: 160px
-		height: 160px
-		border-radius: 50%
-		position: relative
-		z-index: 1
-		&::before
-			content: ''
-			display: block
-			width: 100%
-			height: 100%
-			position: absolute
-			top: 0
-			left: 0
-			z-index: -1
-			background-repeat: no-repeat
-			background-size: contain
-			background-image: url('../img/connect.svg')
-			animation: deg360 10s linear forwards infinite
-
-		img
-			width: 100%
-			height: 100%
-			border-radius: 50%
-
-	&__item
-		white-space: nowrap
-		color: var(--white)
-		gap: 16px
-		margin-bottom: 12px
-		&:last-child
-			margin-bottom: 0
-		img
-			width: 40px
-			height: 40px
-
-	&-box 
-		width: 538px
-		color: var(--white)
-		background-color: var(--fuchsia)
-		padding: 40px
-		border-radius: 30px
-		opacity: 0 
-		visibility: hidden
-		
-		.t-b2
-			margin-bottom: 20px
-
-@media screen and ( max-width: 1500px )
-	.connect
-		&__btn
-			width: 132px
-			height: 132px
-			padding: 18px
-
 @keyframes deg360
 	0%
 		transform: rotate(0deg)
 	100%
 		transform: rotate(360deg)
+
+@media screen and ( max-width: 1500px )
+	input, textarea, select
+		min-height: 49px
+		padding: 0 20px
+		font-size: 15px
+		line-height: 17px
+		margin-bottom: 21px
+
+@media screen and ( max-width: 992px )
+	input, textarea, select
+		min-height: 54px
+		margin-bottom: 30px
+		font-size: 18px
+		line-height: 22px
+
+@media screen and ( max-width: 720px )
+	input, textarea, select
+		min-height: 60px
+		margin-bottom: 30px
+		padding: 0 24px
+		font-size: 18px
+		line-height: 22px
+		margin-bottom: 20px

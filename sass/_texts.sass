@@ -53,7 +53,7 @@ h5,.h5
         letter-spacing: 0.02em
 
 a, button
-    color: #000
+    color: inherit
     text-decoration: none
     box-sizing: border-box
     transition: all ease .3s
@@ -65,7 +65,7 @@ a, button
     font-size: 24px
     font-weight: 700
     line-height: 32px
-    letter-spacing: 0.02em
+    letter-spacing: .057em
     text-transform: uppercase
 
     gap: 16px
@@ -100,7 +100,7 @@ a, button
 
         &:active
             background-color: var(--haiti-pressed)
-            
+
     &.--light
         color: var(--fuchsia)
         background-color: var(--white)
@@ -118,3 +118,14 @@ a, button
         border-color: var(--haiti-15)
         background-color: var(--haiti-15)
         pointer-events: none
+
+@media screen and ( max-width: 1500px )
+    h4,.h4
+        font-size: 60px
+        line-height: 60px
+
+@media screen and ( max-width: 720px )
+    h4,.h4
+        font-size: 40px
+        font-weight: 600
+        line-height: 36px
