@@ -1,6 +1,7 @@
 .connect
 	position: fixed
-	bottom: 80px
+	z-index: 999
+	bottom: 40px
 	right: 40px
 	a
 		font-weight: 700
@@ -15,7 +16,7 @@
 		margin: 0 0 0 auto
 		border-radius: 50%
 		position: relative
-		z-index: 1
+		z-index: -1
 		&::before
 			content: ''
 			display: block
@@ -29,6 +30,13 @@
 			background-size: contain
 			background-image: url('../img/connect.svg')
 			animation: deg360 10s linear forwards infinite
+
+		&:hover
+			transform: scale(1.05)
+
+		&.is_active
+			opacity: 0 
+			visibility: hidden
 
 		img
 			width: 100%
@@ -56,9 +64,15 @@
 		right: 0
 		transform-origin: 100% 100%
 		overflow: hidden
-		// opacity: 0 
-		// visibility: hidden
-		// transform: scale(0)
+		transition: all .3s ease
+		opacity: 0
+		visibility: hidden
+		transform: scale(0)
+
+		&.is_active
+			opacity: 1
+			visibility: visible
+			transform: scale(1)
 
 		&::before
 			content: ''
