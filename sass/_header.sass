@@ -1,2 +1,75 @@
 .header
-	
+	padding: 20px 0
+	position: fixed
+	z-index: 99999
+	width: 100%
+	left: 0
+	.btn_menu
+		width: 40px
+		height: 40px
+		border-radius: 50%
+		background-color: var(--fuchsia)
+
+	&-mess,
+	&-nav
+		a
+			font-size: 24px
+			font-weight: 700
+			line-height: 32px
+			letter-spacing: 0.02em
+			text-transform: uppercase
+
+	&-nav
+		min-width: 57%
+		margin: 0 auto
+		a
+			&:hover
+				color: var(--fuchsia)
+
+	&-contact
+		gap: 20px
+
+	&-mess
+		gap: 8px
+		img
+			width: 36px
+
+	&__call
+		color: var(--fuchsia)
+
+	&-menu
+		background-color: var(--light-grey)
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		z-index: 999
+		padding: 40px 0
+		text-transform: uppercase
+		.container
+			height: 100%
+
+	.menu
+		&__link
+			text-transform: uppercase
+			font-weight: bold
+			color: var(--haiti-30)
+			&:hover
+				color: var(--haiti)
+
+		&-list
+			margin: auto
+			width: 100%
+			max-width: 92%
+			list-style: none
+			&>* 
+				margin-bottom: 60px 
+				&:last-child
+					margin: 0
+
+		&-submenu
+			display: none
+
+		&-footer
+			margin-top: auto
