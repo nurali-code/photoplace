@@ -1,136 +1,195 @@
 h1,.h1
-    font-size: 386px
-    line-height: 280px
-    letter-spacing: 10px
+	font-size: 386px
+	line-height: 280px
+	letter-spacing: 10px
 
 h2,.h2
-    font-size: 200px
-    line-height: 180px
-    letter-spacing: 2px
+	font-size: 200px
+	line-height: 180px
+	letter-spacing: 2px
 
 h3,.h3
-    font-size: 140px
-    line-height: 120px
-    letter-spacing: 1.4px
+	font-size: 140px
+	font-weight: 700
+	line-height: 120px
+	letter-spacing: 1.4px
 
 h4,.h4
-    font-size: 83px
-    line-height: 80px
+	font-size: 83px
+	line-height: 80px
 
 h5,.h5
-    font-size: 60px
-    font-weight: 400
-    line-height: 64px
-    letter-spacing: 0.6px
+	font-size: 60px
+	font-weight: 400
+	line-height: 64px
+	letter-spacing: 0.6px
 
 .t
-    &-sh
-        font-family: 'Inter', sans-serif
-        font-size: 36px
-        font-style: italic
-        font-weight: 400
-        line-height: 40px
-        letter-spacing: 0.02em
+	&-btn
+		font-size: 24px
+		font-weight: 700
+		line-height: 32px
+		letter-spacing: 0.5px
 
-    &-acc
-        font-size: 34px
-        font-weight: 400
-        line-height: 40px
-        letter-spacing: 0.6px
+	&-sh
+		font-family: 'Inter', sans-serif
+		font-size: 36px
+		font-style: italic
+		font-weight: 400
+		line-height: 40px
+		letter-spacing: 0.02em
 
-    &-b1
-        font-family: 'Inter', sans-serif
-        font-size: 26px
-        font-weight: 400
-        line-height: 32px
-        letter-spacing: 0.5px
+	&-acc
+		font-size: 34px
+		font-weight: 400
+		line-height: 40px
+		letter-spacing: 0.6px
 
-    &-b2
-        font-family: 'Inter', sans-serif
-        font-size: 21px
-        font-weight: 400
-        line-height: 24px
-        letter-spacing: 0.4px
+	&-b1
+		font-family: 'Inter', sans-serif
+		font-size: 26px
+		font-weight: 400
+		line-height: 32px
+		letter-spacing: 0.5px
+
+	&-b2
+		font-family: 'Inter', sans-serif
+		font-size: 21px
+		font-weight: 400
+		line-height: 24px
+		letter-spacing: 0.4px
 
 a, button
-    color: inherit
-    text-decoration: none
-    box-sizing: border-box
-    transition: all ease .3s
-    background-color: transparent
-    &:active
-        transform: scale(.98)
+	color: inherit
+	text-decoration: none
+	box-sizing: border-box
+	transition: all ease .3s
+	background-color: transparent
+	&:active
+		transform: scale(.98)
 
 .btn
-    font-size: 24px
-    font-weight: 700
-    line-height: 32px
-    letter-spacing: .057em
-    text-transform: uppercase
+	font-size: 24px
+	font-weight: 700
+	line-height: 32px
+	letter-spacing: .057em
+	text-transform: uppercase
 
-    gap: 16px
-    border-radius: 8px
-    display: inline-flex
-    align-items: center
-    justify-content: center
-    background-color: var(--fuchsia)
-    color: var(--white)
-    padding: 20px 40px
-    &:hover
-        background-color: var(--fuchsia-hover)
+	gap: 16px
+	border-radius: 8px
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	background-color: var(--fuchsia)
+	color: var(--white)
+	padding: 20px 40px
+	&:hover
+		background-color: var(--fuchsia-hover)
 
-    &:active
-        background-color: var(--fuchsia-pressed)
+	&:active
+		background-color: var(--fuchsia-pressed)
 
-    &.--star
-        &::after
-            content: ''
-            display: inline-block
-            width: 24px
-            height: 28px
-            background-repeat: no-repeat
-            background-position: center top
-            background-image: url('../img/star.svg')
+	&.--star
+		&::after
+			content: ''
+			display: inline-block
+			width: 24px
+			height: 28px
+			background-repeat: no-repeat
+			background-position: center top
+			background-image: url('../img/star.svg')
 
-    &.--dark
-        background-color: var(--haiti)
+	&.--dark
+		background-color: var(--haiti)
 
-        &:hover
-            background-color: var(--haiti-hover)
+		&:hover
+			background-color: var(--haiti-hover)
 
-        &:active
-            background-color: var(--haiti-pressed)
+		&:active
+			background-color: var(--haiti-pressed)
 
-    &.--light
-        color: var(--fuchsia)
-        background-color: var(--white)
-        border: 2px solid var(--gray-violet)
-        &::after
-            background-image: url('../img/star-acc.svg')
+	&.--light
+		color: var(--fuchsia)
+		background-color: var(--white)
+		border: 2px solid var(--gray-violet)
+		&::after
+			background-image: url('../img/star-acc.svg')
 
-        &:hover
-            background-color: var(--white-hover)
+		&:hover
+			background-color: var(--white-hover)
 
-        &:active
-            background-color: var(--white-pressed)
+		&:active
+			background-color: var(--white-pressed)
 
-    &:disabled, &.disabled
-        border-color: var(--haiti-15)
-        background-color: var(--haiti-15)
-        pointer-events: none
+	&:disabled, &.disabled
+		border-color: var(--haiti-15)
+		background-color: var(--haiti-15)
+		pointer-events: none
 
 @media screen and ( max-width: 1500px )
-    h3,.h3
-        font-size: 120px
-        line-height: 100px
-        letter-spacing: -0.01em
+	h1,.h1
+		font-size: 265px
+		line-height: 200px
+		letter-spacing: -5px
 
-    h4,.h4
-        font-size: 60px
-        line-height: 60px
+	h2,.h2
+		font-size: 150px
+		line-height: 140px
+		letter-spacing: -1.5px
+
+	h3,.h3
+		font-size: 120px
+		line-height: 100px
+		letter-spacing: -1px
+
+	h4,.h4
+		font-size: 60px
+		line-height: 60px
+
+@media screen and ( max-width: 992px )
+	h1,.h1
+		font-size: 148px
+		line-height: 140px
+		letter-spacing: -1.39px
+
+	h2,.h2
+		font-size: 80px
+		line-height: 88px
+		letter-spacing: -0.8px
+
+	h3,.h3
+		font-size: 60px
+		line-height: 56px
+		letter-spacing: 0
+
+	h4,.h4
+		font-size: 38px
+		line-height: 40px
+		letter-spacing: 0.4px
 
 @media screen and ( max-width: 720px )
-    h4,.h4
-        font-size: 40px
-        font-weight: 600
-        line-height: 36px
+	h1,.h1
+		font-size: 71px
+		line-height: 64px
+		letter-spacing: -1.5px
+
+	h2,.h2
+		font-size: 40px
+		line-height: 36px
+
+	h3,.h3
+		font-size: 24px
+		line-height: 32px
+		letter-spacing: 0.20px
+
+	h4,.h4
+
+	.t
+		&-b1
+			font-size: 16px
+			font-weight: 400
+			line-height: 20px
+			letter-spacing: 0.3px
+
+		&-btn
+			font-weight: 400

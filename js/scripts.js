@@ -1,3 +1,7 @@
+$('.menu__open, .menu__close').on('click', function () {
+	$('.menu__open, .header-menu, body').toggleClass('is_active')
+})
+
 function compensateForScrollbar() {
 	var scrollbarWidth = window.innerWidth - $(document).width();
 	if ($('body').hasClass('overflow')) { $('body').css('margin-right', '0'); }
@@ -84,7 +88,6 @@ $(function () {
 
 		$('.modal').on('touchend', function () {
 			isTouching = false;
-			console.log(endUp);
 			if (endUp >= 200) {
 				hideModals('#modal-request');
 				setTimeout(() => {

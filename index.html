@@ -6,7 +6,11 @@
 	<meta name="viewport" content="width=device-width">
 	<title>PHOTOPLACE</title>
 	<meta name="theme-color" content="#FE00A0">
-	<link rel="preload" href="fonts/SofiaSansExtraCondensed.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
+		rel="stylesheet">
 	<link rel="shortcut icon" href="favicon.svg" type="image/svg">
 	<link rel="stylesheet" href="./css/style.css">
 </head>
@@ -14,7 +18,7 @@
 <body id="home">
 	<header class="header">
 		<div class="container fx-ac">
-			<button class="btn_menu"><span></span></button>
+			<button class="menu__open"><span></span></button>
 			<nav class="header-nav fx-ac fx-jb">
 				<a href="#">Интерактивы</a>
 				<a href="#">как мы работаем</a>
@@ -22,12 +26,11 @@
 			</nav>
 			<div class="header-contact fx-ac">
 				<a href="tel:+79003682363" class="header__call">+7 (900) 368 23 63</a>
-				<div class="header-mess fx-ac">
-					<a href="#" target="_blank" class="header__call"><img src="img/wa.svg" alt="i"></a>
-					<a href="#" target="_blank" class="header__call"><img src="img/tg.svg" alt="i"></a>
-				</div>
+				<a href="#" target="_blank" class="header__call"><img src="img/wa-f.svg" alt="i"></a>
+				<a href="#" target="_blank" class="header__call"><img src="img/tg-f.svg" alt="i"></a>
 			</div>
 		</div>
+
 		<div class="header-menu">
 			<div class="container fx-col">
 				<div class="menu-header fx-ac fx-jb">
@@ -36,13 +39,13 @@
 				</div>
 
 				<ul class="menu-list">
-					<li>
+					<li class="fx-ac">
 						<span class="menu__link h3">ИНТЕРАКТИВЫ</span>
-						<div class="menu-submenu">
-							<a href="#">SLOW MO 360</a>
-							<a href="#">ФОТОБУДКА</a>
-							<a href="#">ФОТОЗЕРКАЛО</a>
-							<a href="#">ФЛИПБУК СТУДИЯ</a>
+						<div class="menu-submenu fx-ac fx-jb">
+							<a href="#" class="menu__sublink">SLOW MO 360</a>
+							<a href="#" class="menu__sublink">ФОТОБУДКА</a>
+							<a href="#" class="menu__sublink">ФОТОЗЕРКАЛО</a>
+							<a href="#" class="menu__sublink">ФЛИПБУК СТУДИЯ</a>
 						</div>
 					</li>
 					<li><a href="#" class="h3 menu__link">КАК мы работаем</a></li>
@@ -50,17 +53,17 @@
 					<li><a href="#modal-request" class="h3 menu__link">ОСТАВИТЬ ЗАЯВКУ</a></li>
 				</ul>
 
-				<div class="menu-footer fx-ac fx-jb">
+				<div class="menu-footer t-btn fx-ac fx-jb">
 					<a href="mailto:photoplace32@mail.ru">photoplace32@mail.ru</a>
 
 					<div class="fx-ac menu-footer__call">
 						<a href="tel:+79003682363">+7 (900) 368 23 63</a>
-						<a href="#" target="_blank"><img src="img/tg.svg" alt="i"></a>
-						<a href="#" target="_blank"><img src="img/wa.svg" alt="i"></a>
+						<a href="#" class="pc-hide" target="_blank"><img src="img/tg.svg" alt="i"></a>
+						<a href="#" class="pc-hide" target="_blank"><img src="img/wa.svg" alt="i"></a>
 					</div>
 
-					<a href="#" target="_blank">WHATSAPP</a>
-					<a href="#" target="_blank">TELEGRAM</a>
+					<a href="#" class="tb-hide" target="_blank">WHATSAPP</a>
+					<a href="#" class="tb-hide" target="_blank">TELEGRAM</a>
 				</div>
 			</div>
 		</div>
@@ -93,12 +96,12 @@
 			<div class="modal-img"><img src="img/discoball.jpg" alt="i" loading="lazy"></div>
 			<div class="modal-title">
 				<button class="modal__close">&times;</button>
-				<h4>ОСТАВЬТЕ ЗАЯВКУ</h4>
+				<h4 class="modal__heading">ОСТАВЬТЕ ЗАЯВКУ</h4>
 				<form class="modal-form">
 					<input type="text" placeholder="Ваше имя" required>
 					<input type="text" placeholder="Email или номер телефона" required>
-					<input type="text" placeholder="Расскажите о мероприятии и ваших пожеланиях" required>
-					<button type="submit" class="btn --star">Отправить</button>
+					<textarea required placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<a href="#modal-done" type="submit" class="btn --star">Отправить</a>
 				</form>
 				<p class="modal__subheading">ИЛИ СВЯЖИТЕСЬ С НАМИ</p>
 				<div class="fx-ac fx-jb fx-w modal-footer">
@@ -109,6 +112,18 @@
 						<a href="#" target="_blank"><img src="img/wa.svg" alt="i"></a>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" id="modal-done">
+		<div class="modal-content fx-ac fx-jb">
+			<div class="modal-img"><img src="img/discoball.jpg" alt="i" loading="lazy"></div>
+			<div class="modal-title">
+				<button class="modal__close">&times;</button>
+				<h4 class="modal__heading">Готово</h4>
+				<p class="t-b1">Заявка отправлена, мы свяжемся с вами <br> в течение часа</p>
+				<button onclick="hideModals()" class="btn --star">закрыть</button>
 			</div>
 		</div>
 	</div>

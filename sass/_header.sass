@@ -4,13 +4,7 @@
 	z-index: 99999
 	width: 100%
 	left: 0
-	.btn_menu
-		width: 40px
-		height: 40px
-		border-radius: 50%
-		background-color: var(--fuchsia)
-
-	&-mess,
+	&-contact,
 	&-nav
 		a
 			font-size: 24px
@@ -27,7 +21,9 @@
 				color: var(--fuchsia)
 
 	&-contact
-		gap: 20px
+		gap: 8px
+		a:first-child
+			margin-right: 12px
 
 	&-mess
 		gap: 8px
@@ -44,15 +40,43 @@
 		left: 0
 		width: 100%
 		height: 100%
+		min-height: 100%
 		z-index: 999
 		padding: 40px 0
+		overflow-y: scroll
 		text-transform: uppercase
+		-ms-overflow-style: none
+		scrollbar-width: none
+		transition: all ease .3s
+		opacity: 0
+		visibility: hidden
+		transform: translateY(50%)
+		&::-webkit-scrollbar
+			display: none
+			width: 0
+			height: 0
+
 		.container
 			height: 100%
+
+		&.is_active
+			opacity: 1
+			visibility: visible
+			transform: translateY(0)
 
 	.menu
 		&__heading
 			font-weight: 400
+
+		&__open
+			width: 40px
+			height: 40px
+			border-radius: 50%
+			background-color: var(--fuchsia)
+			background-repeat: no-repeat
+			background-position: center center
+			background-size: 22px auto
+			background-image: url('../img/menu.svg')
 
 		&__close
 			width: 80px
@@ -61,6 +85,7 @@
 			background-position: center center
 			background-size: contain
 			background-image: url('../img/close.svg')
+
 		&__link
 			text-transform: uppercase
 			font-weight: bold
@@ -69,39 +94,164 @@
 				color: var(--haiti)
 
 		&-list
-			margin: auto
+			padding: 30px 0
+			margin: auto 0 auto auto 
 			width: 100%
-			max-width: 92%
+			max-width: 96%
 			list-style: none
 			&>*
 				margin-bottom: 60px
 				&:last-child
 					margin: 0
 
+				@media screen and ( min-width: 992px )
+					.menu__link
+						transition: color ease .3s
+
+					&:hover
+						.menu__link
+							color: var(--haiti)
+
+						.menu-submenu
+							opacity: 1
+							visibility: visible
+							transform: translateX(0)
+
 		&-submenu
-			display: none
+			@media screen and ( min-width: 992px )
+				flex: 1
+				padding-left: 74px
+				opacity: 0
+				visibility: hidden
+				transform: translateX(50%)
+				transition: all ease .3s
+
+		&__sublink
+			font-size: 30px
+			font-weight: 600
+			line-height: 32px
+			letter-spacing: 0.6px
+			color: var(--haiti-30)
+			&:hover
+				color: var(--haiti)
 
 		&-footer
-			margin-top: auto
-			font-size: 24px
-			font-weight: 700
-			line-height: 32px
-			letter-spacing: 0.02em
-
-			&__call
-				a
-					&:not(&:first-child)
-						display: none
 
 	@media screen and ( max-width: 1500px )
+		&-mess,
+		&-contact,
+		&-nav
+			a
+				font-size: 20px
+				line-height: 28px
+				letter-spacing: 0.5px
+
 		&-menu
 			padding: 30px 0 16px
+
 		.menu
-			&__close 
+			&__close
 				width: 40px
 				height: 40px
 
-			&-list 
+			&-list
 				max-width: 100%
-				&>* 
+				&>*
 					margin-bottom: 20px
+
+			&-footer
+				padding-top: 20px
+
+	@media screen and ( max-width: 992px )
+		background-color: var(--white)
+		padding: 4px 0
+		&-nav
+			display: none
+
+		&-contact
+			margin-left: auto
+
+		&-menu
+			padding: 28px 0 24px
+
+		.menu
+			&__link
+				font-weight: 600
+				color: var(--haiti)
+
+			&-list
+				max-width: 92%
+				&>* 
+					display: block
+
+			&__heading
+				font-weight: 600
+				font-size: 60px
+				line-height: 56px
+
+			&__sublink
+				font-size: 38px
+				line-height: 40px
+				letter-spacing: 0.4px
+				display: block
+				margin-bottom: 16px
+				color: var(--haiti)
+				&:last-child
+					margin: 0
+
+			&-submenu
+				display: block
+				width: 64%
+				padding: 16px 0 0
+				margin-left: auto
+
+			&-footer
+				padding-top: 24px
+
+				&__call
+					gap: 8px
+					img
+						width: 32px
+						height: 32px
+						object-fit: contain
+
+					&>*
+						&:first-child
+							margin-right: 8px
+
+	@media screen and ( max-width: 720px )
+		&-contact
+			a:first-child
+				margin-right: 8px
+		&-menu
+			padding: 36px 6px
+
+		.menu
+			&__sublink,
+			&__heading
+				font-size: 24px
+				line-height: 32px
+				font-weight: 700
+				letter-spacing: 0.20px
+
+			&-submenu
+				width: 69%
+
+			&-list
+				max-width: 100%
+
+			&__link
+				font-weight: 600
+				font-size: 40px
+				line-height: 36px
+
+			&-footer
+				flex-direction: column-reverse
+				padding-top: 0
+				&>*
+					margin-right: auto
+
+				&__call
+					width: 100%
+					&>*:first-child
+						margin-right: auto
