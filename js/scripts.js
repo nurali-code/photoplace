@@ -25,6 +25,7 @@ $(function () {
 			($(e.target).parents('.modal-content').length) ||
 			($(e.target).parents('.btn').length) ||
 			($(e.target).parents('.connect__btn').length) ||
+			($(e.target).hasClass('menu__link')) ||
 			($(e.target).hasClass('connect__btn')) ||
 			($(e.target).hasClass('btn')) ||
 			($(e.target).hasClass('modal-content'))
