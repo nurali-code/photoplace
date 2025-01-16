@@ -89,6 +89,7 @@ a, button
 	&:active
 		background-color: var(--fuchsia-pressed)
 
+	&.--arr,
 	&.--star
 		&::after
 			content: ''
@@ -98,6 +99,9 @@ a, button
 			background-repeat: no-repeat
 			background-position: center top
 			background-image: url('../img/star.svg')
+
+	&.--arr::after
+		background-image: url('../img/arr.svg')
 
 	&.--dark
 		background-color: var(--haiti)
@@ -166,6 +170,12 @@ a, button
 		font-size: 38px
 		line-height: 40px
 		letter-spacing: 0.4px
+
+	.t
+		&-acc
+			font-size: 22px
+			line-height: 28px
+			letter-spacing: 0.69px
 
 @media screen and ( max-width: 720px )
 	h1,.h1

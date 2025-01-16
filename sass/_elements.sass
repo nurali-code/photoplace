@@ -39,6 +39,7 @@ body
 	font-stretch: normal
 	font-optical-sizing: auto
 	font-style: normal
+	padding-top: 80px
 	&.is_active
 		overflow: hidden
 
@@ -70,8 +71,8 @@ img
 		gap: 16px
 
 input, textarea, select
-	padding: 0 24px
-	min-height: 64px
+	padding: 0 22px
+	height: 64px
 	display: block
 	width: 100%
 	margin: 0 0 24px
@@ -94,8 +95,15 @@ input, textarea, select
 
 textarea
 	resize: none
-	padding-top: 20px !important
-	padding-bottom: 20px !important
+	padding-top: 20px
+	padding-bottom: 20px
+	-ms-overflow-style: none
+	scrollbar-width: none
+	&::-webkit-scrollbar
+		display: none
+		width: 0
+		height: 0
+
 	&:last-of-type
 		margin-bottom: 0 !important
 
@@ -126,17 +134,24 @@ textarea
 		--paddingContainer: 43px
 
 	input, textarea, select
-		min-height: 49px
-		padding: 0 20px
+		height: 49px
+		padding: 0 18px
 		font-size: 15px
 		line-height: 17px
 		margin-bottom: 21px
 
+	textarea
+		padding-top: 14px
+
 @media screen and ( max-width: 992px )
+	body
+		padding-top: 48px
+
 	:root
 		--paddingContainer: 20px
+
 	input, textarea, select
-		min-height: 54px
+		height: 54px
 		margin-bottom: 30px
 		font-size: 18px
 		line-height: 22px
@@ -146,13 +161,13 @@ textarea
 		--paddingContainer: 16px
 
 	input, textarea, select
-		min-height: 60px
+		height: 60px
 		margin-bottom: 30px
-		padding: 0 24px
+		padding: 0 22px
 		font-size: 16px
 		line-height: 20px
 		margin-bottom: 20px
 
 	textarea
-		padding: 20px 24px
-		min-height: 80px
+		padding: 20px 24px 10px
+		height: 80px
