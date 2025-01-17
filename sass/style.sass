@@ -1,6 +1,7 @@
 @import 'normolize'
 @import 'fonts'
 @import 'elements'
+@import 'slick'
 @import 'connect'
 @import 'modal'
 @import 'texts'
@@ -29,9 +30,20 @@
 
     &-rent
         text-transform: uppercase
-        span
-            &:not(&:first-child)
+        .fx-ac
+            gap: 10px
+
+    .sl
+        color: var(--fuchsia)
+        &-el
+            display: inline
+
+        &:not(.slick-initialized)
+            display: inline
+            .sl-el
                 display: none
+                &:first-child
+                    display: block
 
     &__ball
         width: 33.334vw
