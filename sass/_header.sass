@@ -5,6 +5,13 @@
 	width: 100%
 	left: 0
 	top: 0
+
+	@media screen and ( min-width: 992px )
+		transition: background .3s ease
+		&.fixed
+			background-color: var(--white)
+
+
 	&-contact,
 	&-nav
 		a
@@ -139,6 +146,7 @@
 		&-footer
 
 	@media screen and ( max-width: 1500px )
+		padding: 12px 0
 		&-mess,
 		&-contact,
 		&-nav

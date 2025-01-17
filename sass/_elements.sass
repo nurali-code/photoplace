@@ -40,6 +40,7 @@ body
 	font-optical-sizing: auto
 	font-style: normal
 	padding-top: 80px
+	&.overflow,
 	&.is_active
 		overflow: hidden
 
@@ -56,6 +57,15 @@ body
 .pc
 	&-hide
 		@media screen and ( min-width: 992px )
+			display: none !important
+.mob
+	&-hide
+		font-style: normal
+		@media screen and ( max-width: 720px )
+			display: none !important
+	&-show
+		font-style: normal
+		@media screen and ( min-width: 720px )
 			display: none !important
 
 img
@@ -130,6 +140,9 @@ textarea
 		transform: rotate(360deg)
 
 @media screen and ( max-width: 1500px )
+	body
+		padding-top: 64px
+		
 	:root
 		--paddingContainer: 43px
 
