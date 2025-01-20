@@ -6,15 +6,13 @@
 @import 'modal'
 @import 'texts'
 @import 'header'
-@import 'footer'
 
 .hero
     max-width: 1920px
-    min-height: 100vh
     margin: 0 auto
     position: relative
     z-index: 1
-    padding: 40px 0
+    padding: 40px 0 11vw
     &-heading
         padding: 0 8px
         margin: 0 0 120px
@@ -57,7 +55,7 @@
         transform: translateX(-50%)
 
     @media screen and ( max-width: 1500px )
-        padding: 36px 0
+        padding: 36px 0 10vw
         &-text
             padding-left: 43px
             max-width: 36%
@@ -72,7 +70,7 @@
             max-width: 400px
 
     @media screen and ( max-width: 992px )
-        padding: 32px 0
+        padding: 32px 0 11.7vw
         &-text
             max-width: 56%
             margin-left: auto
@@ -104,7 +102,7 @@
         &-heading
             padding: 0 4px
             height: unset
-            margin-bottom: 65vw
+            margin-bottom: 62.23vw
             max-height: unset
             min-height: 69vw
 
@@ -121,3 +119,151 @@
         &__ball
             top: 56vw
             width: 77.78vw
+
+@import 'marquee'
+
+.process
+    background-color: var(--light-violet)
+    overflow: hidden
+    &-ic
+        border-radius: 50%
+        aspect-ratio: 1
+        width: 120px
+        margin: 0 0 80px
+
+    &__heading
+        text-transform: uppercase
+        margin-bottom: 40px
+        text-wrap: pretty
+
+    &-box
+        position: relative
+        z-index: 1
+        width: 29.17%
+        padding: 80px 40px 160px 80px
+        &:nth-child(2)
+            background-color: var(--violet)
+            .process-ic
+                width: 200px
+                height: 200px
+
+            &::before
+                content: ''
+                background-color: var(--violet)
+                display: block
+                width: 150%
+                height: 100%
+                position: absolute
+                top: 0
+                z-index: -1
+                left: 0
+                pointer-events: none
+
+        &:last-child
+            flex: 1
+            z-index: 111
+            color: var(--white)
+            padding-right: 65px
+            background-color: var(--fuchsia)
+            .process-ic
+                width: 360px
+                height: 360px
+
+    @media screen and ( max-width: 1500px )
+        &-ic
+            width: 100px
+            height: 100px
+            margin-bottom: 60px
+
+        &-box
+            width: 33.68%
+            padding: 60px 43px 104px
+            &:nth-child(2)
+                .process-ic
+                    width: 140px
+                    height: 140px
+
+            &:last-child
+                padding-right: 24px
+                .process-ic
+                    width: 240px
+                    height: 240px
+
+    @media screen and ( max-width: 1100px )
+        &-ic
+            width: 56px
+            height: 56px
+            margin: 0
+            position: absolute
+            top: 48px
+            right: 20px
+
+        &-box
+            width: 100%
+            padding: 48px 132px 48px 48px
+
+            &:nth-child(2)
+                .process-ic
+                    width: 84px
+                    height: 84px
+
+            &:last-child
+                padding-right: 132px
+                .process-ic
+                    width: 112px
+                    height: 112px
+
+            .btn
+                margin-top: 48px
+
+        &__heading
+            margin-bottom: 12px
+
+        &__text
+            font-size: 18px
+            line-height: 22px
+            letter-spacing: 0.4px
+
+    @media screen and ( max-width: 720px )
+        &__heading
+            font-size: 40px
+            font-weight: 400
+            line-height: 36px
+            padding-right: 49px
+            margin-bottom: 16px
+
+        &__text
+            font-size: 16px
+            line-height: 20px
+            letter-spacing: 0.3px
+
+        &-ic
+            width: 40px
+            height: 40px
+            right: 16px
+            top: 32px
+
+        &-box
+            padding: 56px 20px 48px
+            padding-right: 90px
+
+            .btn
+                width: 100%
+                margin-top: 24px
+
+            &:nth-child(2)
+                .process-ic
+                    width: 64px
+                    height: 64px
+
+            &:last-child
+                padding-right: 20px
+                .process
+                    &__heading
+                        padding-right: 100px
+
+                    &-ic
+                        width: 108px
+                        height: 108px
+
+@import 'footer'

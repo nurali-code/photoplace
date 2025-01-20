@@ -4,6 +4,7 @@
 	box-sizing: border-box
 	border: none
 	outline: none
+	animation-play-state: paused !important
 
 html
 	scroll-behavior: smooth
@@ -54,6 +55,10 @@ body
 .tb
 	&-hide
 		@media screen and ( max-width: 992px )
+			display: none !important
+
+	&-show
+		@media screen and ( min-width: 992px )
 			display: none !important
 .pc
 	&-hide
@@ -143,7 +148,7 @@ textarea
 @media screen and ( max-width: 1500px )
 	body
 		padding-top: 64px
-		
+
 	:root
 		--paddingContainer: 43px
 

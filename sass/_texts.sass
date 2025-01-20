@@ -106,13 +106,17 @@ p
 			height: 28px
 			background-repeat: no-repeat
 			background-position: center top
-			background-image: url('../img/star.svg')
+
+	&.--star::after
+		background-image: url('../img/star.svg')
 
 	&.--arr::after
 		background-image: url('../img/arr.svg')
 
 	&.--dark
 		background-color: var(--haiti)
+		&::after
+			filter: brightness(10) grayscale(1) contrast(5)
 
 		&:hover
 			background-color: var(--haiti-hover)
@@ -124,8 +128,6 @@ p
 		color: var(--fuchsia)
 		background-color: var(--white)
 		border: 2px solid var(--gray-violet)
-		&::after
-			background-image: url('../img/star-acc.svg')
 
 		&:hover
 			background-color: var(--white-hover)
@@ -187,11 +189,18 @@ p
 		letter-spacing: 0
 
 	h4,.h4
-		font-size: 38px
-		line-height: 40px
+		font-size: 44px
+		line-height: 44px
 		letter-spacing: 0.4px
 
 	.t
+		&-b1
+			font-size: 18px
+			line-height: 22px
+			letter-spacing: 0.4px
+
+		&-b2
+
 		&-acc
 			font-size: 22px
 			line-height: 28px
@@ -213,6 +222,7 @@ p
 		letter-spacing: 0.20px
 
 	h4,.h4
+		
 
 	.t
 		&-b1

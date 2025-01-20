@@ -10,6 +10,16 @@ $(window).on('scroll', function () {
 	}
 });
 
+$(document).ready(function () {
+	$(".marquee-content").each(function () {
+		const $clone = $(this).clone();
+		$(this).after($clone);
+	});
+	$(".marquee-content").addClass('--anim')
+});
+
+
+
 $('.sl').slick({
 	vertical: true,
 	infinite: true,
