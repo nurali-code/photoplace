@@ -1,7 +1,7 @@
 h1,.h1
 	font-size: 386px
 	line-height: 280px
-	letter-spacing: 10px
+	letter-spacing: -9px
 
 h2,.h2
 	font-size: 200px
@@ -111,16 +111,13 @@ p
 		background-image: url('../img/star.svg')
 
 	&.--arr::after
+		filter: brightness(10) grayscale(1) contrast(5)
 		background-image: url('../img/arr.svg')
 
 	&.--dark
 		background-color: var(--haiti)
-		&::after
-			filter: brightness(10) grayscale(1) contrast(5)
-
 		&:hover
 			background-color: var(--haiti-hover)
-
 		&:active
 			background-color: var(--haiti-pressed)
 
@@ -128,10 +125,10 @@ p
 		color: var(--fuchsia)
 		background-color: var(--white)
 		border: 2px solid var(--gray-violet)
-
+		&::after
+			filter: none
 		&:hover
 			background-color: var(--white-hover)
-
 		&:active
 			background-color: var(--white-pressed)
 
@@ -222,7 +219,6 @@ p
 		letter-spacing: 0.20px
 
 	h4,.h4
-		
 
 	.t
 		&-b1
