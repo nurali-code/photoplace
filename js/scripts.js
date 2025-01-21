@@ -88,7 +88,7 @@ $(document).ready(function () {
 
 	function adjustFontSize() {
 		const windowWidth = $(window).width();
-		const padding = windowWidth > 1500 ? 40*2 : windowWidth > 992 ? 43*2 : windowWidth > 720 ? 20*2 : 16*2;
+		const padding = windowWidth > 1500 ? 40 * 2 : windowWidth > 992 ? 43 * 2 : windowWidth > 720 ? 20 * 2 : 16 * 2;
 		const maxFontSize = windowWidth > 1500 ? 386 : windowWidth > 992 ? 265 : windowWidth > 720 ? 148 : 71;
 
 		$('[data-adjust] span').each(function () {
@@ -100,6 +100,7 @@ $(document).ready(function () {
 			while ($span.outerWidth() < windowWidth - padding && fontSize < maxFontSize) {
 				$span.css('font-size', ++fontSize + 'px');
 			}
+			$span.css('font-size', fontSize = fontSize > maxFontSize ? maxFontSize : fontSize + 'px');
 		});
 	} adjustFontSize();
 	$(window).resize(adjustFontSize);
