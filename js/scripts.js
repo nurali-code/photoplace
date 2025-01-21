@@ -10,54 +10,100 @@ $(window).on('scroll', function () {
 	}
 });
 
+
 $(document).ready(function () {
 	$(".marquee-content").each(function () {
 		const $clone = $(this).clone();
 		$(this).after($clone);
 	}); $(".marquee-content").addClass('--anim');
 
+	$('.interactives-slider').slick({
+		infinite: false,
+		dots: false,
+		arrows: true,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		swipeToSlide: true,
+		responsive: [
+			{
+				breakpoint: 1700,
+				settings: {
+					slidesToShow: 4,
+					arrows: false,
+				}
+			},
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 3,
+					arrows: false,
+				}
+			},
+			{
+				breakpoint: 992,
+				settings: "unslick"
+			},
+		]
+	}); $('.interactives-slider').on('swipe', function () { updateInteractiveItems() });
 
-	interactivesSlider = $(this).find('.item-imgs');
 	$('.item-imgs').slick({
 		infinite: false,
-		draggable: false,
+		draggable: true,
 		dots: false,
 		arrows: true,
 		slidesToShow: 1,
 		adaptiveHeight: true,
 	});
 
-	if (window.innerWidth >= 992) {
-		var itemWidth = $(".interactives .item").eq(0).width() / 2;
-		var itemBoxWidth = $(".item-box").eq(0).css('transform', 'scale(1)').width() / 2;
-		var calcVal = itemBoxWidth - itemWidth
-		$(".item-box").eq(0).css('transform', '');
+	function updateInteractiveItems() {
+		if (window.innerWidth >= 992) {
+			const $items = $(".interactives .item");
+			const itemWidth = $items.eq(0).width();
+			const $firstItemBox = $(".item-box").eq(0).css('transform', 'scale(1)');
+			const itemBoxWidth = $firstItemBox.width();
+			const calcVal = (itemBoxWidth - itemWidth) / 2;
+			$firstItemBox.css('transform', '');
 
-		$(".interactives .item").each(function () {
-			var itemBox = $(this).find('.item-box');
-			var offset = itemBox.offset().left;
-			console.log();
-			if (offset <= calcVal) {
-				// itemBox.css('left', offset)
-			}
-		})
-	}
+			$items.each(function () {
+				const $itemBox = $(this).find('.item-box');
+				const offset = $itemBox.offset().left;
+				const windWidth = offset + itemWidth * 2 + calcVal;
+				$itemBox.removeClass('--right --left')
+				$itemBox
+					.toggleClass('--left', offset <= calcVal)
+					.toggleClass('--right', windWidth >= window.innerWidth && offset > calcVal);
+			});
+		} else return false
+	} updateInteractiveItems();
+	$(window).on('resize', updateInteractiveItems);
 
 	$(".interactives .item").on('mouseenter', function () {
-		if (window.innerWidth >= 992) {
-			$(".interactives .item").not($(this)).addClass('blur')
-			// var itemBox = $(this).find('.item-box');
-
-		}
+		if (window.innerWidth >= 992) { $(".interactives .item").not($(this)).addClass('blur') }
 	});
 	$(".interactives .item").on('mouseleave', function () {
-		if (window.innerWidth >= 992) {
-			$(".interactives .item").removeClass('blur')
-		}
+		if (window.innerWidth >= 992) { $(".interactives .item").removeClass('blur') }
 	});
 
-});
+	$('[data-adjust]').each(function () { $(this).html(`<span>${$(this).html()}</span>`); });
 
+	function adjustFontSize() {
+		const windowWidth = $(window).width();
+		const padding = windowWidth > 1500 ? 40*2 : windowWidth > 992 ? 43*2 : windowWidth > 720 ? 20*2 : 16*2;
+		const maxFontSize = windowWidth > 1500 ? 386 : windowWidth > 992 ? 265 : windowWidth > 720 ? 148 : 71;
+
+		$('[data-adjust] span').each(function () {
+			const $span = $(this);
+			let fontSize = parseInt($span.css('font-size'), 10);
+			while ($span.outerWidth() >= windowWidth - padding && fontSize > 0) {
+				$span.css('font-size', --fontSize + 'px');
+			}
+			while ($span.outerWidth() < windowWidth - padding && fontSize < maxFontSize) {
+				$span.css('font-size', ++fontSize + 'px');
+			}
+		});
+	} adjustFontSize();
+	$(window).resize(adjustFontSize);
+});
 
 $('.sl').slick({
 	vertical: true,
