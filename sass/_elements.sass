@@ -145,6 +145,56 @@ textarea
 	100%
 		transform: rotate(360deg)
 
+.fancybox
+	&-is-open
+		background: var(--haiti-80) !important
+		backdrop-filter: blur(6px)
+
+	&-bg
+		opacity: 1 !important
+		background: rgba(0, 0, 0, 0)!important
+
+	&-caption
+		font-family: 'Inter', sans-serif
+
+	&-navigation
+		button
+			div
+				transform-origin: 50% 0%
+				border-radius: 50%
+				background-image: url('../img/slick-arr.svg')
+				background-repeat: no-repeat
+				background-position: center center
+				background-size: cover
+
+			svg
+				display: none
+
+			&[disabled] div
+				cursor: no-drop
+				border: 3px solid var(--white)
+				pointer-events: none
+				background-image: none
+
+	&-toolbar
+		top: 20px !important
+		right: 24px !important
+
+	&-button
+		background-color: rgba(0, 0, 0, 0)
+		&--play,
+		&--zoom,
+		&--thumbs
+			display: none !important
+
+		&--close
+			svg
+				width: 30px
+				height: 30px
+
+		&--arrow_left div
+			transform: scaleX(-1) !important
+
 @media screen and ( max-width: 1500px )
 	body
 		padding-top: 64px

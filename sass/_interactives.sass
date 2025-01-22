@@ -118,21 +118,6 @@
         .btn
             margin-top: auto
 
-    &-contact
-        width: fit-content
-        padding: 0 var(--paddingContainer)
-        margin: 0 auto
-        gap: 24px
-        &>*
-            margin: 0
-
-        mark 
-            display: block
-
-        img
-            width: 80px
-            height: 80px
-
     @media screen and ( max-width: 1500px )
         padding: 60px 0
         .item
@@ -192,16 +177,6 @@
                 margin-top: 16px
                 width: 100%
 
-        &-contact
-            gap: 0
-            img
-                min-width: 40px
-                width: 40px
-                height: 40px
-
-            p
-                margin-right: 16px
-
     @media screen and ( max-width: 700px )
         .h1
             margin-bottom: 24px
@@ -211,10 +186,34 @@
             gap: 16px
             padding-bottom: 56px
 
-        &-contact 
-            mark 
-                display: inline
-
-
         .item
             width: 100%
+
+.contact
+    width: fit-content
+    padding: 0 var(--paddingContainer)
+    margin: 0 auto
+    gap: 24px
+    & > *
+        margin: 0
+
+    mark
+        display: block
+
+    img
+        width: 80px
+        height: 80px
+
+    @media screen and ( max-width: 992px )
+        gap: 0
+        img
+            min-width: 40px
+            width: 40px
+            height: 40px
+
+        p
+            margin-right: 16px
+
+    @media screen and ( max-width: 700px )
+        mark
+            display: inline

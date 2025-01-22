@@ -133,6 +133,15 @@ p
 		&:active
 			background-color: var(--white-pressed)
 
+	&-tab
+		font-family: 'Inter', sans-serif
+		padding: 16px 24px
+		border-radius: 40px
+		background-color: var(--white)
+		&.is_active
+			background-color: var(--fuchsia)
+			color: var(--white)
+
 	&:disabled, &.disabled
 		border-color: var(--haiti-15)
 		background-color: var(--haiti-15)
@@ -210,6 +219,11 @@ p
 			font-size: 22px
 			line-height: 28px
 			letter-spacing: 0.69px
+
+	.btn 
+		&-tab
+			padding: 8px 12px
+
 
 @media screen and ( max-width: 720px )
 	h1,.h1
