@@ -10,6 +10,12 @@ $(window).on('scroll', function () {
 	}
 });
 
+$('[data-hor]').on('click', function () {
+	setTimeout(() => {
+		$('.fancybox-container').find('video').addClass('--hor')
+	}, 50);
+});
+
 
 $(document).ready(function () {
 	$(".marquee-content").each(function () {

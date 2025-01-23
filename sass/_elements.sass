@@ -4,7 +4,7 @@
 	box-sizing: border-box
 	border: none
 	outline: none
-	// animation-play-state: paused !important
+	animation-play-state: paused !important
 
 html
 	scroll-behavior: smooth
@@ -153,6 +153,14 @@ textarea
 	&-bg
 		opacity: 1 !important
 		background: rgba(0, 0, 0, 0)!important
+
+	&-content
+		background: rgba(0, 0, 0, 0)!important
+		video:not(.--hor)
+			margin: 0 auto
+			max-width: 100%
+			aspect-ratio: 9/16
+			width: unset !important
 
 	&-caption
 		font-family: 'Inter', sans-serif
