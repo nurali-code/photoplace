@@ -5,21 +5,22 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>PHOTOPLACE</title>
-	<meta name="theme-color" content="#FE00A0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="image" href="img/hero-text.svg" type="image/svg+xml">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
 		rel="stylesheet">
+	<link rel="stylesheet" href="./css/style.css">
+	<meta name="theme-color" content="#FE00A0">
+
+	<link rel="preload" as="video" href="vid/disco-ball.mp4">
 	<link rel="shortcut icon" href="favicon.svg" type="image/svg">
 	<link rel="stylesheet" href="./css/jquery.fancybox.min.css">
-	<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body id="home">
 	<header class="header">
 		<div class="container fx-ac">
-			<button class="menu__open"><span></span></button>
+			<button class="menu__open" title="Меню"></button>
 			<nav class="header-nav fx-ac fx-jb">
 				<a href="#">Интерактивы</a>
 				<a href="#">как мы работаем</a>
@@ -106,22 +107,22 @@
 		<div class="marquee-section">
 			<div class="marquee fx-ac">
 				<ul class="marquee-content fx-ac">
-					<li><img src="img/partners/volkswagen.svg" alt="i"></li>
-					<li><img src="img/partners/mixit.svg" alt="i"></li>
-					<li><img src="img/partners/METRO.svg" alt="i"></li>
-					<li><img src="img/partners/sber.svg" alt="i"></li>
-					<li><img src="img/partners/Avon.svg" alt="i"></li>
-					<li><img src="img/partners/alfa.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/volkswagen.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/mixit.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/METRO.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/sber.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/Avon.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/alfa.svg" alt="i"></li>
 				</ul>
 			</div>
 			<div class="marquee fx-ac">
 				<ul class="marquee-content fx-ac">
-					<li><img src="img/partners/mercedes-benz.svg" alt="i"></li>
-					<li><img src="img/partners/vk.svg" alt="i"></li>
-					<li><img src="img/partners/radisson.svg" alt="i"></li>
-					<li><img src="img/partners/miratorg.svg" alt="i"></li>
-					<li><img src="img/partners/Gazprom.svg" alt="i"></li>
-					<li><img src="img/partners/lada.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/mercedes-benz.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/vk.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/radisson.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/miratorg.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/Gazprom.svg" alt="i"></li>
+					<li><img loading="lazy" src="img/partners/lada.svg" alt="i"></li>
 				</ul>
 			</div>
 		</div>
@@ -272,19 +273,85 @@
 
 			<div class="container">
 				<div class="tab-wrap fx-w">
-					<a href="#all" class="btn-tab t-b2 is_active">Все работы</a>
-					<a href="#all" class="btn-tab t-b2">Фотобудка</a>
-					<a href="#all" class="btn-tab t-b2">Slow Mo 360</a>
-					<a href="#all" class="btn-tab t-b2">Фотозеркало</a>
-					<a href="#all" class="btn-tab t-b2">Флипбук Студия</a>
-					<a href="#all" class="btn-tab t-b2">Корпоратив</a>
-					<a href="#all" class="btn-tab t-b2">Свадьба</a>
-					<a href="#all" class="btn-tab t-b2">День рождения</a>
-					<a href="#all" class="btn-tab t-b2">Промо</a>
-					<a href="#all" class="btn-tab t-b2">Выпускной</a>
+					<button data-tab="#all" class="btn-tab t-b2 is_active">Все работы</button>
+					<button data-tab="#фотобудка" class="btn-tab t-b2">Фотобудка</button>
+					<button data-tab="slow_mo_360" class="btn-tab t-b2">Slow Mo 360</button>
+					<button data-tab="#фотозеркало" class="btn-tab t-b2">Фотозеркало</button>
+					<button data-tab="#флипбук_студия" class="btn-tab t-b2">Флипбук Студия</button>
+					<button data-tab="#корпоратив" class="btn-tab t-b2">Корпоратив</button>
+					<button data-tab="#свадьба" class="btn-tab t-b2">Свадьба</button>
+					<button data-tab="#день_рождения" class="btn-tab t-b2">День рождения</button>
+					<button data-tab="#промо" class="btn-tab t-b2">Промо</button>
+					<button data-tab="#выпускной" class="btn-tab t-b2">Выпускной</button>
 				</div>
 
 				<div class="example-wrap fx-w">
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/a-1.jpg" data-fancybox="example">
+								<img src="img/ex/a-1.jpg" class="item__img" loading="lazy">
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Съёмка видео на Slow mo 360 – эффектно и весело 💫</p>
+							<p>#slow_mo_360 #корпоратив</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/y-1.jpg" data-fancybox="example">
+								<img src="img/ex/y-1.jpg" loading="lazy" alt="i" class="item__img">
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Сделать фото и полюбоваться собой, наслаждаясь моментом 🤌 </p>
+							<p>#фотозеркало #корпоратив</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/s-1.mp4" data-fancybox="example">
+								<video muted src="img/ex/hor-s-1.mp4" poster="img/ex/s-1.jpg" class="item__img"></video>
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Отчётный концерт DIAMONDS32 в Брянске 💅</p>
+							<p>#slow_mo_360 #промо</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/h-1.jpg" data-fancybox="example">
+								<img src="img/ex/h-1.jpg" class="item__img" loading="lazy">
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Книга пожеланий на свадьбе 💞 Одно фото вам, другое – гостям</p>
+							<p>#фотобудка #свадьба</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/o-1.mp4" data-fancybox="example">
+								<video muted src="img/ex/o-1.mp4" poster="img/ex/o-1.jpg" class="item__img"></video>
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Яркие безлимитные видео для соцсетей на вашей свадьбе 🤍</p>
+							<p>#slow_mo_360 #свадьба</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/n-1.jpg" data-fancybox="example">
+								<img src="img/ex/n-1.jpg" class="item__img" loading="lazy">
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Фотобудка подходит и для масштабных мероприятий 🤙</p>
+							<p>#фотобудка #промо</p>
+						</div>
+					</div>
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/q-1.jpg" data-fancybox="example">
@@ -296,6 +363,33 @@
 							<p>#slow_mo_360 #корпоратив</p>
 						</div>
 					</div>
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/p-1.jpg" data-fancybox="example">
+								<img src="img/ex/p-1.jpg" class="item__img" loading="lazy">
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Slow Mo 360 на детском празднике в ТРЦ «Бум-сити» 🔥</p>
+							<p>#slow_mo_360 #промо</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/i-1.mp4" data-fancybox="example">
+								<video muted src="img/ex/i-1.mp4" poster="img/ex/i-1.jpg" class="item__img"></video>
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Брендированные фото – лучший способ запомниться гостям 🤩</p>
+							<p>#фотозеркало #промо</p>
+						</div>
+					</div>
+					<div class="expo fx-col fx-ac fx-jc">
+						<h4 class="h4 expo__heading">ИНТЕРЕСНО УЗНАТЬ БОЛЬШЕ?</h4>
+						<a href="#modal-request" class="btn --star --dark">Напишите нам</a>
+					</div>
+
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/m-1.jpg" data-fancybox="example">
@@ -318,12 +412,6 @@
 							<p>#фотозеркало #свадьба</p>
 						</div>
 					</div>
-
-					<div class="expo fx-col fx-ac fx-jc">
-						<h4 class="h4 expo__heading">ИНТЕРЕСНО УЗНАТЬ БОЛЬШЕ?</h4>
-						<a href="#modal-request" class="btn --star --dark">Напишите нам</a>
-					</div>
-
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/e-1.jpg" data-fancybox="example">
@@ -359,89 +447,8 @@
 					</div>
 					<div class="item">
 						<div class="item-preview">
-							<a href="img/ex/y-1.jpg" data-fancybox="example">
-								<img src="img/ex/y-1.jpg" loading="lazy" alt="i" class="item__img">
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Сделать фото и полюбоваться собой, наслаждаясь моментом 🤌 </p>
-							<p>#фотозеркало #корпоратив</p>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item-preview">
-							<a href="img/ex/u-1.jpg" data-fancybox="example">
-								<img src="img/ex/u-1.jpg" loading="lazy" alt="i" class="item__img">
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Брендированные фото – лучший способ запомниться гостям 🤩</p>
-							<p>#фотозеркало #промо</p>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item-preview">
-							<a href="img/ex/i-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/i-1.mp4" poster="img/ex/i-1.jpg" class="item__img"
-									loading="lazy"></video>
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Брендированные фото – лучший способ запомниться гостям 🤩</p>
-							<p>#фотозеркало #промо</p>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item-preview">
-							<a href="img/ex/o-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/o-1.mp4" poster="img/ex/o-1.jpg" class="item__img"
-									loading="lazy"></video>
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Яркие безлимитные видео для соцсетей на вашей свадьбе 🤍</p>
-							<p>#slow_mo_360 #свадьба</p>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item-preview">
-							<a href="img/ex/p-1.jpg" data-fancybox="example">
-								<img src="img/ex/p-1.jpg" class="item__img" loading="lazy">
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Slow Mo 360 на детском празднике в ТРЦ «Бум-сити» 🔥</p>
-							<p>#slow_mo_360 #промо</p>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item-preview">
-							<a href="img/ex/a-1.jpg" data-fancybox="example">
-								<img src="img/ex/a-1.jpg" class="item__img" loading="lazy">
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Съёмка видео на Slow mo 360 – эффектно и весело 💫</p>
-							<p>#slow_mo_360 #корпоратив</p>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item-preview">
-							<a href="img/ex/s-1.mp4" data-hor data-fancybox="example">
-								<video muted src="img/ex/s-1.mp4" poster="img/ex/s-1.jpg" class="item__img"
-									loading="lazy"></video>
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Отчётный концерт DIAMONDS32 в Брянске 💅</p>
-							<p>#slow_mo_360 #промо</p>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item-preview">
 							<a href="img/ex/d-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/d-1.mp4" poster="img/ex/d-1.jpg" class="item__img"
-									loading="lazy"></video>
+								<video muted src="img/ex/d-1.mp4" poster="img/ex/d-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -452,8 +459,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/f-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/f-1.mp4" poster="img/ex/f-1.jpg" class="item__img"
-									loading="lazy"></video>
+								<video muted src="img/ex/f-1.mp4" poster="img/ex/f-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -463,25 +469,13 @@
 					</div>
 					<div class="item">
 						<div class="item-preview">
-							<a href="img/ex/g-1.mp4" data-hor data-fancybox="example">
-								<video muted src="img/ex/g-1.mp4" poster="img/ex/g-1.jpg" class="item__img"
-									loading="lazy"></video>
+							<a href="img/ex/hor-g-1.mp4" data-fancybox="example">
+								<video muted src="img/ex/hor-g-1.mp4" poster="img/ex/g-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
 							<p>Со Slow Mo 360 вы получите видео прямо в день свадьбы!</p>
 							<p>#slow_mo_360 #свадьба</p>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item-preview">
-							<a href="img/ex/h-1.jpg" data-fancybox="example">
-								<img src="img/ex/h-1.jpg" class="item__img" loading="lazy">
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Книга пожеланий на свадьбе 💞 Одно фото вам, другое – гостям</p>
-							<p>#фотобудка #свадьба</p>
 						</div>
 					</div>
 					<div class="item">
@@ -506,7 +500,6 @@
 							<p>#фотобудка #корпоратив</p>
 						</div>
 					</div>
-
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/image-2.jpg" data-fancybox="example">
@@ -595,12 +588,10 @@
 							<p>#фотобудка #выпускной</p>
 						</div>
 					</div>
-
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/jk-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/jk-1.mp4" poster="img/ex/jk-1.jpg" class="item__img"
-									loading="lazy"></video>
+								<video muted src="img/ex/jk-1.mp4" poster="img/ex/jk-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -622,8 +613,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/l-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/l-1.mp4" poster="img/ex/l-1.jpg" class="item__img"
-									loading="lazy"></video>
+								<video muted src="img/ex/l-1.mp4" poster="img/ex/l-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -642,7 +632,6 @@
 							<p>#флипбук_студия #корпоратив</p>
 						</div>
 					</div>
-
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/x-1.jpg" data-fancybox="example">
@@ -654,12 +643,10 @@
 							<p>#ии_фотобудка #корпоратив</p>
 						</div>
 					</div>
-
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/c-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/c-1.mp4" poster="img/ex/c-1.jpg" class="item__img"
-									loading="lazy"></video>
+								<video muted src="img/ex/c-1.mp4" poster="img/ex/c-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -667,12 +654,21 @@
 							<p>#ии_фотобудка #корпоратив</p>
 						</div>
 					</div>
-
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/u-1.jpg" data-fancybox="example">
+								<img src="img/ex/u-1.jpg" loading="lazy" alt="i" class="item__img">
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Брендированные фото – лучший способ запомниться гостям 🤩</p>
+							<p>#фотозеркало #промо</p>
+						</div>
+					</div>
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/v-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/v-1.mp4" poster="img/ex/v-1.jpg" class="item__img"
-									loading="lazy"></video>
+								<video muted src="img/ex/v-1.mp4" poster="img/ex/v-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -680,7 +676,6 @@
 							<p>#ии_фотобудка #корпоратив</p>
 						</div>
 					</div>
-
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/b-1.jpg" data-fancybox="example">
@@ -692,6 +687,15 @@
 							<p>#ии_фотобудка #корпоратив</p>
 						</div>
 					</div>
+				</div>
+
+				<div class="contact fx-ac">
+					<p class="t-b1">
+						Больше фото и видео
+						<mark>в наших соцсетях</mark>
+					</p>
+					<a href="#"><img src="img/vk-f.svg" alt="i" loading="lazy"></a>
+					<a href="#"><img src="img/inst-f.svg" alt="i" loading="lazy"></a>
 				</div>
 			</div>
 		</section>

@@ -6,11 +6,10 @@
 	left: 0
 	top: 0
 
-	@media screen and ( min-width: 992px )
+	@media screen and ( min-width: 991px )
 		transition: background .3s ease
 		&.fixed
 			background-color: var(--white)
-
 
 	&-contact,
 	&-nav
@@ -81,10 +80,15 @@
 			height: 40px
 			border-radius: 50%
 			background-color: var(--fuchsia)
-			background-repeat: no-repeat
-			background-position: center center
-			background-size: 22px auto
-			background-image: url('../img/menu.svg')
+			&:after
+				content: ''
+				display: block
+				width: 22px
+				height: 22px
+				background-repeat: no-repeat
+				background-size: 115px
+				background-position: right -23px top
+				margin: 0 auto 
 
 		&__close
 			width: 80px
@@ -103,7 +107,7 @@
 
 		&-list
 			padding: 30px 0
-			margin: auto 0 auto auto 
+			margin: auto 0 auto auto
 			width: 100%
 			max-width: 96%
 			list-style: none
@@ -112,7 +116,7 @@
 				&:last-child
 					margin: 0
 
-				@media screen and ( min-width: 992px )
+				@media screen and ( min-width: 991px )
 					.menu__link
 						transition: color ease .3s
 
@@ -126,7 +130,7 @@
 							transform: translateX(0)
 
 		&-submenu
-			@media screen and ( min-width: 992px )
+			@media screen and ( min-width: 991px )
 				flex: 1
 				padding-left: 74px
 				opacity: 0
@@ -171,7 +175,7 @@
 			&-footer
 				padding-top: 20px
 
-	@media screen and ( max-width: 992px )
+	@media screen and ( max-width: 991px )
 		background-color: var(--white)
 		padding: 4px 0
 		&-nav
@@ -190,7 +194,7 @@
 
 			&-list
 				max-width: 92%
-				&>* 
+				&>*
 					display: block
 
 			&__heading

@@ -4,7 +4,7 @@
 	box-sizing: border-box
 	border: none
 	outline: none
-	animation-play-state: paused !important
+	// animation-play-state: paused !important
 
 html
 	scroll-behavior: smooth
@@ -54,15 +54,15 @@ body
 
 .tb
 	&-hide
-		@media screen and ( max-width: 992px )
+		@media screen and ( max-width: 991px )
 			display: none !important
 
 	&-show
-		@media screen and ( min-width: 992px )
+		@media screen and ( min-width: 991px )
 			display: none !important
 .pc
 	&-hide
-		@media screen and ( min-width: 992px )
+		@media screen and ( min-width: 991px )
 			display: none !important
 .mob
 	&-hide
@@ -156,11 +156,19 @@ textarea
 
 	&-content
 		background: rgba(0, 0, 0, 0)!important
-		video:not(.--hor)
-			margin: 0 auto
-			max-width: 100%
+		&.--ver
+			min-height: 80% !important
 			aspect-ratio: 9/16
-			width: unset !important
+			video
+				margin: 0 auto
+				max-width: 100%
+				aspect-ratio: 9/16
+				width: unset !important
+		&.--hor
+			video
+				margin: 0 auto
+				max-width: 100%
+				aspect-ratio: 16/9
 
 	&-caption
 		font-family: 'Inter', sans-serif
@@ -189,7 +197,7 @@ textarea
 		right: 24px !important
 
 	&-button
-		background-color: rgba(0, 0, 0, 0)
+		background-color: rgba(0, 0, 0, 0) !important
 		&--play,
 		&--zoom,
 		&--thumbs
@@ -202,6 +210,14 @@ textarea
 
 		&--arrow_left div
 			transform: scaleX(-1) !important
+
+section
+	padding: 120px 0
+
+.btn, .menu__open, .example .item
+	&::after
+		background-repeat: no-repeat
+		background-image: url('../img/sprite.svg')
 
 @media screen and ( max-width: 1500px )
 	body
@@ -220,7 +236,10 @@ textarea
 	textarea
 		padding-top: 14px
 
-@media screen and ( max-width: 992px )
+	section
+		padding: 80px 0
+
+@media screen and ( max-width: 991px )
 	body
 		padding-top: 48px
 
@@ -232,6 +251,9 @@ textarea
 		margin-bottom: 30px
 		font-size: 18px
 		line-height: 22px
+
+	section
+		padding: 60px 0
 
 @media screen and ( max-width: 720px )
 	:root
@@ -248,3 +270,6 @@ textarea
 	textarea
 		padding: 20px 24px 10px
 		height: 80px
+
+	section
+		padding: 40px 0

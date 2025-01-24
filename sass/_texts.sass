@@ -92,6 +92,9 @@ p
 	background-color: var(--fuchsia)
 	color: var(--white)
 	padding: 20px 40px
+	&::after
+		margin-bottom: 2px
+
 	&:hover
 		background-color: var(--fuchsia-hover)
 
@@ -104,21 +107,20 @@ p
 			content: ''
 			display: inline-block
 			width: 24px
-			height: 28px
+			height: 24px
 			background-repeat: no-repeat
-			background-position: center top
 
 	&.--star::after
-		background-image: url('../img/star.svg')
+		background-position: left top
 
 	&.--arr::after
-		filter: brightness(10) grayscale(1) contrast(5)
-		background-image: url('../img/arr.svg')
+		background-position: left -24px top
 
 	&.--dark
 		background-color: var(--haiti)
 		&:hover
 			background-color: var(--haiti-hover)
+
 		&:active
 			background-color: var(--haiti-pressed)
 
@@ -127,7 +129,10 @@ p
 		background-color: var(--white)
 		border: 2px solid var(--gray-violet)
 		&::after
-			filter: none
+			background-position: left bottom
+		&.--arr::after
+			background-position: left -24px bottom
+
 		&:hover
 			background-color: var(--white-hover)
 		&:active
@@ -184,7 +189,7 @@ p
 			line-height: 17px
 			letter-spacing: 0.3px
 
-@media screen and ( max-width: 992px )
+@media screen and ( max-width: 991px )
 	h1,.h1
 		font-size: 148px
 		line-height: 140px
@@ -220,10 +225,9 @@ p
 			line-height: 28px
 			letter-spacing: 0.69px
 
-	.btn 
+	.btn
 		&-tab
 			padding: 8px 12px
-
 
 @media screen and ( max-width: 720px )
 	h1,.h1
