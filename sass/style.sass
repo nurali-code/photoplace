@@ -22,7 +22,7 @@
             width: 100%
 
     &-text
-        padding-left: 80px
+        padding-top: 40px
         p
             margin-bottom: 18px
 
@@ -54,10 +54,55 @@
         left: 50%
         transform: translateX(-50%)
 
+    &-row
+        padding: 0 120px 0 80px
+
+    @media screen and ( min-width: 992px )
+        &-slides
+            width: 400px
+
+        &-slide
+            position: relative
+            z-index: 1
+            text-align: center
+            width: 296px
+            margin: 0 auto
+            img
+                width: 100%
+                aspect-ratio: 1
+                margin-bottom: 12px
+
+            &::before
+                content: ''
+                width: 100%
+                aspect-ratio: 1
+                display: block
+                position: absolute
+                top: 0
+                left: 0
+                border-radius: 50%
+                background-color: var(--light-violet)
+                z-index: -1
+
+            &:not(.slick-slick-slide)
+                display: none
+                &:first-child
+                    display: block
+
+        @media screen and ( max-width: 1500px )
+            &-slides
+                width: 280px
+
+            &-slide
+                width: 200px
+
     @media screen and ( max-width: 1500px )
         padding: 36px 0 10vw
+        &-row
+            padding: 0 9vw 0 43px
+
         &-text
-            padding-left: 43px
+            padding-top: 37px
             max-width: 36%
 
         &-heading
@@ -71,6 +116,12 @@
 
     @media screen and ( max-width: 991px )
         padding: 32px 0 11.7vw
+        &-slides
+            display: none
+
+        &-row
+            padding: 0
+
         &-text
             max-width: 56%
             margin-left: auto
