@@ -8,15 +8,25 @@
     &-slider
         margin: 0 auto
 
-    .slick-list:not(.item-imgs .slick-list)
-        padding: 180px 0
+    @media screen and ( min-width: 992px )
+        &-slider:not(.slick-initialized)
+            gap: 1%
+            max-width: 1800px
+
+        .slick-list:not(.item-imgs .slick-list),
+        &-slider:not(.slick-initialized)
+            padding: 180px 0
+
+        @media screen and ( max-width: 1500px )
+            .slick-list:not(.item-imgs .slick-list),
+            &-slider:not(.slick-initialized)
+                padding: 120px 0 110px
 
     .item
         width: 280px
         margin: 0 45px
         border-radius: 6.9px
         position: relative
-
         &__preview
             width: 100%
             aspect-ratio: 9/12.8573
@@ -37,6 +47,10 @@
         @media screen and ( min-width: 992px )
             background-color: var(--white)
             transition: filter ease .3s
+            &:not(.slick-slide)
+                width: 19%
+                margin: 0
+
             &.blur
                 filter: blur(6px)
 
@@ -137,9 +151,6 @@
 
             &__def
                 display: none
-
-        .slick-list:not(.item-imgs .slick-list)
-            padding: 120px 0 110px
 
     @media screen and ( max-width: 992px )
         padding: 40px 0

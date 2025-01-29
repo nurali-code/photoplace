@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width">
 	<title>PHOTOPLACE</title>
 	<link rel="preload" as="image" href="img/hero-text.svg" type="image/svg+xml">
+	<link rel="preload" as="image" href="img/hero-mob-text.svg" type="image/svg+xml">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
 		rel="stylesheet">
@@ -22,9 +23,9 @@
 		<div class="container fx-ac">
 			<button class="menu__open" title="Меню"></button>
 			<nav class="header-nav fx-ac fx-jb">
-				<a href="#">Интерактивы</a>
-				<a href="#">как мы работаем</a>
-				<a href="#">примеры работ</a>
+				<a href="#interactives">Интерактивы</a>
+				<a href="#process">Как мы работаем</a>
+				<a href="#examples">Примеры работ</a>
 			</nav>
 			<div class="header-contact fx-ac">
 				<a href="tel:+79003682363" class="header__call">+7 (900) 368 23 63</a>
@@ -50,8 +51,8 @@
 							<a href="#" class="menu__sublink">ФЛИПБУК СТУДИЯ</a>
 						</div>
 					</li>
-					<li><a href="#" class="h3 menu__link">КАК мы работаем</a></li>
-					<li><a href="#" class="h3 menu__link">ПРИМЕРЫ РАБОТ</a></li>
+					<li><a href="#process" class="h3 menu__link">КАК мы работаем</a></li>
+					<li><a href="#examples" class="h3 menu__link">ПРИМЕРЫ РАБОТ</a></li>
 					<li><a href="#modal-request" class="h3 menu__link">ОСТАВИТЬ ЗАЯВКУ</a></li>
 				</ul>
 
@@ -100,7 +101,7 @@
 								<div class="sl-el"><i class="mob-show">на</i> крутое событие</div>
 							</div>
 						</div>
-						<a href="#" class="btn --star mob-show">наши интерактивы</a>
+						<a href="#interactives" class="btn --star mob-show">наши интерактивы</a>
 					</div>
 				</div>
 
@@ -148,7 +149,7 @@
 			</div>
 		</div>
 
-		<section class="interactives">
+		<section class="interactives" id="interactives">
 			<h2 class="h1" data-adjust>ИНТЕРАКТИВЫ</h2>
 			<div class="interactives-slider fx-w fx-jc">
 				<div class="item">
@@ -261,7 +262,7 @@
 			</div>
 		</section>
 
-		<section class="process fx-w">
+		<section class="process fx-w" id="process">
 			<div class="process-box">
 				<img src="img/violet-ball.png" class="process-ic" alt="i">
 				<h4 class="process__heading">1 — СОГЛАСУЕМ ВСЕ ДЕТАЛИ</h4>
@@ -289,7 +290,7 @@
 			</div>
 		</section>
 
-		<section class="example" id="example">
+		<section class="example" id="examples">
 			<h2 class="h1" data-adjust>ПРИМЕРЫ РАБОТ</h2>
 
 			<div class="container">
@@ -331,7 +332,7 @@
 					</div>
 					<div class="item">
 						<div class="item-preview">
-							<a href="img/ex/s-1.mp4" data-fancybox="example">
+							<a href="img/ex/hor-s-1.mp4" data-fancybox="example">
 								<video muted src="img/ex/hor-s-1.mp4" poster="img/ex/s-1.jpg" class="item__img"></video>
 							</a>
 						</div>

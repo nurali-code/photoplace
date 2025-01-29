@@ -34,7 +34,7 @@
 			max-width: unset
 			border-radius: 50%
 
-	&__heading 
+	&__heading
 		text-transform: uppercase
 
 	&-title
@@ -171,7 +171,6 @@
 			padding: 24px 16px 0
 			bottom: 0
 			max-height: calc( 100% - 150px )
-			transition: all linear .1s
 			left: 0
 			transform: translateY(50%)
 			border-radius: 8px 8px 0 0
@@ -187,6 +186,9 @@
 				left: 50%
 				transform: translateX(-50%)
 				pointer-events: none
+
+			&.drag
+				transition: all linear .1s
 
 		.btn
 			margin-top: 30px

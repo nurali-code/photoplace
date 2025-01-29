@@ -22,6 +22,7 @@
             width: 100%
 
     &-text
+        max-width: 50%
         padding-top: 40px
         p
             margin-bottom: 18px
@@ -60,31 +61,51 @@
     @media screen and ( min-width: 992px )
         &-slides
             width: 400px
-
-        &-slide
             position: relative
             z-index: 1
-            text-align: center
-            width: 296px
-            margin: 0 auto
-            img
-                width: 100%
-                aspect-ratio: 1
-                margin-bottom: 12px
-
+            --itemWidth: 296px
             &::before
                 content: ''
-                width: 100%
+                width: var(--itemWidth)
                 aspect-ratio: 1
                 display: block
                 position: absolute
                 top: 0
-                left: 0
+                left: 50%
+                transform: translateX(-50%)
                 border-radius: 50%
                 background-color: var(--light-violet)
                 z-index: -1
 
-            &:not(.slick-slick-slide)
+            .slick
+                &-arrow
+                    bottom: auto
+                    top: 50%
+                    transform: translateY(-50%) !important
+                    --isWidth: 40px
+                    &::after
+
+                &-prev
+                    left: 0
+                    &::after
+                        background-position-x: 0
+
+                &-next
+                    left: auto 
+                    right: 0
+                    &::after
+                        background-position-x: calc(0px - var(--isWidth) )
+
+        &-slide
+            text-align: center
+            width: 100%
+            margin: 0 auto
+            img
+                width: var(--itemWidth)
+                margin: 0 auto 12px
+                aspect-ratio: 1
+
+            &:not(.slick-slide)
                 display: none
                 &:first-child
                     display: block
@@ -92,9 +113,13 @@
         @media screen and ( max-width: 1500px )
             &-slides
                 width: 280px
+                --itemWidth: 200px
+
+                &::before
 
             &-slide
-                width: 200px
+                img
+                    margin-bottom: 8px
 
     @media screen and ( max-width: 1500px )
         padding: 36px 0 10vw
@@ -113,6 +138,10 @@
         &__ball
             width: 30.63vw
             max-width: 400px
+
+    @media screen and ( max-width: 1200px )
+        &-row
+            padding: 0 43px
 
     @media screen and ( max-width: 991px )
         padding: 32px 0 11.7vw
@@ -143,12 +172,17 @@
     @media screen and ( max-width: 720px )
         padding: 4px 0 36px
         &-text
+            width: 100%
             max-width: 100%
             text-align: center
             padding: 0 var(--paddingContainer)
 
             p
                 margin-bottom: 6px
+
+        .sl
+            display: block
+            width: 100%
 
         &-heading
             padding: 0 4px
@@ -170,6 +204,7 @@
         &__ball
             top: 56vw
             width: 77.78vw
+            max-width: 500px
 
 @import 'marquee'
 @import 'interactives'

@@ -1,5 +1,4 @@
-
-$('.menu__open, .menu__close').on('click', function () {
+$('.menu__open, a.menu__link, .menu__close').on('click', function () {
 	$('.menu__open, .header-menu, body').toggleClass('is_active')
 })
 
@@ -8,6 +7,37 @@ $(window).on('scroll', function () {
 		if ($(this).scrollTop() > 0) { $('header').addClass('fixed'); }
 		else { $('header').removeClass('fixed'); }
 	}
+});
+
+$('.hero-slides').slick({
+	infinite: true,
+	dots: false,
+	arrows: true,
+	slidesToShow: 1,
+	adaptiveHeight: true,
+	responsive: [
+		{
+			breakpoint: 991,
+			settings: "unslick"
+		},
+	]
+});
+$('.sl').slick({
+	vertical: true,
+	infinite: true,
+	draggable: false,
+	dots: false,
+	autoplay: true,
+	autoplaySpeed: 1500,
+	arrows: false,
+	slidesToShow: 1,
+	adaptiveHeight: true,
+	responsive: [
+		{
+			breakpoint: 768,
+			settings: { vertical: false, }
+		},
+	]
 });
 
 $('.btn-tab').on('click', function () {
@@ -140,24 +170,6 @@ $(document).ready(function () {
 	$(window).resize(adjustFontSize);
 });
 
-$('.sl').slick({
-	vertical: true,
-	infinite: true,
-	draggable: false,
-	dots: false,
-	autoplay: true,
-	autoplaySpeed: 1500,
-	arrows: false,
-	slidesToShow: 1,
-	adaptiveHeight: true,
-	responsive: [
-		{
-			breakpoint: 768,
-			settings: { vertical: false, }
-		},
-	]
-});
-
 function compensateForScrollbar() {
 	var scrollbarWidth = window.innerWidth - $(document).width();
 	if ($('body').hasClass('overflow')) { $('body').css('margin-right', '0'); }
@@ -170,13 +182,14 @@ function showModal(id) {
 	$('body').addClass('overflow')
 }
 function hideModals() {
+	$('.modal-content').css('transform', '');
 	$('.modal').removeClass('active');
 	compensateForScrollbar()
 	$('body').removeClass('overflow')
 };
 $(function () {
 	$('a[href*="#modal-"]').on('click', function (e) {
-		e.preventDefault()
+		// e.preventDefault()
 		showModal($(this).attr("href"));
 	});
 	$('.modal__close').on('click', () => { hideModals(); });
@@ -208,20 +221,26 @@ $(function () {
 		var xDown = null;
 		var yDown = null;
 		var isTouching = false;
-		var modal = $('#modal-request');
-		var modalContent = modal.find('.modal-content');
+		var currentModal = null; // Текущее модальное окно
+		var currentModalContent = null; // Контент текущего модального окна
 
 		var startUp = 0;
 		var endUp = 0;
-		$('.modal').on('touchstart', function (evt) {
+
+		// Обработка touchstart
+		$(document).on('touchstart', '.modal', function (evt) {
+			currentModal = $(this); // Запоминаем текущее модальное окно
+			currentModalContent = currentModal.find('.modal-content'); // Находим его контент
+
 			xDown = evt.touches[0].clientX;
 			yDown = evt.touches[0].clientY;
 			isTouching = true;
 			startUp = evt.touches[0].clientY;
 		});
 
-		$('.modal').on('touchmove', function (evt) {
-			if (!isTouching) { return; }
+		// Обработка touchmove
+		$(document).on('touchmove', '.modal', function (evt) {
+			if (!isTouching || !currentModal) return;
 
 			var xUp = evt.touches[0].clientX;
 			var yUp = evt.touches[0].clientY;
@@ -231,10 +250,13 @@ $(function () {
 			if (Math.abs(xDiff) < Math.abs(yDiff)) {
 				// При движении вниз
 				endUp = -(startUp - yUp);
-				if (yDiff > 0) { } else {
+				if (yDiff > 0) {
+					// Движение вниз
+				} else {
 					if ($('body').hasClass('overflow')) {
+						currentModalContent.addClass('drag');
 						// Получаем текущую трансформацию translateY
-						modalContent.css('transform', 'translateY(' + endUp + 'px)'); // Следуем за пальцем вниз
+						currentModalContent.css('transform', 'translateY(' + endUp + 'px)'); // Следуем за пальцем вниз
 					}
 				}
 			}
@@ -242,18 +264,32 @@ $(function () {
 			yDown = yUp;
 		});
 
-		$('.modal').on('touchend', function () {
+		// Обработка touchend
+		$(document).on('touchend', '.modal', function () {
+			if (!currentModal) return;
+
 			isTouching = false;
-			if (endUp >= 200) {
-				hideModals('#modal-request');
+			currentModalContent.removeClass('drag');
+
+			if (endUp >= 120) {
+				hideModals(currentModal); // Закрываем текущее модальное окно
 				setTimeout(() => {
-					modalContent.css('transform', '');
+					currentModalContent.css('transform', '');
 					endUp = 0;
 				}, 300);
 			} else {
-				modalContent.css('transform', 'translateY(' + 0 + 'px)'); // Следуем за пальцем вниз
+				currentModalContent.css('transform', 'translateY(0px)'); // Возвращаем контент на место
 			}
 
+			// Сбрасываем текущее модальное окно
+			currentModal = null;
+			currentModalContent = null;
 		});
+
+		// Функция для скрытия модальных окон
+		function hideModals(modal) {
+			$(modal).fadeOut(300);
+			$('body').removeClass('overflow');
+		}
 	}
-})
+});
