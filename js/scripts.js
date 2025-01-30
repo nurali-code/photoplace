@@ -45,8 +45,11 @@ $('a[href*="#"]').on('click', function (e) {
 $('.hero-slides').slick({
 	infinite: true,
 	dots: false,
+	fade: true,
 	arrows: true,
 	slidesToShow: 1,
+	autoplay: true,
+	autoplaySpeed: 1800,
 	adaptiveHeight: true,
 	responsive: [
 		{
@@ -56,9 +59,9 @@ $('.hero-slides').slick({
 	]
 });
 $('.sl').slick({
-	vertical: true,
 	infinite: true,
 	draggable: false,
+	fade: true,
 	dots: false,
 	autoplay: true,
 	autoplaySpeed: 1500,
