@@ -91,9 +91,11 @@
         display: none
 
     &-arrow
-        --isWidth: 48px
-        width: var(--isWidth)
-        height: var(--isWidth)
+        --sprite-width: 48px
+        --sprite-x: 3
+        --sprite-y: 2
+        width: var(--sprite-width)
+        height: var(--sprite-width)
         font-size: 0
         color: transparent
         position: absolute
@@ -115,17 +117,13 @@
             left: 0
             z-index: -1
             pointer-events: none
-            background-size: calc( var(--isWidth) * 5 )
-            background-position-x: calc(0px - var(--isWidth) * 3 )
-            background-position-y: calc(0px - var(--isWidth) * 2 )
 
         &::before
             display: none
 
     &-prev
         left: calc( 50% - 28px )
-        &::after
-            background-position-x: calc(0px - var(--isWidth) * 2 )
+        --sprite-x: 2
 
     &-next
 

@@ -7,7 +7,7 @@
 	// animation-play-state: paused !important
 
 html
-	scroll-behavior: smooth
+	// scroll-behavior: smooth
 
 :root
 	--violet: #CFA2FF
@@ -32,6 +32,9 @@ html
 	--green: #329F63
 	--blue: #6363E5
 	--paddingContainer: 40px
+	--sprite-width: 24px
+	--sprite-x: 0px
+	--sprite-y: 0px
 
 body
 	color: var(--haiti)
@@ -216,7 +219,12 @@ section
 
 .btn, .menu__open, .example .item, .slick-arrow
 	&::after
+		width: var(--sprite-width)
+		height: var(--sprite-width)
 		background-repeat: no-repeat
+		background-size: calc( var(--sprite-width) * 5 ) auto
+		background-position-x: calc(0px - var(--sprite-width) * var(--sprite-x) )
+		background-position-y: calc(0px - var(--sprite-width) * var(--sprite-y) )
 		background-image: url('../img/sprite.svg')
 
 @media screen and ( max-width: 1500px )

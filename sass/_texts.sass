@@ -25,6 +25,97 @@ h5,.h5
 	line-height: 64px
 	letter-spacing: 0.6px
 
+a, button
+	color: inherit
+	text-decoration: none
+	box-sizing: border-box
+	transition: all ease .3s
+	background-color: transparent
+	&:active
+		transform: scale(.98)
+
+mark
+	background-color: rgba(0, 0, 0, 0)
+	color: var(--fuchsia)
+
+p
+	&:last-child
+		margin-bottom: 0 !important
+
+.btn
+	font-size: 24px
+	font-weight: 700
+	line-height: 32px
+	letter-spacing: .057em
+	text-transform: uppercase
+
+	gap: 16px
+	border-radius: 8px
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	background-color: var(--fuchsia)
+	color: var(--white)
+	padding: 20px 40px
+	--sprite-y: 0
+	&::after
+		margin-bottom: 2px
+
+	&:hover
+		background-color: var(--fuchsia-hover)
+
+	&:active
+		background-color: var(--fuchsia-pressed)
+
+	&.--arr,
+	&.--star
+		&::after
+			content: ''
+			display: inline-block
+
+	&.--star
+		--sprite-x: 0
+
+	&.--arr
+		--sprite-x: 1
+
+	&.--dark
+		background-color: var(--haiti)
+		&:hover
+			background-color: var(--haiti-hover)
+
+		&:active
+			background-color: var(--haiti-pressed)
+
+	&.--light
+		color: var(--fuchsia)
+		background-color: var(--white)
+		border: 2px solid var(--gray-violet)
+		--sprite-x: 0
+		--sprite-y: 1
+		&.--arr
+			--sprite-x: 1
+
+		&:hover
+			background-color: var(--white-hover)
+
+		&:active
+			background-color: var(--white-pressed)
+
+	&-tab
+		font-family: 'Inter', sans-serif
+		padding: 16px 24px
+		border-radius: 40px
+		background-color: var(--white)
+		&.is_active
+			background-color: var(--fuchsia)
+			color: var(--white)
+
+	&:disabled, &.disabled
+		border-color: var(--haiti-15)
+		background-color: var(--haiti-15)
+		pointer-events: none
+
 .t
 	&-btn
 		font-size: 24px
@@ -59,98 +150,6 @@ h5,.h5
 		font-weight: 400
 		line-height: 24px
 		letter-spacing: 0.4px
-
-a, button
-	color: inherit
-	text-decoration: none
-	box-sizing: border-box
-	transition: all ease .3s
-	background-color: transparent
-	&:active
-		transform: scale(.98)
-
-mark
-	background-color: rgba(0, 0, 0, 0)
-	color: var(--fuchsia)
-
-p
-	&:last-child
-		margin-bottom: 0 !important
-
-.btn
-	font-size: 24px
-	font-weight: 700
-	line-height: 32px
-	letter-spacing: .057em
-	text-transform: uppercase
-
-	gap: 16px
-	border-radius: 8px
-	display: inline-flex
-	align-items: center
-	justify-content: center
-	background-color: var(--fuchsia)
-	color: var(--white)
-	padding: 20px 40px
-	&::after
-		margin-bottom: 2px
-
-	&:hover
-		background-color: var(--fuchsia-hover)
-
-	&:active
-		background-color: var(--fuchsia-pressed)
-
-	&.--arr,
-	&.--star
-		&::after
-			content: ''
-			display: inline-block
-			width: 24px
-			height: 24px
-			background-repeat: no-repeat
-
-	&.--star::after
-		background-position: left top
-
-	&.--arr::after
-		background-position: left -24px top
-
-	&.--dark
-		background-color: var(--haiti)
-		&:hover
-			background-color: var(--haiti-hover)
-
-		&:active
-			background-color: var(--haiti-pressed)
-
-	&.--light
-		color: var(--fuchsia)
-		background-color: var(--white)
-		border: 2px solid var(--gray-violet)
-		&::after
-			background-position: left bottom
-		&.--arr::after
-			background-position: left -24px top -24px
-
-		&:hover
-			background-color: var(--white-hover)
-		&:active
-			background-color: var(--white-pressed)
-
-	&-tab
-		font-family: 'Inter', sans-serif
-		padding: 16px 24px
-		border-radius: 40px
-		background-color: var(--white)
-		&.is_active
-			background-color: var(--fuchsia)
-			color: var(--white)
-
-	&:disabled, &.disabled
-		border-color: var(--haiti-15)
-		background-color: var(--haiti-15)
-		pointer-events: none
 
 @media screen and ( max-width: 1500px )
 	h1,.h1
@@ -246,6 +245,12 @@ p
 
 	h4,.h4
 
+	.btn
+		font-size: 20px
+		line-height: 24px
+		letter-spacing: 0.4px
+		padding: 16px 32px
+
 	.t
 		&-b1
 			font-size: 16px
@@ -255,9 +260,3 @@ p
 
 		&-btn
 			font-weight: 400
-
-	.btn
-		font-size: 20px
-		line-height: 24px
-		letter-spacing: 0.4px
-		padding: 16px 32px

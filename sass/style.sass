@@ -64,6 +64,7 @@
             position: relative
             z-index: 1
             --itemWidth: 296px
+            --sprite-width: 40px
             &::before
                 content: ''
                 width: var(--itemWidth)
@@ -80,21 +81,18 @@
             .slick
                 &-arrow
                     bottom: auto
+                    --sprite-width: 40px
                     top: 50%
                     transform: translateY(-50%) !important
-                    --isWidth: 40px
-                    &::after
 
                 &-prev
                     left: 0
-                    &::after
-                        background-position-x: 0
+                    --sprite-x: 0
 
                 &-next
-                    left: auto 
+                    left: auto
                     right: 0
-                    &::after
-                        background-position-x: calc(0px - var(--isWidth) )
+                    --sprite-x: 1
 
         &-slide
             text-align: center
@@ -114,8 +112,9 @@
             &-slides
                 width: 280px
                 --itemWidth: 200px
-
-                &::before
+                .slick
+                    &-arrow
+                        --sprite-width: 28px
 
             &-slide
                 img

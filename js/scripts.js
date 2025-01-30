@@ -2,11 +2,44 @@ $('.menu__open, a.menu__link, .menu__close').on('click', function () {
 	$('.menu__open, .header-menu, body').toggleClass('is_active')
 })
 
+const loop = document.querySelectorAll('.observe');
+const options = { root: null, rootMargin: '0px', threshold: 0.1 };
+const observer = new IntersectionObserver(handleIntersection, options);
+loop.forEach(video => observer.observe(video));
+
+function handleIntersection(entries) {
+	entries.forEach(entry => {
+		const myVideo = entry.target;
+		if (entry.isIntersecting) {
+			myVideo.play();
+
+			// Отключаем меню по правой кнопке мыши
+			myVideo.addEventListener("contextmenu", function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+			}, false);
+
+			// Удаляем атрибут controls, если он присутствует
+			if (myVideo.hasAttribute("controls")) {
+				myVideo.removeAttribute("controls");
+			}
+		} else { myVideo.pause(); }
+	});
+}
+
 $(window).on('scroll', function () {
-	if (window.innerWidth >= 720) {
-		if ($(this).scrollTop() > 0) { $('header').addClass('fixed'); }
-		else { $('header').removeClass('fixed'); }
+	if ($(this).scrollTop() > 0) {
+		$('header').addClass('fixed');
+		$('.tab-wrap').css('top', $('.header').innerHeight() + 10)
 	}
+	else { $('header').removeClass('fixed'); }
+});
+
+$('a[href*="#"]').on('click', function (e) {
+	e.preventDefault();
+	$('html, body').animate({
+		scrollTop: $($(this).attr('href')).offset().top - $('.header').innerHeight(),
+	}, 350)
 });
 
 $('.hero-slides').slick({
@@ -59,6 +92,7 @@ $(".example .item").on('mouseenter', function () {
 		$(this).find('video')[0].play(); // Вызов play() для видео
 	}
 });
+
 $(".example .item").on('mouseleave', function () {
 	if (window.innerWidth >= 991 && $(this).find('video').length > 0) {
 		$(this).find('video')[0].pause(); // Вызов pause() для видео
@@ -73,7 +107,6 @@ $(document).on('afterLoad.fb onSlideChange.fb', function (e, instance, slide) {
 		slide.$content.addClass(src.includes('hor-') ? '--hor' : '--ver');
 	}
 });
-
 
 $(document).ready(function () {
 	$(".marquee-content").each(function () {
@@ -112,11 +145,21 @@ $(document).ready(function () {
 
 	$('.item-imgs').slick({
 		infinite: false,
-		draggable: true,
+		draggable: false,
 		dots: false,
 		arrows: true,
 		slidesToShow: 1,
 		adaptiveHeight: true,
+		responsive: [
+			{
+				breakpoint: 991,
+				settings: { draggable: true, }
+			},
+		]
+	});
+	$('.item-imgs').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+		let nextSlideElement = $(slick.$slides[nextSlide]);
+		if (nextSlideElement.is('video')) { nextSlideElement[0].play(); }
 	});
 
 	function updateInteractiveItems() {
@@ -142,10 +185,18 @@ $(document).ready(function () {
 	$(window).on('resize', updateInteractiveItems);
 
 	$(".interactives .item").on('mouseenter', function () {
-		if (window.innerWidth >= 991) { $(".interactives .item").not($(this)).addClass('blur') }
+		if (window.innerWidth >= 991) {
+			$(this).find('video').each(function () {
+				$(this).hasClass('slick-current') ? $(this)[0].play() : false;
+			})
+			$(".interactives .item").not($(this)).addClass('blur')
+		}
 	});
 	$(".interactives .item").on('mouseleave', function () {
-		if (window.innerWidth >= 991) { $(".interactives .item").removeClass('blur') }
+		if (window.innerWidth >= 991) {
+			$(".interactives .item").removeClass('blur')
+			$(this).find('video').each(function () { $(this)[0].pause() })
+		}
 	});
 
 	$('[data-adjust]').each(function () { $(this).html(`<span>${$(this).html()}</span>`); });
@@ -187,10 +238,10 @@ function hideModals() {
 	compensateForScrollbar()
 	$('body').removeClass('overflow')
 };
+
 $(function () {
-	$('a[href*="#modal-"]').on('click', function (e) {
-		// e.preventDefault()
-		showModal($(this).attr("href"));
+	$('[data-modal]').on('click', function (e) {
+		showModal('#' + $(this).data("modal"));
 	});
 	$('.modal__close').on('click', () => { hideModals(); });
 	$(document).on('click', function (e) {
@@ -256,7 +307,7 @@ $(function () {
 					if ($('body').hasClass('overflow')) {
 						currentModalContent.addClass('drag');
 						// Получаем текущую трансформацию translateY
-						currentModalContent.css('transform', 'translateY(' + endUp + 'px)'); // Следуем за пальцем вниз
+						currentModalContent.css('transform', 'translateY(' + endUp + 'px)');
 					}
 				}
 			}
@@ -286,10 +337,5 @@ $(function () {
 			currentModalContent = null;
 		});
 
-		// Функция для скрытия модальных окон
-		function hideModals(modal) {
-			$(modal).fadeOut(300);
-			$('body').removeClass('overflow');
-		}
 	}
 });
