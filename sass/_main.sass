@@ -1,0 +1,63 @@
+.main
+	text-align: center
+	height: calc( 100vh - 56px )
+	background-color: var(--fuchsia)
+	color: var(--white)
+	position: relative
+	z-index: 1
+	&-item
+		width: 21.74%
+		aspect-ratio: 9/16
+		margin: 0 auto
+		display: block
+		&>*
+			display: block
+			width: 100%
+			height: 100%
+			object-fit: cover
+			border-radius: 8px
+
+	&-wrap
+		height: 100%
+
+	&__heading
+		position: absolute
+		top: 48%
+		left: 50%
+		white-space: nowrap
+		transform: translate(-50%, -50%)
+		z-index: 11
+		text-shadow: 0px 0px 20px #011E2640
+		i
+			font-style: normal
+
+	@media screen and ( max-width: 1500px )
+		&-item
+			width: 21.88%
+
+	@media screen and ( max-width: 991px )
+		padding: 20px 0 43px
+		height: unset
+		&__heading
+			line-height: 130%
+			line-height: 230% !important
+
+			i
+				display: block
+
+		&-wrap 
+			display: block
+
+		&-item
+			width: 100%
+			aspect-ratio: unset 
+			height: 300px
+			margin-bottom: 24px
+			&:last-child
+				margin-bottom: 0
+
+
+	@media screen and ( max-width: 720px )
+		&-item 
+			height: 224px
+		

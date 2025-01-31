@@ -104,6 +104,22 @@ $(document).on('afterLoad.fb onSlideChange.fb', function (e, instance, slide) {
 		slide.$content.addClass(src.includes('hor-') ? '--hor' : '--ver');
 	}
 });
+function adjustFontSize() {
+	const windowWidth = $(window).width();
+	const padding = windowWidth > 1500 ? 80 : windowWidth > 991 ? 86 : windowWidth > 720 ? 40 : 32;
+	$('[data-adjust] span').each(function () {
+		const $span = $(this);
+		const isNone = $span.parent().attr('data-adjust') === 'none';
+		let maxFontSize = isNone ? Infinity : windowWidth > 1500 ? 386 : windowWidth > 991 ? 265 : windowWidth > 720 ? 148 : 71;
+		let fontSize = parseInt($span.css('font-size'), 10);
+		while ($span.outerWidth() >= windowWidth - padding && fontSize > 0) {
+			$span.css('font-size', --fontSize + 'px');
+		}
+		while ($span.outerWidth() < windowWidth - padding && fontSize < maxFontSize) {
+			$span.css('font-size', ++fontSize + 'px');
+		}
+	});
+}
 
 $(document).ready(function () {
 	// $('.example-wrap .item').each(function () {
@@ -194,27 +210,11 @@ $(document).ready(function () {
 	});
 
 	$('[data-adjust]').each(function () { $(this).html(`<span>${$(this).html()}</span>`); });
+	adjustFontSize();
 
-	function adjustFontSize() {
-		const windowWidth = $(window).width();
-		const padding = windowWidth > 1500 ? 40 * 2 : windowWidth > 991 ? 43 * 2 : windowWidth > 720 ? 20 * 2 : 16 * 2;
-		const maxFontSize = windowWidth > 1500 ? 386 : windowWidth > 991 ? 265 : windowWidth > 720 ? 148 : 71;
-
-		$('[data-adjust] span').each(function () {
-			const $span = $(this);
-			let fontSize = parseInt($span.css('font-size'), 10);
-			while ($span.outerWidth() >= windowWidth - padding && fontSize > 0) {
-				$span.css('font-size', --fontSize + 'px');
-			}
-			while ($span.outerWidth() < windowWidth - padding && fontSize < maxFontSize) {
-				$span.css('font-size', ++fontSize + 'px');
-			}
-			$span.css('font-size', fontSize = fontSize > maxFontSize ? maxFontSize : fontSize + 'px');
-		});
-	} adjustFontSize();
-	$(window).resize(adjustFontSize);
 });
 
+$(window).resize(adjustFontSize);
 function compensateForScrollbar() {
 	var scrollbarWidth = window.innerWidth - $(document).width();
 	if ($('body').hasClass('overflow')) { $('body').css('margin-right', '0'); }
