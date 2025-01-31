@@ -183,6 +183,7 @@ $(document).ready(function () {
 
 	$(".interactives .item").on('mouseenter', function () {
 		if (window.innerWidth >= 991) {
+			$('.interactives .slick-list').not('.item-imgs .slick-list').css('z-index', '1111')
 			$(this).find('video').each(function () {
 				$(this).hasClass('slick-current') ? $(this)[0].play() : false;
 			})
@@ -191,6 +192,7 @@ $(document).ready(function () {
 	});
 	$(".interactives .item").on('mouseleave', function () {
 		if (window.innerWidth >= 991) {
+			$('.interactives .slick-list').not('.item-imgs .slick-list').css('z-index', '1')
 			$(".interactives .item").removeClass('blur')
 			$(this).find('video').each(function () { $(this)[0].pause() })
 		}
