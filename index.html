@@ -7,9 +7,7 @@
 	<title>PHOTOPLACE</title>
 	<link rel="preload" as="image" href="img/hero-text.svg" type="image/svg+xml">
 	<link rel="preload" as="image" href="img/hero-mob-text.svg" type="image/svg+xml">
-	<link
-		href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
-		rel="stylesheet">
+
 	<link rel="stylesheet" href="./css/style.css">
 	<meta name="theme-color" content="#FE00A0">
 
@@ -36,7 +34,7 @@
 
 		<div class="header-menu">
 			<div class="container fx-col">
-				<div class="menu-header fx-ac fx-jb">
+				<div class="menu-header fx-as fx-jb">
 					<h4 class="menu__heading">МЕНЮ</h4>
 					<button class="menu__close"></button>
 				</div>
@@ -81,8 +79,8 @@
 				</picture>
 			</h1>
 
-			<video src="vid/disco-ball.mp4" poster="img/discoball.jpg" preload loop autoplay muted
-				class="hero__ball observe"></video>
+			<video src="vid/disco-bal.mp4" poster="img/discoball.jpg" controlsList="nofullscreen" playsinline preload
+				muted loop class="hero__ball observe"></video>
 
 			<div class="hero-row fx-jb">
 				<div class="hero-text">
@@ -138,7 +136,7 @@
 				</ul>
 			</div>
 			<div class="marquee fx-ac">
-				<ul class="marquee-content fx-ac">
+				<ul class="marquee-content fx-ac --reverce">
 					<li><img loading="lazy" src="img/partners/mercedes-benz.svg" alt="i"></li>
 					<li><img loading="lazy" src="img/partners/vk.svg" alt="i"></li>
 					<li><img loading="lazy" src="img/partners/radisson.svg" alt="i"></li>
@@ -203,7 +201,7 @@
 						</div>
 						<div class="item-title fx-col fx-as">
 							<div class="item-ic"> <img src="img/items/photo-booth.png" loading="lazy" alt="i"></div>
-							<h4 class="item__heading">ФОТО БУДКА</h4>
+							<h4 class="item__heading">ФОТО <br> БУДКА</h4>
 							<p class="t-b2">
 								Стенд с ширмой, хромакеем, прессволлом или без всего – на ваш выбор. Делает серию фото
 								и сразу их печатает
@@ -282,8 +280,8 @@
 				</p>
 			</div>
 			<div class="process-box">
-				<video muted src="vid/disco-ball.mp4" class="process-ic observe" poster="img/discoball.jpg" preload loop autoplay
-					muted class="hero__ball"></video>
+				<video muted src="vid/disco-bal.mp4" class="process-ic observe" poster="img/discoball.jpg" preload loop
+					autoplay muted class="hero__ball"></video>
 				<h4 class="process__heading">3 — ПОРАДУЕМ вас КРУТЫМИ ФОТО И ВИДЕО</h4>
 				<p class="process__text t-b2">
 					Гости мероприятия <b>сразу</b> получат свои фото и видео,
@@ -336,7 +334,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/hor-s-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/hor-s-1.mp4" poster="img/ex/s-1.jpg" class="item__img"></video>
+								<video src="img/ex/hor-s-1.mp4" poster="img/ex/s-1.jpg" controlsList="nofullscreen" playsinline muted loop class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -358,7 +356,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/o-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/o-1.mp4" poster="img/ex/o-1.jpg" class="item__img"></video>
+								<video controlsList="nofullscreen" playsinline muted loop  src="img/ex/o-1.mp4" poster="img/ex/o-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -402,7 +400,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/i-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/i-1.mp4" poster="img/ex/i-1.jpg" class="item__img"></video>
+								<video controlsList="nofullscreen" playsinline muted loop  src="img/ex/i-1.mp4" poster="img/ex/i-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -473,7 +471,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/d-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/d-1.mp4" poster="img/ex/d-1.jpg" class="item__img"></video>
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/d-1.mp4" poster="img/ex/d-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -484,7 +482,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/f-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/f-1.mp4" poster="img/ex/f-1.jpg" class="item__img"></video>
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/f-1.mp4" poster="img/ex/f-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -495,7 +493,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/hor-g-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/hor-g-1.mp4" poster="img/ex/g-1.jpg" class="item__img"></video>
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/hor-g-1.mp4" poster="img/ex/g-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -616,7 +614,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/jk-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/jk-1.mp4" poster="img/ex/jk-1.jpg" class="item__img"></video>
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/jk-1.mp4" poster="img/ex/jk-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -638,7 +636,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/l-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/l-1.mp4" poster="img/ex/l-1.jpg" class="item__img"></video>
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/l-1.mp4" poster="img/ex/l-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -671,7 +669,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/c-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/c-1.mp4" poster="img/ex/c-1.jpg" class="item__img"></video>
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/c-1.mp4" poster="img/ex/c-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -693,7 +691,7 @@
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/v-1.mp4" data-fancybox="example">
-								<video muted src="img/ex/v-1.mp4" poster="img/ex/v-1.jpg" class="item__img"></video>
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/v-1.mp4" poster="img/ex/v-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -783,7 +781,7 @@
 		<div class="modal-content fx-jb">
 			<div class="modal-img"><img src="img/discoball.jpg" alt="i" loading="lazy"></div>
 			<div class="modal-title">
-				<button class="modal__close">&times;</button>
+				<button class="modal__close"></button>
 				<h4 class="modal__heading">ОСТАВЬТЕ ЗАЯВКУ</h4>
 				<form class="modal-form">
 					<input type="text" placeholder="Ваше имя" required>

@@ -80,14 +80,17 @@
 			overflow-y: scroll
 
 	&__close
+		--sprite-width: 40px
+		--sprite-x: 3
+		--sprite-y: 1
+		width: var(--sprite-width)
+		height: var(--sprite-width)
 		position: absolute
-		top: 12px
-		width: 40px
-		height: 40px
-		font-size: 42px
-		line-height: 40px
-		font-family: 'Inter', sans-serif
-		right: 12px
+		top: var(--sprite-width)
+		right: var(--sprite-width)
+		&::after
+			content: ''
+			display: block
 
 	&__subheading
 		font-size: 48px
@@ -142,6 +145,10 @@
 		h4
 			margin-bottom: 28px
 
+		&__close
+			right: 28px
+			top: 28px
+
 		&-footer
 			&>div
 				min-width: 43%
@@ -170,7 +177,7 @@
 			max-width: 100%
 			padding: 24px 16px 0
 			bottom: 0
-			max-height: calc( 100% - 100px )
+			max-height: calc( 100% - 50px )
 			left: 0
 			transform: translateY(50%)
 			border-radius: 8px 8px 0 0

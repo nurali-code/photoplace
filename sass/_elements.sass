@@ -157,6 +157,9 @@ textarea
 		opacity: 1 !important
 		background: rgba(0, 0, 0, 0)!important
 
+	&-infobar
+		display: none
+
 	&-content
 		background: rgba(0, 0, 0, 0)!important
 		&.--ver
@@ -175,6 +178,7 @@ textarea
 
 	&-caption
 		font-family: 'Inter', sans-serif
+		padding: 10px var(--paddingContainer) !important
 
 	&-navigation
 		button
@@ -195,9 +199,16 @@ textarea
 				pointer-events: none
 				background-image: none
 
+		@media screen and ( max-width: 992px )
+			.fancybox-button--arrow
+				&_left
+					left: 15px !important
+				&_right
+					right: 15px !important
+
 	&-toolbar
 		top: 20px !important
-		right: 24px !important
+		right: 20px !important
 
 	&-button
 		background-color: rgba(0, 0, 0, 0) !important
@@ -207,9 +218,17 @@ textarea
 			display: none !important
 
 		&--close
+			padding: 0 !important
+			--sprite-width: 40px
+			--sprite-x: 4
+			--sprite-y: 1
+			width: var(--sprite-width) !important
+			height: var(--sprite-width) !important
+			&::after
+				content: ''
+				display: block
 			svg
-				width: 30px
-				height: 30px
+				display: none !important
 
 		&--arrow_left div
 			transform: scaleX(-1) !important
@@ -217,7 +236,8 @@ textarea
 section
 	padding: 120px 0
 
-.btn, .menu__open, .example .item, .slick-arrow
+.btn, .menu__open, .example .item, .slick-arrow,
+.modal__close, .menu__close, .fancybox-button--close
 	&::after
 		width: var(--sprite-width)
 		height: var(--sprite-width)
@@ -270,13 +290,13 @@ section
 	input, textarea, select
 		height: 60px
 		margin-bottom: 30px
-		padding: 0 22px
+		padding: 0 24px
 		font-size: 16px
 		line-height: 20px
 		margin-bottom: 20px
 
 	textarea
-		padding: 20px 24px 10px
+		padding: 18px 24px 10px
 		height: 80px
 
 	section

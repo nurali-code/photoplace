@@ -8,6 +8,10 @@
     &-slider
         margin: 0 auto
 
+    .slick-arrow:not(.item-imgs .slick-arrow)
+        --sprite-y: 3
+        border-color: var(--fuchsia)
+
     @media screen and ( min-width: 992px )
         &-slider:not(.slick-initialized)
             gap: 1%
