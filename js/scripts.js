@@ -112,11 +112,6 @@ $(document).ready(function () {
 	// });
 
 
-	$(".marquee-content").each(function () {
-		const $clone = $(this).clone();
-		$(this).after($clone);
-	}); $(".marquee-content").addClass('--anim');
-
 	$('.interactives-slider').slick({
 		infinite: false,
 		dots: false,
