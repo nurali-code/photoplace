@@ -4,7 +4,7 @@
 	box-sizing: border-box
 	border: none
 	outline: none
-	// animation-play-state: paused !important
+	animation-play-state: paused !important
 
 html
 	// scroll-behavior: smooth
@@ -137,6 +137,8 @@ textarea
 		flex-wrap: wrap
 	&-as
 		align-items: flex-start
+	&-je
+		justify-content: flex-end
 	&-jb
 		justify-content: space-between
 	&-ae
@@ -238,7 +240,7 @@ section
 	overflow: hidden
 
 .btn, .menu__open, .example .item, .slick-arrow,
-.modal__close, .menu__close, .fancybox-button--close
+.modal__close, .menu__close, .ddown__btn, .fancybox-button--close
 	&::after
 		width: var(--sprite-width)
 		height: var(--sprite-width)

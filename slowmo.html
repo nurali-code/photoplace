@@ -5,87 +5,187 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>PHOTOPLACE</title>
-	<link rel="preload" as="image" href="img/hero-text.svg" type="image/svg+xml">
-	<link rel="preload" as="image" href="img/hero-mob-text.svg" type="image/svg+xml">
 
-	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<meta name="theme-color" content="#FE00A0">
 
-	<link rel="preload" as="video" href="vid/disco-ball.mp4">
-	<link rel="shortcut icon" href="favicon.svg" type="image/svg">
-	<link rel="stylesheet" href="./css/jquery.fancybox.min.css">
+	<!-- <link rel="shortcut icon" href="favicon.svg" type="image/svg">
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css"> -->
 </head>
 
 <body id="home">
-	<header class="header">
-		<div class="container fx-ac">
-			<button class="menu__open" title="Меню"></button>
-			<nav class="header-nav fx-ac fx-jb">
-				<a href="#interactives">Как работает</a>
-				<a href="#process">Что входит в стоимость</a>
-				<a href="#examples">Тех.требования</a>
-				<a href="#examples">Примеры работ</a>
-			</nav>
-			<div class="header-contact fx-ac">
-				<a href="tel:+79003682363" class="header__call">+7 (900) 368 23 63</a>
-				<a href="#" target="_blank" class="header__call"><img src="img/wa-f.svg" alt="i"></a>
-				<a href="#" target="_blank" class="header__call"><img src="img/tg-f.svg" alt="i"></a>
-			</div>
-		</div>
-
-		<div class="header-menu">
-			<div class="container fx-col">
-				<div class="menu-header fx-as fx-jb">
-					<h4 class="menu__heading">МЕНЮ</h4>
-					<button class="menu__close" title="Закрыть меню"></button>
-				</div>
-
-				<ul class="menu-list">
-					<li class="fx-ac">
-						<span class="menu__link h3">ИНТЕРАКТИВЫ</span>
-						<div class="menu-submenu fx-ac fx-jb">
-							<a href="#" class="menu__sublink">SLOW MO 360</a>
-							<a href="#" class="menu__sublink">ФОТОБУДКА</a>
-							<a href="#" class="menu__sublink">ФОТОЗЕРКАЛО</a>
-							<a href="#" class="menu__sublink">ФЛИПБУК СТУДИЯ</a>
-						</div>
-					</li>
-					<li><a href="#process" class="h3 menu__link">КАК мы работаем</a></li>
-					<li><a href="#examples" class="h3 menu__link">ПРИМЕРЫ РАБОТ</a></li>
-					<li><button data-modal="modal-request" class="h3 menu__link">ОСТАВИТЬ ЗАЯВКУ</button></li>
-				</ul>
-
-				<div class="menu-footer t-btn fx-ac fx-jb">
-					<a href="mailto:photoplace32@mail.ru">photoplace32@mail.ru</a>
-
-					<div class="fx-ac menu-footer__call">
-						<a href="tel:+79003682363">+7 (900) 368 23 63</a>
-						<a href="#" class="pc-hide" target="_blank"><img src="img/tg.svg" alt="i"></a>
-						<a href="#" class="pc-hide" target="_blank"><img src="img/wa.svg" alt="i"></a>
-					</div>
-
-					<a href="#" class="tb-hide" target="_blank">WHATSAPP</a>
-					<a href="#" class="tb-hide" target="_blank">TELEGRAM</a>
-				</div>
-			</div>
-		</div>
-	</header>
 
 	<main>
 		<section class="main">
 			<h1 class="main__heading" data-adjust="none"><i>SLOW</i> <i>MO</i> <i>360</i></h1>
 			<div class="container main-wrap fx-ac fx-jb">
-				<div class="main-item"><video src="img/slowmo/v-1.mp4" poster="img/slowmo/v-1.jpg"
-						controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
-				<div class="main-item"><video src="img/slowmo/v-2.mp4" poster="img/slowmo/v-2.jpg"
-						controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
-				<div class="main-item"><video src="img/slowmo/v-3.mp4" poster="img/slowmo/v-3.jpg"
-						controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
+				<div class="main-item"><video src="img/slowmov-1.mp4" poster="img/slowmov-1.jpg"
+						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
+				<div class="main-item"><video src="img/slowmov-2.mp4" poster="img/slowmov-2.jpg"
+						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
+				<div class="main-item"><video src="img/slowmov-3.mp4" poster="img/slowmov-3.jpg"
+						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
 			</div>
 		</section>
 
+		<section class="product" id="product">
+			<div class="container">
+				<div class="product-wrap fx-ac">
+					<div class="product-title">
+						<h2 class="h2">Slow mo 360</h2>
+						<p class="t-acc">
+							Универсальный интерактив для ярких эмоций и классных видео! Подойдёт для любого события,
+							на котором есть 3м2 свободного пространства ;) Оператор будет сопровождать Slow Mo
+							и позаботится, чтобы всё прошло круто
+						</p>
+					</div>
+					<div class="product-img">
+						<img src="img/product/i-2.png" alt="i" loading="lazy">
+					</div>
+				</div>
+			</div>
+		</section>
 
-		<section class="example" id="examples">
+		<section class="how" id="how">
+			<div class="container how-wrap fx-ac">
+				<div class="how-title">
+					<img src="img/product/i-2.png" class="how-img" alt="i" loading="lazy">
+					<h2 class="h4">Как работает <br> slow mo <br class="mob-show"> 360</h2>
+				</div>
+				<ol class="fx-ac fx-je fx-w how-list">
+					<li>
+						<img src="img/slowmo/p-1.jpg" alt="i" loading="lazy">
+						<p class="t-b1">Встаёте на платформу, оператор помогает вам с выбором реквизита</p>
+					</li>
+					<li>
+						<img src="img/slowmo/p-1.jpg" alt="i" loading="lazy">
+						<p class="t-b1">Встаёте на платформу, оператор помогает вам с выбором реквизита</p>
+					</li>
+					<li>
+						<img src="img/slowmo/p-1.jpg" alt="i" loading="lazy">
+						<p class="t-b1">Встаёте на платформу, оператор помогает вам с выбором реквизита</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<section class="included" id="included">
+			<div class="container">
+				<h2>ЧТО ВХОДИТ <br class="mob-show"> В СТОИМОСТЬ</h2>
+
+				<div class="ddown fx-as is_active">
+					<img src="img/ddown-1.svg" alt="i" loading="lazy" class="ddown-ic">
+					<div class="ddown-title">
+						<button class="ddown__btn h5">Доставка и установка интерактива</button>
+						<p class="ddown-content t-b2">
+							Доставка в пределах города; приедем заранее, установим и подключим оборудование
+						</p>
+					</div>
+				</div>
+				<div class="ddown fx-as">
+					<img src="img/ddown-2.svg" alt="i" loading="lazy" class="ddown-ic">
+					<div class="ddown-title">
+						<button class="ddown__btn h5">Работа оператора</button>
+						<p class="ddown-content t-b2">
+							Оператор поможет гостям с выбором реквизита, использованием интерактива, создаст нужный
+							настрой
+						</p>
+					</div>
+				</div>
+				<div class="ddown fx-as">
+					<img src="img/ddown-3.svg" alt="i" loading="lazy" class="ddown-ic">
+					<div class="ddown-title">
+						<button class="ddown__btn h5">Световые стойки</button>
+						<p class="ddown-content t-b2">
+							Даже если на локации слабое освещение, световые стойки сделают видео яркими и красивыми
+						</p>
+					</div>
+				</div>
+				<div class="ddown fx-as">
+					<img src="img/ddown-4.svg" alt="i" loading="lazy" class="ddown-ic">
+					<div class="ddown-title">
+						<button class="ddown__btn h5">Базовая обработка видео</button>
+						<p class="ddown-content t-b2">
+							Базовая обработка включает наложение надписи, логотипа и музыки — вы получаете обработанные
+							видео сразу на мероприятии
+						</p>
+					</div>
+				</div>
+				<div class="ddown fx-as">
+					<img src="img/ddown-5.svg" alt="i" loading="lazy" class="ddown-ic">
+					<div class="ddown-title">
+						<button class="ddown__btn h5">Планшет для отправки видео</button>
+						<p class="ddown-content t-b2">
+							Гости смогут сразу же отправить себе видео на смартфон
+						</p>
+					</div>
+				</div>
+
+				<img src="img/discoball.jpg" class="included__ball" alt="i" loading="lazy">
+			</div>
+
+			<div class="included-contact fx-ac fx-jc">
+				<h5>Чтобы узнать цены под ваш запрос, напишите нам <span class="mob-show">Мы всегда на связи!</span></h5>
+				<div class="fx-ac included-links">
+					<a href="#" target="_blank"><img src="img/wa.svg" alt="i" loading="lazy"></a>
+					<a href="#" target="_blank"><img src="img/tg.svg" alt="i" loading="lazy"></a>
+				</div>
+				<h5 class="mob-hide">Мы всегда на связи!</h5>
+			</div>
+
+		</section>
+
+		<section class="more">
+			<div class="container">
+				<h2>Доп.услуги</h2>
+				<div class="more-wrap fx-as">
+					<div class="more-item">
+						<img src="img/ex/a-1.jpg" alt="i" loading="lazy">
+						<div class="more-title">
+							<h3 class="h5">Видеоэффекты</h3>
+							<p class="t-b2">Надписи, лучи, картинки – сделаем любую анимацию под ваш запрос</p>
+						</div>
+					</div>
+					<div class="more-item">
+						<img src="img/ex/a-1.jpg" alt="i" loading="lazy">
+						<div class="more-title">
+							<h3 class="h5">Видеоэффекты</h3>
+							<p class="t-b2">Надписи, лучи, картинки – сделаем любую анимацию под ваш запрос</p>
+						</div>
+					</div>
+					<div class="more-item">
+						<img src="img/ex/a-1.jpg" alt="i" loading="lazy">
+						<div class="more-title">
+							<h3 class="h5">Видеоэффекты</h3>
+							<p class="t-b2">Надписи, лучи, картинки – сделаем любую анимацию под ваш запрос</p>
+						</div>
+					</div>
+					<div class="more-item">
+						<img src="img/ex/a-1.jpg" alt="i" loading="lazy">
+						<div class="more-title">
+							<h3 class="h5">Видеоэффекты</h3>
+							<p class="t-b2">Надписи, лучи, картинки – сделаем любую анимацию под ваш запрос</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="tec">
+			<div class="container">
+				<div class="tec-wrap fx-ac">
+					<h4 class="tec__heading h4">Технические <br> требования</h4>
+					<ol class="tec-list fx-ac fx-jb">
+						<li class="t-b1">40 мин на монтаж / <br> демонтаж интерактива</li>
+						<li class="t-b1">Розетка 220В <br> мощностью 1кВт</li>
+						<li class="t-b1">Пространство площадью <br> 3м2 и высотой 2м</li>
+					</ol>
+				</div>
+				<button class="btn --star">Забронировать slow mo 360</button>
+			</div>
+		</section>
+
+		<!-- <section class="example" id="examples">
 			<h2 class="h1" data-adjust>ПРИМЕРЫ РАБОТ</h2>
 
 			<div class="container">
@@ -319,103 +419,14 @@
 				<a href="#"><img src="img/tg.svg" alt="i" loading="lazy"></a>
 				<a href="#"><img src="img/wa.svg" alt="i" loading="lazy"></a>
 			</div>
-		</section>
+		</section> -->
 	</main>
 
-	<footer class="footer">
-		<div class="container fx-jb fx-w">
-			<div class="col">
-				<h5 class="footer__heading">ОСТАВИТЬ ЗАЯВКУ</h5>
-				<form>
-					<input type="text" placeholder="Ваше имя" required>
-					<input type="text" placeholder="Email или номер телефона" required>
-					<textarea required placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
-					<a href="#modal-done" type="submit" class="btn --arr --dark">Отправить</a>
-				</form>
-			</div>
 
-			<div class="col fx-col">
-				<p class="t-acc">Брянск · Москва · Орёл · Калуга · Смоленск</p>
-				<p class="t-acc">
-					ИП Комаров Максим Иванович <br>
-					ОГРН 320325600008191 <br>
-					ИНН 325005562155
-				</p>
-				<img src="img/footer-logo.svg" class="footer__logo" alt="i" loading="lazy">
-			</div>
-
-			<div class="fx-ac fx-jb fx-w footer-bottom t-btn">
-				<a href="mailto:photoplace32@mail.ru">PHOTOPLACE32@MAIL.RU</a>
-				<a href="tel:+79003682363">+7 (900) 368 23 63</a>
-				<a href="#" target="_blank">WHATSAPP</a>
-				<a href="#" target="_blank">TELEGRAM</a>
-			</div>
-		</div>
-	</footer>
-
-	<div class="connect">
-		<div class="connect-box">
-			<h3 class="t-b2">Свяжитесь с нами</h3>
-			<div class="fx-ac t-acc connect__item">
-				<a href="tel:+79003682363" class="fx-ac">
-					<img src="img/call.svg" class="connect__ic" alt="i">
-					<span>+7 (900) 368 23 63</span>
-				</a>
-				<a href="#" class="connect__link" target="_blank"><img src="img/tg.svg" alt="i"></a>
-				<a href="#" class="connect__link" target="_blank"><img src="img/wa.svg" alt="i"></a>
-			</div>
-
-			<a href="mailto:photoplace32@mail.ru" class="fx-ac t-acc connect__item">
-				<img src="img/mail.svg" class="connect__ic" alt="i">
-				<span>photoplace32@mail.ru</span>
-			</a>
-			<h3 class="t-b2">или</h3>
-			<button data-modal="modal-request" class="btn --light --star">Оставить заявку</button>
-		</div>
-		<button class="connect__btn"><img src="img/connect-img.jpg" alt="i"></button>
-	</div>
-
-	<div class="modal" id="modal-request">
-		<div class="modal-content fx-jb">
-			<div class="modal-img"><img src="img/discoball.jpg" alt="i" loading="lazy"></div>
-			<div class="modal-title">
-				<button class="modal__close" title="Закрыть окно"></button>
-				<h4 class="modal__heading">ОСТАВЬТЕ ЗАЯВКУ</h4>
-				<form class="modal-form">
-					<input type="text" placeholder="Ваше имя" required>
-					<input type="text" placeholder="Email или номер телефона" required>
-					<textarea required placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
-					<button data-modal="modal-done" type="submit" class="btn --star">Отправить</button>
-				</form>
-				<p class="modal__subheading">ИЛИ СВЯЖИТЕСЬ С НАМИ</p>
-				<div class="fx-ac fx-jb fx-w modal-footer">
-					<a href="mailto:photoplace32@mail.ru">PHOTOPLACE32@MAIL.RU</a>
-					<div class="fx-jb fx-ac">
-						<a href="tel:+79003682363">+7 (900) 368 23 63</a>
-						<a href="#" target="_blank"><img src="img/tg.svg" alt="i"></a>
-						<a href="#" target="_blank"><img src="img/wa.svg" alt="i"></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="modal-done">
-		<div class="modal-content fx-ac fx-jb">
-			<div class="modal-img"><img src="img/discoball.jpg" alt="i" loading="lazy"></div>
-			<div class="modal-title">
-				<button class="modal__close" title="Закрыть окно"></button>
-				<h4 class="modal__heading">Готово</h4>
-				<p class="t-b1">Заявка отправлена, мы свяжемся с вами <br> в течение часа</p>
-				<button onclick="hideModals()" class="btn --star">закрыть</button>
-			</div>
-		</div>
-	</div>
-
-	<script src="js/jquery.min.js"></script>
+	<!-- <script src="js/jquery.min.js"></script>
 	<script src="js/slick.min.js"></script>
-	<script src="js/scripts.js"></script>
-	<script src="js/jquery.fancybox.min.js"></script>
+	<script src="js/scripts.js"></script> 
+	<script src="js/jquery.fancybox.min.js"></script> -->
 </body>
 
 </html>

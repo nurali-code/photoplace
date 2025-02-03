@@ -5,9 +5,13 @@ h1,.h1
 
 h2,.h2
 	font-size: 200px
+	font-weight: 600
 	text-transform: uppercase
 	line-height: 180px
 	letter-spacing: 2px
+
+h2
+	margin-bottom: 80px
 
 h3,.h3
 	font-size: 140px
@@ -118,8 +122,9 @@ p
 		pointer-events: none
 
 .t
-	&-left 
+	&-left
 		text-align: left !important
+
 	&-btn
 		font-size: 24px
 		font-weight: 700
@@ -156,15 +161,18 @@ p
 		letter-spacing: 0.4px
 
 @media screen and ( max-width: 1500px )
-	h1,.h1
+	h1, .h1
 		font-size: 265px
 		line-height: 200px
 		letter-spacing: -5px
 
-	h2,.h2
+	h2, .h2
 		font-size: 150px
 		line-height: 140px
 		letter-spacing: -1.5px
+
+	h2
+		margin-bottom: 60px
 
 	h3,.h3
 		font-size: 120px
@@ -203,10 +211,13 @@ p
 		line-height: 140px
 		letter-spacing: -1.39px
 
-	h2,.h2
+	.h2, h2
 		font-size: 80px
-		line-height: 88px
+		line-height: 74px
 		letter-spacing: -0.8px
+
+	h2
+		margin-bottom: 40px
 
 	h3,.h3
 		font-size: 60px
@@ -230,6 +241,7 @@ p
 
 		&-acc
 			font-size: 22px
+			text-transform: uppercase
 			line-height: 28px
 			letter-spacing: 0.69px
 
@@ -238,14 +250,17 @@ p
 			padding: 8px 12px
 
 @media screen and ( max-width: 720px )
-	h1,.h1
+	h1,.h1, h2
 		font-size: 71px
 		line-height: 64px
 		letter-spacing: -1.5px
 
-	h2,.h2
+	.h2
 		font-size: 40px
 		line-height: 36px
+
+	h2
+		margin-bottom: 24px
 
 	h3,.h3
 		font-size: 24px
@@ -263,6 +278,8 @@ p
 		--sprite-width: 20px
 
 	.t
+		&-acc
+			text-transform: none
 		&-b1
 			font-size: 16px
 			font-weight: 400

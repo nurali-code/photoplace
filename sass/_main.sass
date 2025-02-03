@@ -1,4 +1,5 @@
 .main
+	display: none
 	text-align: center
 	height: calc( 100vh - 56px )
 	background-color: var(--fuchsia)
@@ -45,19 +46,634 @@
 			i
 				display: block
 
-		&-wrap 
+		&-wrap
 			display: block
 
 		&-item
 			width: 100%
-			aspect-ratio: unset 
+			aspect-ratio: unset
 			height: 300px
 			margin-bottom: 24px
 			&:last-child
 				margin-bottom: 0
 
+	@media screen and ( max-width: 720px )
+		&-item
+			height: 224px
+
+.product
+	&-title
+		max-width: 60%
+		.h2
+			margin-bottom: 60px
+		p
+			width: 100%
+			max-width: 720px
+			margin: 0 0 0 auto
+
+	&-img
+		width: 32.61%
+		position: relative
+		z-index: 1
+		aspect-ratio: 1
+		margin-left: auto
+		&::before
+			pointer-events: none
+			content: ''
+			display: block
+			width: 100%
+			height: 100%
+			background-color: var(--light-violet)
+			position: absolute
+			top: 0
+			left: 0
+			z-index: -1
+			border-radius: 50%
+
+		&>*
+			display: block
+			width: 100%
+			height: 100%
+			object-fit: contain
+			object-position: center center
+
+	@media screen and ( max-width: 1500px )
+		padding-left: 40px
+		&-img
+			width: 40.625%
+
+		&-title
+			.h2
+				margin-bottom: 48px
+			p
+				max-width: 520px
+
+	@media screen and ( max-width: 1250px )
+		padding-left: 0
+		&-img
+			width: 31.625%
+
+		&-title
+			max-width: 66%
+
+	@media screen and ( max-width: 992px )
+		&-img
+			width: 30.77%
+
+		&-title
+			.h2
+				margin-bottom: 15px
+
+			p
+				padding-left: 30px
 
 	@media screen and ( max-width: 720px )
-		&-item 
-			height: 224px
-		
+		&-wrap
+			flex-direction: column-reverse
+
+		&-title
+			width: 100%
+			max-width: 100%
+			.h2
+				font-size: 71px
+				font-weight: 700
+				line-height: 64px
+				letter-spacing: -1.5px
+
+			p
+				font-size: 18px
+				font-weight: 400
+				line-height: 20px
+				letter-spacing: 0.03em
+				padding-left: 24px
+
+		&-img
+			width: 53.66%
+			margin: 0 auto 28px
+
+.how,
+.included,
+.tec,
+.more
+	@media screen and ( min-width: 1500px )
+		--paddingContainer: 80px
+
+.how
+	position: relative
+	z-index: 1
+
+	@media screen and ( min-width: 991px )
+		&::before
+			content: ''
+			display: block
+			width: 200px
+			height: 200px
+			background-repeat: no-repeat
+			background-size: contain
+			background-image: url('../img/violet-ball.png')
+			position: absolute
+			left: -100px
+			z-index: -11
+			top: 66px
+
+	&-title
+		width: 26.7%
+
+	&-img
+		margin-bottom: 60px
+
+	&-list
+		width: 73.3%
+		margin-left: auto
+		text-align: right
+		list-style: none
+		img
+			width: 100%
+			display: block
+			object-fit: cover
+			aspect-ratio: 9/14.625
+			border-radius: 8px
+			margin: 0 0 40px auto
+
+		&>*
+			padding-left: 80px
+			width: 31.006%
+			position: relative
+			z-index: 1
+			padding-top: 40px
+			&::before
+				content: '1'
+				display: block
+				width: 100%
+				position: absolute
+				top: 0
+				left: 0
+				text-align: left
+				z-index: -1
+
+				font-family: 'Sofia Sans Extra Condensed', sans-serif
+				font-size: 386px
+				font-weight: 700
+				line-height: 280px
+				color: var(--light-grey)
+				letter-spacing: -9px
+				// text-shadow: 3px 3px 0 var(--haiti), -3px -3px 0 var(--haiti)
+				-webkit-text-stroke: 3px var(--haiti)
+
+			&:last-child
+				&::before
+					color: var(--fuchsia)
+					text-shadow: none
+					-webkit-text-stroke: unset
+
+	@media screen and ( max-width: 1500px )
+		&-title
+			width: 23.438%
+
+		&-list
+			width: 76.562%
+			gap: 20px 2.243%
+			&>*
+				width: 31.838%
+				min-width: 296px
+				padding-left: 48px
+				&::before
+					font-size: 265px
+					line-height: 200px
+					letter-spacing: -5px
+
+	@media screen and ( max-width: 1300px )
+		&-wrap
+			align-items: flex-start
+
+	@media screen and ( max-width: 991px )
+		&-title
+			width: 38.463%
+
+		&-img
+			margin-bottom: 18px
+			max-width: 67%
+
+		&-list
+			width: 57.7%
+			display: block
+			&>*
+				width: 100%
+				padding: 26px 0 0 75px
+				margin-bottom: 30px
+				&:last-child
+					margin-bottom: 0
+				&::before
+					font-size: 340px
+					line-height: 270px
+					letter-spacing: -6px
+
+				img
+					aspect-ratio: 9/14.5467
+					margin-bottom: 16px
+
+	@media screen and ( max-width: 720px )
+		padding: 72px 0 20px
+		&-title
+			width: 100%
+			text-align: right
+			position: relative
+			display: block
+			margin-bottom: 36px
+			z-index: 1
+			.h4
+				max-width: 59%
+				margin-left: auto
+
+		&-img
+			position: absolute
+			aspect-ratio: 1
+			top: 41%
+			transform: translateY(-50%)
+			margin: 0
+			max-width: 180px
+			left: 0
+			width: 43%
+			z-index: -1
+
+		&-wrap
+			display: block
+
+		&-list
+			width: 100%
+			&>*
+				padding: 36px 0 0 52px
+				&::before
+					font-size: 300px
+					line-height: 222px
+					letter-spacing: -0.02em
+
+.included
+	padding-bottom: 0
+	.container
+		position: relative
+		z-index: 1
+
+	&__ball
+		// display: none
+		position: absolute
+		top: 70%
+		transform: translateY(-50%)
+		right: -40px
+		z-index: 1
+		width: 100%
+		max-width: 43.75%
+		border-radius: 50%
+
+	&-contact
+		margin-top: 208px
+		text-align: center
+		background-color: var(--fuchsia)
+		color: var(--white)
+		padding: 20px
+		gap: 60px
+
+	&-links
+		gap: 24px
+		img
+			width: 80px
+			height: 80px
+
+	@media screen and ( max-width: 1700px )
+		&-contact
+
+	@media screen and ( max-width: 1500px )
+		&__ball
+			right: -138px
+			max-width: 41%
+			top: 61%
+
+		&-contact
+			margin-top: 100px
+
+	@media screen and ( max-width: 1300px )
+		&-contact
+			padding: 12px 0
+			gap: 17px
+			h5
+				font-size: 30px
+				line-height: 32px
+				letter-spacing: 0.6px
+
+		&-links
+			gap: 8px
+			img
+				width: 48px
+				height: 48px
+
+	@media screen and ( max-width: 991px )
+		h2
+			@media screen and ( min-width: 720px )
+				margin-bottom: 54px
+
+		&__ball
+			transform: none
+			top: -20px
+			right: -108px
+			max-width: 35%
+
+		&-contact
+			h5
+				font-size: 22px
+				text-transform: uppercase
+				line-height: 28px
+				letter-spacing: 0.69px
+
+	@media screen and ( max-width: 720px )
+		padding-top: 60px
+
+		&__ball
+			top: -60px
+			right: -88px
+			max-width: 48.89%
+
+		&-contact
+			padding: 12px var(--paddingContainer)
+			text-align: left
+			margin-top: 40px
+			h5
+				font-size: 18px
+				line-height: 20px
+				letter-spacing: 0.5px
+
+		&-links
+			img
+				min-width: 40px
+				width: 40px
+				height: 40px
+
+.ddown
+	width: 100%
+	max-width: 872px
+	margin-bottom: 40px
+	--sprite-width: 64px
+	--sprite-x: 1
+	--sprite-y: 2
+
+	&:last-child
+		margin-bottom: 0 !important
+
+	&-ic
+		width: 80px
+		height: var(--sprite-width)
+		object-position: center center
+		object-fit: contain
+
+	&__btn
+		font-family: "Sofia Sans Extra Condensed", sans-serif
+		text-align: left
+		width: 100%
+		position: relative
+		padding-right: calc( var(--sprite-width) + 10px )
+		&::after
+			content: ''
+			width: var(--sprite-width)
+			height: var(--sprite-width)
+			display: block
+			position: absolute
+			transition: transform .3s ease
+			right: 0
+			top: 0
+			transform: rotate(90deg)
+
+		&::first-letter
+			text-transform: uppercase
+
+	&-title
+		width: calc( 100% - 120px )
+		margin-left: auto
+
+	&-content
+		display: none
+		padding: 4px var(--sprite-width) 0 0
+
+	&.is_active
+		.ddown
+			&__btn
+				&::after
+					transform: rotate(-90deg)
+			&-content
+				display: block
+
+	@media screen and ( max-width: 1500px )
+		margin: 0 0 32px 40px
+		max-width: 56.563%
+		--sprite-width: 52px
+		&-ic
+			width: 65px
+
+		&-title
+			width: calc( 100% - 80px )
+
+	@media screen and ( max-width: 1280px )
+		margin-left: 0
+		max-width: 66%
+
+	@media screen and ( max-width: 991px )
+		max-width: 560px
+		--sprite-width: 40px
+		&__btn
+			font-size: 38px
+			line-height: 40px
+			letter-spacing: 0.4px
+
+		&-ic
+			width: 45px
+			height: 36px
+
+		&-title
+			width: calc(100% - 57px)
+
+	@media screen and ( max-width: 720px )
+		--sprite-width: 20px
+		margin-bottom: 24px
+		&-ic
+			width: 24px
+			height: 32px
+
+		&-title
+			width: calc(100% - 32px)
+
+		&__btn
+			text-transform: uppercase
+			font-size: 24px
+			font-weight: 400
+			line-height: 32px
+			letter-spacing: 0.2px
+			&::after
+				top: 6px
+
+.more
+	background-color: var(--gray-violet)
+	--itemWidth: 22.728%
+
+	&-wrap
+		gap: calc( (100% - ( var(--itemWidth) * 4)) /3 )
+
+	&-item
+		width: var(--itemWidth)
+		overflow: hidden
+		border-radius: 8px
+		img
+			aspect-ratio: 9/12.6
+			width: 100%
+			object-fit: cover
+
+	&-title
+		padding: 24px 32px 32px
+		background-color: var(--white)
+		.h5
+			margin-bottom: 8px
+
+	@media screen and ( max-width: 1500px )
+		--itemWidth: 21.704%
+
+		&-wrap
+			max-width: 1198px
+			margin: 0 auto
+
+		&-title
+			padding: 12px 23px 23px
+
+	@media screen and ( max-width: 1200px )
+		--itemWidth: 32%
+		&-wrap
+			flex-wrap: wrap
+			gap: 20px calc( (100% - ( var(--itemWidth) * 3)) / 2 )
+
+	@media screen and ( max-width: 991px )
+		--itemWidth: calc( 50% - 8px )
+
+		&-wrap
+			flex-wrap: wrap
+			gap: 16px calc( (100% - ( var(--itemWidth) * 2)) )
+
+		&-item
+			.h5
+				font-size: 38px
+				line-height: 40px
+				letter-spacing: 0.4px
+
+	@media screen and ( max-width: 720px )
+		--itemWidth: 100%
+		padding-bottom: 80px
+		&-wrap
+			display: block
+
+		&-item
+			margin-bottom: 16px
+			&:last-child
+				margin-bottom: 0 !important
+
+			.h5
+				font-size: 40px
+				line-height: 36px
+
+		&-title
+			padding: 12px 24px 24px
+
+.tec
+	&-wrap
+		margin-bottom: 80px
+
+		&>*
+			margin: 0
+
+	.btn
+		display: flex
+		margin: 0 auto
+
+	&-list
+		list-style: none
+		width: 65.9099%
+		margin-left: auto
+
+	li
+		width: fit-content
+		&::before
+			content: '1'
+			display: block
+			margin: 0 0 16px
+
+			font-family: 'Sofia Sans Extra Condensed', sans-serif
+			font-size: 83px
+			font-weight: 700
+			line-height: 80px
+
+	@media screen and ( max-width: 1500px )
+		&-wrap
+			margin-bottom: 68px
+		&-list
+			width: 64.063%
+
+		li
+			&::before
+				font-size: 60px
+				line-height: 60px
+
+	@media screen and ( max-width: 1200px )
+		padding-left: 28px
+
+		&__heading
+			font-size: 60px
+			line-height: 56px
+			letter-spacing: 0
+			margin-bottom: auto
+
+		&-wrap
+			margin-bottom: 40px
+
+		&-list
+			display: block
+			max-width: 364px
+
+		li
+			position: relative
+			z-index: 1
+			margin-bottom: 16px
+			padding-right: 25px
+			gap: 16px
+			display: flex
+			align-items: center
+
+			&:last-child
+				margin-bottom: 0
+
+			&::before
+				content: '01'
+				text-align: center
+				margin: 0
+			br
+				display: none
+
+	@media screen and ( max-width: 720px )
+		padding-left: 0
+		&__heading
+			font-size: 40px
+			font-weight: 600
+			line-height: 36px
+			margin-bottom: 24px
+			br
+				display: none
+
+		&-wrap
+			display: block
+			margin-bottom: 24px
+
+		&-list
+			width: 100%
+
+		li
+			margin-bottom: 16px
+			&::before
+				font-size: 40px
+				font-weight: 400
+				line-height: 36px
+
+		.btn
+			width: 100%
