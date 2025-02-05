@@ -11,6 +11,7 @@
 
 	<link rel="shortcut icon" href="favicon.svg" type="image/svg">
 	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
 </head>
 
 <body id="home">
@@ -69,14 +70,16 @@
 
 	<main>
 		<section class="main">
-			<h1 class="main__heading" data-adjust="none"><i>SLOW</i> <i>MO</i> <i>360</i></h1>
+			<h1 class="main__heading" data-adjust="tab">
+				<i>SLOW</i><i>MO</i><i>360</i>
+			</h1>
 			<div class="container main-wrap fx-ac fx-jb">
-				<div class="main-item"><video src="img/slowmov-1.mp4" poster="img/slowmo/v-1.jpg"
-						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
-				<div class="main-item"><video src="img/slowmov-2.mp4" poster="img/slowmo/v-2.jpg"
-						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
-				<div class="main-item"><video src="img/slowmov-3.mp4" poster="img/slowmo/v-3.jpg"
-						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
+				<div class="main-item"><video src="img/slowmo/v-1.mp4" poster="img/slowmo/v-1.jpg"
+						controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
+				<div class="main-item"><video src="img/slowmo/v-2.mp4" poster="img/slowmo/v-2.jpg"
+						controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
+				<div class="main-item"><video src="img/slowmo/v-3.mp4" poster="img/slowmo/v-3.jpg"
+						controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
 			</div>
 		</section>
 
@@ -104,18 +107,19 @@
 					<img src="img/product/i-2.png" class="how-img" alt="i" loading="lazy">
 					<h2 class="h4">Как работает <br> slow mo <br class="mob-show"> 360</h2>
 				</div>
-				<ol class="fx-ac fx-je fx-w how-list">
+				<ol class="how-list fx-as fx-je fx-w">
 					<li>
-						<img src="img/slowmo/p-1.jpg" alt="i" loading="lazy">
+						<img class="how__prev" src="img/slowmo/p-1.jpg" alt="i" loading="lazy">
 						<p class="t-b1">Встаёте на платформу, оператор помогает вам с выбором реквизита</p>
 					</li>
 					<li>
-						<img src="img/slowmo/p-1.jpg" alt="i" loading="lazy">
-						<p class="t-b1">Встаёте на платформу, оператор помогает вам с выбором реквизита</p>
+						<img class="how__prev" src="img/slowmo/p-2.jpg" alt="i" loading="lazy">
+						<p class="t-b1">Вы позируете, а камера вращается вокруг вас, записывая видео</p>
 					</li>
 					<li>
-						<img src="img/slowmo/p-1.jpg" alt="i" loading="lazy">
-						<p class="t-b1">Встаёте на платформу, оператор помогает вам с выбором реквизита</p>
+						<video src="img/slowmo/p-3.mp4" poster="img/slowmo/p-3.jpg"
+						controlsList="nofullscreen" playsinline muted loop class="how__prev observe"></video>
+						<p class="t-b1">Сразу отправляете обработанное видео со стойки с планшетом на свой смартфон</p>
 					</li>
 				</ol>
 			</div>
@@ -193,31 +197,31 @@
 				<h2>Доп.услуги</h2>
 				<div class="more-wrap fx-as">
 					<div class="more-item">
-						<img src="img/ex/a-1.jpg" alt="i" loading="lazy">
+						<img src="img/slowmo/dop.jpg" alt="i" loading="lazy">
 						<div class="more-title">
 							<h3 class="h5">Видеоэффекты</h3>
 							<p class="t-b2">Надписи, лучи, картинки – сделаем любую анимацию под ваш запрос</p>
 						</div>
 					</div>
 					<div class="more-item">
-						<img src="img/ex/a-1.jpg" alt="i" loading="lazy">
+						<img src="img/slowmo/dop-2.jpg" alt="i" loading="lazy">
 						<div class="more-title">
-							<h3 class="h5">Видеоэффекты</h3>
-							<p class="t-b2">Надписи, лучи, картинки – сделаем любую анимацию под ваш запрос</p>
+							<h3 class="h5">Оформление</h3>
+							<p class="t-b2">Оформим платформу и фон в стиле вашего события или сделаем брендинг</p>
 						</div>
 					</div>
 					<div class="more-item">
-						<img src="img/ex/a-1.jpg" alt="i" loading="lazy">
+						<img src="img/slowmo/dop-3.jpg" alt="i" loading="lazy">
 						<div class="more-title">
-							<h3 class="h5">Видеоэффекты</h3>
-							<p class="t-b2">Надписи, лучи, картинки – сделаем любую анимацию под ваш запрос</p>
+							<h3 class="h5">Конфетти</h3>
+							<p class="t-b2">Конфетти – это праздничное и яркое дополнение к эффекту слоу-мо в видео</p>
 						</div>
 					</div>
 					<div class="more-item">
-						<img src="img/ex/a-1.jpg" alt="i" loading="lazy">
+						<img src="img/slowmo/dop-4.jpg" alt="i" loading="lazy">
 						<div class="more-title">
-							<h3 class="h5">Видеоэффекты</h3>
-							<p class="t-b2">Надписи, лучи, картинки – сделаем любую анимацию под ваш запрос</p>
+							<h3 class="h5">Доп. реквизит</h3>
+							<p class="t-b2">Именной реквизит, деньгомёт, шары, свечи-фейерверки – любое ваше пожелание</p>
 						</div>
 					</div>
 				</div>
@@ -234,7 +238,7 @@
 						<li class="t-b1">Пространство площадью <br> 3м2 и высотой 2м</li>
 					</ol>
 				</div>
-				<button class="btn --star">Забронировать slow mo 360</button>
+				<button class="btn --star" data-modal="modal-request">Забронировать slow mo 360</button>
 			</div>
 		</section>
 
@@ -254,12 +258,36 @@
 				<div class="example-wrap fx-w">
 					<div class="item">
 						<div class="item-preview">
+							<a href="img/ex/o-1.mp4" data-fancybox="example">
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/o-1.mp4"
+									poster="img/ex/o-1.jpg" class="item__img"></video>
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Яркие безлимитные видео для соцсетей на вашей свадьбе 🤍</p>
+							<p>#slow_mo_360 #свадьба</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-preview">
 							<a href="img/ex/a-1.jpg" data-fancybox="example">
 								<img src="img/ex/a-1.jpg" class="item__img" loading="lazy">
 							</a>
 						</div>
 						<div class="item-title t-b2">
 							<p>Съёмка видео на Slow mo 360 – эффектно и весело 💫</p>
+							<p>#slow_mo_360 #корпоратив</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-preview">
+							<a href="img/ex/d-1.mp4" data-fancybox="example">
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/d-1.mp4"
+									poster="img/ex/d-1.jpg" class="item__img"></video>
+							</a>
+						</div>
+						<div class="item-title t-b2">
+							<p>Процесс съёмки видео на Slow Mo 360 🔥</p>
 							<p>#slow_mo_360 #корпоратив</p>
 						</div>
 					</div>
@@ -277,18 +305,6 @@
 					</div>
 					<div class="item">
 						<div class="item-preview">
-							<a href="img/ex/o-1.mp4" data-fancybox="example">
-								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/o-1.mp4"
-									poster="img/ex/o-1.jpg" class="item__img"></video>
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Яркие безлимитные видео для соцсетей на вашей свадьбе 🤍</p>
-							<p>#slow_mo_360 #свадьба</p>
-						</div>
-					</div>
-					<div class="item">
-						<div class="item-preview">
 							<a href="img/ex/p-1.jpg" data-fancybox="example">
 								<img src="img/ex/p-1.jpg" class="item__img" loading="lazy">
 							</a>
@@ -298,23 +314,19 @@
 							<p>#slow_mo_360 #промо</p>
 						</div>
 					</div>
-					<div class="expo fx-col fx-ac fx-jc">
-						<h4 class="h4 expo__heading">ИНТЕРЕСНО УЗНАТЬ БОЛЬШЕ?</h4>
-						<button data-modal="modal-request" class="btn --star --dark">Напишите нам</button>
-					</div>
-
 					<div class="item">
 						<div class="item-preview">
-							<a href="img/ex/d-1.mp4" data-fancybox="example">
-								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/d-1.mp4"
-									poster="img/ex/d-1.jpg" class="item__img"></video>
+							<a href="img/ex/qq-1.mp4" data-fancybox="example">
+								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/qq-1.mp4"
+									poster="img/ex/qq-1.jpg" class="item__img"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
-							<p>Процесс съёмки видео на Slow Mo 360 🔥</p>
-							<p>#slow_mo_360 #корпоратив</p>
+							<p>Выпускной станет ярче вместе с нашим Slow Mo 360 ⭐️</p>
+							<p>#slow_mo_360 #выпускной</p>
 						</div>
 					</div>
+					
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/i-1.mp4" data-fancybox="example">
@@ -339,18 +351,7 @@
 							<p>#slow_mo_360 #день_рождения</p>
 						</div>
 					</div>
-					<div class="item">
-						<div class="item-preview">
-							<a href="img/ex/qq-1.mp4" data-fancybox="example">
-								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/qq-1.mp4"
-									poster="img/ex/qq-1.jpg" class="item__img"></video>
-							</a>
-						</div>
-						<div class="item-title t-b2">
-							<p>Выпускной станет ярче вместе с нашим Slow Mo 360 ⭐️</p>
-							<p>#slow_mo_360 #выпускной</p>
-						</div>
-					</div>
+					
 					<div class="item">
 						<div class="item-preview">
 							<a href="img/ex/hor-g-1.mp4" data-fancybox="example">
