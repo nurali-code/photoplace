@@ -9,21 +9,73 @@
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="theme-color" content="#FE00A0">
 
-	<!-- <link rel="shortcut icon" href="favicon.svg" type="image/svg">
-	<link rel="stylesheet" href="css/jquery.fancybox.min.css"> -->
+	<link rel="shortcut icon" href="favicon.svg" type="image/svg">
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
 </head>
 
 <body id="home">
+	<header class="header">
+		<div class="container fx-ac">
+			<button class="menu__open" title="Меню"></button>
+			<nav class="header-nav fx-ac fx-jb">
+				<a href="#interactives">Интерактивы</a>
+				<a href="#process">Как мы работаем</a>
+				<a href="#examples">Примеры работ</a>
+			</nav>
+			<div class="header-contact fx-ac">
+				<a href="tel:+79003682363" class="header__call">+7 (900) 368 23 63</a>
+				<a href="#" target="_blank" class="header__call"><img src="img/wa-f.svg" alt="i"></a>
+				<a href="#" target="_blank" class="header__call"><img src="img/tg-f.svg" alt="i"></a>
+			</div>
+		</div>
+
+		<div class="header-menu">
+			<div class="container fx-col">
+				<div class="menu-header fx-as fx-jb">
+					<h4 class="menu__heading">МЕНЮ</h4>
+					<button class="menu__close" title="Закрыть меню"></button>
+				</div>
+
+				<ul class="menu-list">
+					<li class="fx-ac">
+						<span class="menu__link h3">ИНТЕРАКТИВЫ</span>
+						<div class="menu-submenu fx-ac fx-jb">
+							<a href="#" class="menu__sublink">SLOW MO 360</a>
+							<a href="#" class="menu__sublink">ФОТОБУДКА</a>
+							<a href="#" class="menu__sublink">ФОТОЗЕРКАЛО</a>
+							<a href="#" class="menu__sublink">ФЛИПБУК СТУДИЯ</a>
+						</div>
+					</li>
+					<li><a href="#process" class="h3 menu__link">КАК мы работаем</a></li>
+					<li><a href="#examples" class="h3 menu__link">ПРИМЕРЫ РАБОТ</a></li>
+					<li><button data-modal="modal-request" class="h3 menu__link">ОСТАВИТЬ ЗАЯВКУ</button></li>
+				</ul>
+
+				<div class="menu-footer t-btn fx-ac fx-jb">
+					<a href="mailto:photoplace32@mail.ru">photoplace32@mail.ru</a>
+
+					<div class="fx-ac menu-footer__call">
+						<a href="tel:+79003682363">+7 (900) 368 23 63</a>
+						<a href="#" class="pc-hide" target="_blank"><img src="img/tg.svg" alt="i"></a>
+						<a href="#" class="pc-hide" target="_blank"><img src="img/wa.svg" alt="i"></a>
+					</div>
+
+					<a href="#" class="tb-hide" target="_blank">WHATSAPP</a>
+					<a href="#" class="tb-hide" target="_blank">TELEGRAM</a>
+				</div>
+			</div>
+		</div>
+	</header>
 
 	<main>
 		<section class="main">
 			<h1 class="main__heading" data-adjust="none"><i>SLOW</i> <i>MO</i> <i>360</i></h1>
 			<div class="container main-wrap fx-ac fx-jb">
-				<div class="main-item"><video src="img/slowmov-1.mp4" poster="img/slowmov-1.jpg"
+				<div class="main-item"><video src="img/slowmov-1.mp4" poster="img/slowmo/v-1.jpg"
 						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
-				<div class="main-item"><video src="img/slowmov-2.mp4" poster="img/slowmov-2.jpg"
+				<div class="main-item"><video src="img/slowmov-2.mp4" poster="img/slowmo/v-2.jpg"
 						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
-				<div class="main-item"><video src="img/slowmov-3.mp4" poster="img/slowmov-3.jpg"
+				<div class="main-item"><video src="img/slowmov-3.mp4" poster="img/slowmo/v-3.jpg"
 						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
 			</div>
 		</section>
@@ -125,7 +177,8 @@
 			</div>
 
 			<div class="included-contact fx-ac fx-jc">
-				<h5>Чтобы узнать цены под ваш запрос, напишите нам <span class="mob-show">Мы всегда на связи!</span></h5>
+				<h5>Чтобы узнать цены под ваш запрос, напишите нам <span class="mob-show">Мы всегда на связи!</span>
+				</h5>
 				<div class="fx-ac included-links">
 					<a href="#" target="_blank"><img src="img/wa.svg" alt="i" loading="lazy"></a>
 					<a href="#" target="_blank"><img src="img/tg.svg" alt="i" loading="lazy"></a>
@@ -185,7 +238,7 @@
 			</div>
 		</section>
 
-		<!-- <section class="example" id="examples">
+		<section class="example" id="examples">
 			<h2 class="h1" data-adjust>ПРИМЕРЫ РАБОТ</h2>
 
 			<div class="container">
@@ -419,14 +472,103 @@
 				<a href="#"><img src="img/tg.svg" alt="i" loading="lazy"></a>
 				<a href="#"><img src="img/wa.svg" alt="i" loading="lazy"></a>
 			</div>
-		</section> -->
+		</section>
 	</main>
 
+	<footer class="footer">
+		<div class="container fx-jb fx-w">
+			<div class="col">
+				<h5 class="footer__heading">ОСТАВИТЬ ЗАЯВКУ</h5>
+				<form>
+					<input type="text" placeholder="Ваше имя" required>
+					<input type="text" placeholder="Email или номер телефона" required>
+					<textarea required placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<a href="#modal-done" type="submit" class="btn --arr --dark">Отправить</a>
+				</form>
+			</div>
 
-	<!-- <script src="js/jquery.min.js"></script>
+			<div class="col fx-col">
+				<p class="t-acc">Брянск · Москва · Орёл · Калуга · Смоленск</p>
+				<p class="t-acc">
+					ИП Комаров Максим Иванович <br>
+					ОГРН 320325600008191 <br>
+					ИНН 325005562155
+				</p>
+				<img src="img/footer-logo.svg" class="footer__logo" alt="i" loading="lazy">
+			</div>
+
+			<div class="fx-ac fx-jb fx-w footer-bottom t-btn">
+				<a href="mailto:photoplace32@mail.ru">PHOTOPLACE32@MAIL.RU</a>
+				<a href="tel:+79003682363">+7 (900) 368 23 63</a>
+				<a href="#" target="_blank">WHATSAPP</a>
+				<a href="#" target="_blank">TELEGRAM</a>
+			</div>
+		</div>
+	</footer>
+
+	<div class="connect">
+		<div class="connect-box">
+			<h3 class="t-b2">Свяжитесь с нами</h3>
+			<div class="fx-ac t-acc connect__item">
+				<a href="tel:+79003682363" class="fx-ac">
+					<img src="img/call.svg" class="connect__ic" alt="i">
+					<span>+7 (900) 368 23 63</span>
+				</a>
+				<a href="#" class="connect__link" target="_blank"><img src="img/tg.svg" alt="i"></a>
+				<a href="#" class="connect__link" target="_blank"><img src="img/wa.svg" alt="i"></a>
+			</div>
+
+			<a href="mailto:photoplace32@mail.ru" class="fx-ac t-acc connect__item">
+				<img src="img/mail.svg" class="connect__ic" alt="i">
+				<span>photoplace32@mail.ru</span>
+			</a>
+			<h3 class="t-b2">или</h3>
+			<button data-modal="modal-request" class="btn --light --star">Оставить заявку</button>
+		</div>
+		<button class="connect__btn"><img src="img/connect-img.jpg" alt="i"></button>
+	</div>
+
+	<div class="modal" id="modal-request">
+		<div class="modal-content fx-jb">
+			<div class="modal-img"><img src="img/discoball.jpg" alt="i" loading="lazy"></div>
+			<div class="modal-title">
+				<button class="modal__close" title="Закрыть окно"></button>
+				<h4 class="modal__heading">ОСТАВЬТЕ ЗАЯВКУ</h4>
+				<form class="modal-form">
+					<input type="text" placeholder="Ваше имя" required>
+					<input type="text" placeholder="Email или номер телефона" required>
+					<textarea required placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<button data-modal="modal-done" type="submit" class="btn --star">Отправить</button>
+				</form>
+				<p class="modal__subheading">ИЛИ СВЯЖИТЕСЬ С НАМИ</p>
+				<div class="fx-ac fx-jb fx-w modal-footer">
+					<a href="mailto:photoplace32@mail.ru">PHOTOPLACE32@MAIL.RU</a>
+					<div class="fx-jb fx-ac">
+						<a href="tel:+79003682363">+7 (900) 368 23 63</a>
+						<a href="#" target="_blank"><img src="img/tg.svg" alt="i"></a>
+						<a href="#" target="_blank"><img src="img/wa.svg" alt="i"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" id="modal-done">
+		<div class="modal-content fx-ac fx-jb">
+			<div class="modal-img"><img src="img/discoball.jpg" alt="i" loading="lazy"></div>
+			<div class="modal-title">
+				<button class="modal__close" title="Закрыть окно"></button>
+				<h4 class="modal__heading">Готово</h4>
+				<p class="t-b1">Заявка отправлена, мы свяжемся с вами <br> в течение часа</p>
+				<button onclick="hideModals()" class="btn --star">закрыть</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
 	<script src="js/slick.min.js"></script>
-	<script src="js/scripts.js"></script> 
-	<script src="js/jquery.fancybox.min.js"></script> -->
+	<script src="js/scripts.js"></script>
+	<script src="js/jquery.fancybox.min.js"></script>
 </body>
 
 </html>

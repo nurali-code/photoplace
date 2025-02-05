@@ -2,30 +2,30 @@ $('.menu__open, a.menu__link, .menu__close').on('click', function () {
 	$('.menu__open, .header-menu, body').toggleClass('is_active')
 })
 
-const loop = document.querySelectorAll('.observe');
-const options = { root: null, rootMargin: '0px', threshold: 0.1 };
-const observer = new IntersectionObserver(handleIntersection, options);
-loop.forEach(video => observer.observe(video));
+// const loop = document.querySelectorAll('.observe');
+// const options = { root: null, rootMargin: '0px', threshold: 0.1 };
+// const observer = new IntersectionObserver(handleIntersection, options);
+// loop.forEach(video => observer.observe(video));
 
-function handleIntersection(entries) {
-	entries.forEach(entry => {
-		const myVideo = entry.target;
-		if (entry.isIntersecting) {
-			myVideo.play();
+// function handleIntersection(entries) {
+// 	entries.forEach(entry => {
+// 		const myVideo = entry.target;
+// 		if (entry.isIntersecting) {
+// 			myVideo.play();
 
-			// Отключаем меню по правой кнопке мыши
-			myVideo.addEventListener("contextmenu", function (e) {
-				e.preventDefault();
-				e.stopPropagation();
-			}, false);
+// 			// Отключаем меню по правой кнопке мыши
+// 			myVideo.addEventListener("contextmenu", function (e) {
+// 				e.preventDefault();
+// 				e.stopPropagation();
+// 			}, false);
 
-			// Удаляем атрибут controls, если он присутствует
-			if (myVideo.hasAttribute("controls")) {
-				myVideo.removeAttribute("controls");
-			}
-		} else { myVideo.pause(); }
-	});
-}
+// 			// Удаляем атрибут controls, если он присутствует
+// 			if (myVideo.hasAttribute("controls")) {
+// 				myVideo.removeAttribute("controls");
+// 			}
+// 		} else { myVideo.pause(); }
+// 	});
+// }
 
 $(window).on('scroll', function () {
 	if ($(this).scrollTop() > 0) { $('header').addClass('fixed'); }
