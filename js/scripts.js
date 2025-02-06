@@ -71,7 +71,7 @@ $('.sl').slick({
 	fade: true,
 	dots: false,
 	autoplay: true,
-	autoplaySpeed: 1500,
+	autoplaySpeed: 1600,
 	arrows: false,
 	slidesToShow: 1,
 	adaptiveHeight: true,
@@ -94,13 +94,13 @@ $('.btn-tab').on('click', function () {
 	});
 });
 
-$(".example .item").on('mouseenter', function () {
+$(".example .item, .more-item").on('mouseenter', function () {
 	if (window.innerWidth >= 991 && $(this).find('video').length > 0) {
 		$(this).find('video')[0].play(); // Вызов play() для видео
 	}
 });
 
-$(".example .item").on('mouseleave', function () {
+$(".example .item, .more-item").on('mouseleave', function () {
 	if (window.innerWidth >= 991 && $(this).find('video').length > 0) {
 		$(this).find('video')[0].pause(); // Вызов pause() для видео
 	}
@@ -118,7 +118,7 @@ $(document).on('afterLoad.fb onSlideChange.fb', function (e, instance, slide) {
 
 function adjustFontSize() {
 	const windowWidth = $(window).width();
-	const padding = windowWidth > 1500 ? 80 : windowWidth > 991 ? 86 : windowWidth > 720 ? 40 : 32;
+	const padding = windowWidth > 1600 ? 80 : windowWidth > 991 ? 86 : windowWidth > 720 ? 40 : 32;
 	$('[data-adjust]').each(function () {
 		const $parent = $(this);
 		const dataAdjust = $parent.attr('data-adjust');
@@ -133,7 +133,7 @@ function adjustFontSize() {
 			lineHeight = 270;
 		} else {
 			const isNone = dataAdjust === 'none' || dataAdjust === 'tab';
-			maxFontSize = isNone ? Infinity : windowWidth > 1500 ? 386 : windowWidth > 991 ? 265 : windowWidth > 720 ? 148 : 71;
+			maxFontSize = isNone ? Infinity : windowWidth > 1600 ? 386 : windowWidth > 991 ? 265 : windowWidth > 720 ? 148 : 71;
 			lineHeight = Math.round(maxFontSize * 0.8);
 		}
 
@@ -152,6 +152,26 @@ function adjustFontSize() {
 		}
 	});
 }
+
+$('.description-slider').slick({
+	infinite: true,
+	draggable: false,
+	dots: false,
+	fade: true,
+	arrows: false,
+	slidesToShow: 1,
+	adaptiveHeight: true,
+});
+
+$('.description-nav').slick({
+	infinite: false,
+	variableWidth: true,
+	dots: false,
+	arrows: false, 
+	focusOnSelect: true,
+	asNavFor: '.description-slider',
+	slidesToShow: 8,
+});
 
 $(document).ready(function () {
 	// $('.example-wrap .item').each(function () {

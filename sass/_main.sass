@@ -48,7 +48,7 @@
 		i
 			font-style: normal
 
-	@media screen and ( max-width: 1500px )
+	@media screen and ( max-width: 1600px )
 		&-item
 			width: 21.88%
 
@@ -115,7 +115,7 @@
 			object-fit: contain
 			object-position: center center
 
-	@media screen and ( max-width: 1500px )
+	@media screen and ( max-width: 1600px )
 		padding-left: 40px
 		&-img
 			width: 40.625%
@@ -173,7 +173,7 @@
 .included,
 .tec,
 .more
-	@media screen and ( min-width: 1500px )
+	@media screen and ( min-width: 1600px )
 		--paddingContainer: 80px
 
 .how
@@ -247,7 +247,7 @@
 					text-shadow: none
 					-webkit-text-stroke: unset
 
-	@media screen and ( max-width: 1500px )
+	@media screen and ( max-width: 1600px )
 		&-title
 			width: 23.438%
 
@@ -270,6 +270,10 @@
 	@media screen and ( max-width: 991px )
 		&-title
 			width: 38.463%
+			.h4
+				font-size: 44px
+				font-weight: 600
+				line-height: 44px
 
 		&-img
 			margin-bottom: 18px
@@ -305,6 +309,9 @@
 			.h4
 				max-width: 59%
 				margin-left: auto
+
+				font-size: 40px
+				line-height: 36px
 
 		&-img
 			position: absolute
@@ -363,7 +370,7 @@
 	@media screen and ( max-width: 1700px )
 		&-contact
 
-	@media screen and ( max-width: 1500px )
+	@media screen and ( max-width: 1600px )
 		&__ball
 			right: -138px
 			max-width: 41%
@@ -481,7 +488,7 @@
 			&-content
 				display: block
 
-	@media screen and ( max-width: 1500px )
+	@media screen and ( max-width: 1600px )
 		margin: 0 0 32px 40px
 		max-width: 56.563%
 		--sprite-width: 52px
@@ -498,10 +505,6 @@
 	@media screen and ( max-width: 991px )
 		max-width: 560px
 		--sprite-width: 40px
-		&__btn
-			font-size: 38px
-			line-height: 40px
-			letter-spacing: 0.4px
 
 		&-ic
 			width: 45px
@@ -539,19 +542,29 @@
 	&-item
 		width: var(--itemWidth)
 		overflow: hidden
+		background-color: var(--white)
 		border-radius: 8px
-		img
-			aspect-ratio: 9/12.6
-			width: 100%
-			object-fit: cover
+
+	&__prev
+		aspect-ratio: 9/12.6
+		width: 100%
+		object-fit: cover
+		transition: transform .3s ease
 
 	&-title
 		padding: 24px 32px 32px
+		position: relative
 		background-color: var(--white)
+		z-index: 1
 		.h5
 			margin-bottom: 8px
 
-	@media screen and ( max-width: 1500px )
+	@media screen and ( min-width: 991px )
+		&-item:hover
+			img.more__prev
+				transform: scale(1.1)
+
+	@media screen and ( max-width: 1600px )
 		--itemWidth: 21.704%
 
 		&-wrap
@@ -574,12 +587,6 @@
 			flex-wrap: wrap
 			gap: 16px calc( (100% - ( var(--itemWidth) * 2)) )
 
-		&-item
-			.h5
-				font-size: 38px
-				line-height: 40px
-				letter-spacing: 0.4px
-
 	@media screen and ( max-width: 720px )
 		--itemWidth: 100%
 		padding-bottom: 80px
@@ -597,6 +604,242 @@
 
 		&-title
 			padding: 12px 24px 24px
+
+.description
+
+	&-img
+		width: 50%
+		padding-left: calc( 200px - var(--paddingContainer) )
+
+	&-slider
+		max-width: 640px
+		aspect-ratio: 16/15
+		margin: 0 0 40px auto
+		img
+			width: 90%
+			object-position: center right
+			margin-left: auto
+			aspect-ratio: 16/15
+			object-fit: contain
+
+	&-col
+		&>*
+			margin-bottom: 120px
+			white-space: nowrap
+			gap: 16px
+			&:last-child
+				margin-bottom: 0 !important
+
+	&-content
+		max-width: 48%
+		padding-right: calc( 200px - var(--paddingContainer) )
+		padding-left: 130px
+		margin-left: auto
+		position: relative
+		z-index: 1
+		.h3
+			text-transform: uppercase
+
+		sup
+			top: 0
+			align-self: flex-start
+
+	.line
+		position: absolute
+		height: calc( 100% - 50px*2 )
+		left: 0
+		top: 50%
+		transform: translateY(-50%)
+		z-index: 1
+		&::before
+			content: ''
+			display: block
+			width: 1px
+			height: 100%
+			position: absolute
+			top: 50%
+			left: 50%
+			z-index: -1
+			background-color: var(--haiti)
+			transform: translate(-50%, -50%)
+		.dot
+			width: 20px
+			height: 20px
+			margin: 0 auto
+			border-radius: 50%
+			background-color: var(--haiti)
+
+	&-nav
+		z-index: 111
+		overflow: visible
+		.slick
+			&-list
+				overflow: visible
+			&-slider
+
+		img
+			margin: 0 20px 0 0
+			display: block
+			cursor: pointer
+			border-radius: 50%
+			border: 3px solid var(--haiti-30)
+			&:hover
+				border-color: var(--light-violet)
+
+	&-navitem
+
+		&.slick-current img
+			border-color: var(--fuchsia)
+
+	&-info
+		position: absolute
+		z-index: 11
+		transition: all ease .3s
+		opacity: 0
+		visibility: hidden
+
+	@media screen and ( min-width: 991px )
+		&-navitem
+			position: relative
+			z-index: 1
+			&:hover .description-info
+				opacity: 1
+				visibility: visible
+				transform: translateY(0px)
+
+		&-info
+			left: 20px
+			padding: 16px 20px
+			text-align: center
+			bottom: 115%
+			border-radius: 8px
+			width: 282px
+			background-color: var(--white)
+
+			transform: translateY(10px)
+
+	@media screen and ( max-width: 1600px )
+		&-img
+			width: 51%
+			padding-left: calc(83px - var(--paddingContainer))
+
+		&-content
+			padding: 0 calc(83px - var(--paddingContainer)) 0 90px
+
+		.line
+			height: calc(100% - 74px)
+
+		&-col
+			&>*
+				margin-bottom: 97px
+				img
+					width: 100px
+
+	@media screen and ( max-width: 1200px )
+		&-img
+			padding-left: 0
+
+		&-content
+			padding-right: 0
+
+	@media screen and ( max-width: 991px )
+		&-content
+			padding-left: 66px
+
+		.line
+			height: calc(100% - 27px*2)
+			.dot
+				width: 12px
+				height: 12px
+
+		&-col
+			&>*
+				margin-bottom: 64px
+				img
+					width: 76px
+
+			.h5
+
+		&-img
+			padding-left: 28px
+		&-nav
+			z-index: 1
+			padding-bottom: 36px
+			.slick
+				&-slide,
+				&-list,
+				&-track
+					position: static
+
+		&-navitem.slick-current
+			p
+				opacity: 1
+				visibility: visible
+
+		&-info
+			width: calc( 100vw - var(--paddingContainer)*2 )
+			top: calc( 100% + 14px )
+			left: 0
+
+	@media screen and ( max-width: 720px )
+		.container
+			display: block
+
+		&-info
+			text-align: center
+
+		&-img
+			width: 100%
+			padding: 0
+
+		&-nav 
+			margin-bottom: 28px
+		.line
+			width: 100%
+			top: 0
+			flex-direction: row
+			height: 8px
+			&::before
+				width: 100%
+				height: 1px
+
+			.dot
+				width: 8px
+				height: 8px
+				margin: 0
+
+		&-col
+			display: flex
+			justify-content: center
+			&>*
+				width: fit-content
+				img
+					width: 40px
+
+			.h3
+				font-size: 40px
+				font-weight: 400
+				line-height: 36px
+
+			.h5
+				text-transform: none
+				font-size: 18px
+				font-weight: 400
+				line-height: 20px
+				letter-spacing: 0.5px
+
+			.fx-ac
+				display: block
+				margin: 0 auto
+				text-align: center
+				&>*
+					display: block
+					margin: 0 auto
+
+		&-content
+			width: 100%
+			max-width: 100%
+			padding: 12px 0 0
 
 .tec
 	&-wrap
@@ -628,7 +871,7 @@
 			font-weight: 700
 			line-height: 80px
 
-	@media screen and ( max-width: 1500px )
+	@media screen and ( max-width: 1600px )
 		&-wrap
 			margin-bottom: 68px
 		&-list
