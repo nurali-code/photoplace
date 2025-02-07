@@ -5,6 +5,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>PHOTOPLACE</title>
+	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSuJk4.woff2"
+		type="font/woff2" crossorigin="anonymous">
+	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSqJk5kkw.woff2"
+		type="font/woff2" crossorigin="anonymous">
+
 
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="theme-color" content="#FE00A0">
@@ -75,11 +80,11 @@
 			</h1>
 			<div class="container main-wrap fx-ac fx-jb">
 				<div class="main-item"><video src="img/slowmo/v-1.mp4" poster="img/slowmo/v-1.jpg"
-						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
+						controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
 				<div class="main-item"><video src="img/slowmo/v-2.mp4" poster="img/slowmo/v-2.jpg"
-						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
+						controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
 				<div class="main-item"><video src="img/slowmo/v-3.mp4" poster="img/slowmo/v-3.jpg"
-						controlsList="nofullscreen" playsinline muted loop class="observ"></video></div>
+						controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
 			</div>
 		</section>
 
@@ -118,7 +123,7 @@
 					</li>
 					<li>
 						<video src="img/slowmo/p-3.mp4" poster="img/slowmo/p-3.jpg" controlsList="nofullscreen"
-							playsinline muted loop class="how__prev observ"></video>
+							playsinline muted loop class="how__prev observe"></video>
 						<p class="t-b1">Сразу отправляете обработанное видео со стойки с планшетом на свой смартфон</p>
 					</li>
 				</ol>
@@ -198,7 +203,7 @@
 				<div class="more-wrap fx-js">
 					<div class="more-item">
 						<video src="img/ex/f-1.mp4" poster="img/slowmo/dop.jpg" controlsList="nofullscreen" playsinline
-							muted loop class="more__prev mob-observ"></video>
+							muted loop class="more__prev mob-observe"></video>
 						<div class="more-title">
 							<h3 class="h5">Видеоэффекты</h3>
 							<p class="t-b2">Надписи, лучи, картинки – сделаем любую анимацию под ваш запрос</p>
@@ -214,7 +219,7 @@
 					</div>
 					<div class="more-item">
 						<video src="img/slowmo/money.mp4" poster="img/slowmo/dop-3.jpg" controlsList="nofullscreen"
-							playsinline muted loop class="more__prev mob-observ"></video>
+							playsinline muted loop class="more__prev mob-observe"></video>
 						<div class="more-title">
 							<h3 class="h5">Конфетти</h3>
 							<p class="t-b2">Конфетти – это праздничное и яркое дополнение к эффекту слоу-мо в видео</p>
@@ -222,7 +227,7 @@
 					</div>
 					<div class="more-item">
 						<video src="img/slowmo/dimonds.mp4" poster="img/slowmo/dop-4.jpg" controlsList="nofullscreen"
-							playsinline muted loop class="more__prev mob-observ"></video>
+							playsinline muted loop class="more__prev mob-observe"></video>
 						<div class="more-title">
 							<h3 class="h5">Доп. реквизит</h3>
 							<p class="t-b2">Именной реквизит, деньгомёт, шары, свечи-фейерверки – любое ваше пожелание
@@ -240,15 +245,15 @@
 						<img src="img/slowmo/prod-1.png" alt="i" loading="lazy">
 						<img src="img/slowmo/prod-2.png" alt="i" loading="lazy">
 					</div>
-					<div class="description-nav">
-						<div class="description-navitem">
+					<div class="description-nav fx-sc">
+						<button class="description-navbtn is_active">
 							<img src="img/nav/def.svg" alt="l" loading="lazy">
 							<p class="description-info t-b2">Стандартное оформление</p>
-						</div>
-						<div class="description-navitem">
+						</button>
+						<button class="description-navbtn">
 							<img src="img/nav/pressvoll.svg" alt="l" loading="lazy">
 							<p class="description-info t-b2">Оформление стойки и/или прессволл</p>
-						</div>
+						</button>
 					</div>
 				</div>
 
@@ -300,7 +305,7 @@
 						<div class="item-preview">
 							<a href="img/ex/o-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/o-1.mp4"
-									poster="img/ex/o-1.jpg" class="item__img"></video>
+									poster="img/ex/o-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -323,7 +328,7 @@
 						<div class="item-preview">
 							<a href="img/ex/d-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/d-1.mp4"
-									poster="img/ex/d-1.jpg" class="item__img"></video>
+									poster="img/ex/d-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -335,7 +340,7 @@
 						<div class="item-preview">
 							<a href="img/ex/hor-s-1.mp4" data-fancybox="example">
 								<video src="img/ex/hor-s-1.mp4" poster="img/ex/s-1.jpg" controlsList="nofullscreen"
-									playsinline muted loop class="item__img"></video>
+									playsinline muted loop class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -358,7 +363,7 @@
 						<div class="item-preview">
 							<a href="img/ex/qq-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/qq-1.mp4"
-									poster="img/ex/qq-1.jpg" class="item__img"></video>
+									poster="img/ex/qq-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -371,7 +376,7 @@
 						<div class="item-preview">
 							<a href="img/ex/i-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/i-1.mp4"
-									poster="img/ex/i-1.jpg" class="item__img"></video>
+									poster="img/ex/i-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -383,7 +388,7 @@
 						<div class="item-preview">
 							<a href="img/ex/f-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/f-1.mp4"
-									poster="img/ex/f-1.jpg" class="item__img"></video>
+									poster="img/ex/f-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -396,7 +401,7 @@
 						<div class="item-preview">
 							<a href="img/ex/hor-g-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/hor-g-1.mp4"
-									poster="img/ex/g-1.jpg" class="item__img"></video>
+									poster="img/ex/g-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">

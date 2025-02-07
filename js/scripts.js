@@ -1,8 +1,45 @@
+$('[data-adjust]').each(function () { $(this).html(`<span>${$(this).html()}</span>`); });
+
+function adjustFontSize() {
+	const windowWidth = $(window).width();
+	const padding = windowWidth > 1800 ? 80 : windowWidth > 991 ? 86 : windowWidth > 720 ? 40 : 32;
+	$('[data-adjust]').each(function () {
+		const $parent = $(this);
+		const dataAdjust = $parent.attr('data-adjust');
+		const $span = $parent.find('span');
+		let maxFontSize, lineHeight;
+
+		if (dataAdjust === 'tab' && windowWidth <= 720) {
+			maxFontSize = 202;
+			lineHeight = 160;
+		} else if (dataAdjust === 'tab' && windowWidth <= 991 && windowWidth > 720) {
+			maxFontSize = 340;
+			lineHeight = 270;
+		} else {
+			const isNone = dataAdjust === 'none' || dataAdjust === 'tab';
+			maxFontSize = isNone ? Infinity : windowWidth > 1800 ? 386 : windowWidth > 991 ? 265 : windowWidth > 720 ? 148 : 71;
+			lineHeight = Math.round(maxFontSize * 0.8);
+		}
+
+		let fontSize = parseInt($span.css('font-size'), 10);
+		$span.css({ 'font-size': maxFontSize + 'px', 'line-height': lineHeight + 'px' });
+
+
+		while ($span.outerWidth() >= windowWidth - padding) {
+			fontSize--;
+			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.8) + 'px' });
+		}
+
+		while ($span.outerWidth() < windowWidth - padding && fontSize < maxFontSize) {
+			fontSize++;
+			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.8) + 'px' });
+		}
+	});
+}
+
 $('.menu__open, a.menu__link, .menu__close').on('click', function () {
 	$('.menu__open, .header-menu, body').toggleClass('is_active')
 })
-
-$('[data-adjust]').each(function () { $(this).html(`<span>${$(this).html()}</span>`); });
 
 $('.ddown__btn').on('click', function () {
 	$('.ddown-content').not($(this).next()).slideUp(250);
@@ -12,30 +49,23 @@ $('.ddown__btn').on('click', function () {
 	}
 })
 
-const loop = document.querySelectorAll('.observe');
-const options = { root: null, rootMargin: '0px', threshold: 0.1 };
-const observer = new IntersectionObserver(handleIntersection, options);
-loop.forEach(video => observer.observe(video));
-
+const options = { root: null, rootMargin: '0px', threshold: 0.5 };
+let observer;
+function initObserver() {
+	observer?.disconnect();
+	observer = new IntersectionObserver(handleIntersection, options);
+	document.querySelectorAll('.observe, .mob-observe')
+		.forEach(el => (window.innerWidth < 991 || !el.classList.contains('mob-observe')) && observer.observe(el));
+}
 function handleIntersection(entries) {
-	entries.forEach(entry => {
-		const myVideo = entry.target;
-		if (entry.isIntersecting) {
-			myVideo.play();
-
-			// Отключаем меню по правой кнопке мыши
-			myVideo.addEventListener("contextmenu", function (e) {
-				e.preventDefault();
-				e.stopPropagation();
-			}, false);
-
-			// Удаляем атрибут controls, если он присутствует
-			if (myVideo.hasAttribute("controls")) {
-				myVideo.removeAttribute("controls");
-			}
-		} else { myVideo.pause(); }
+	entries.forEach(({ target: video, isIntersecting }) => {
+		video[isIntersecting ? 'play' : 'pause']();
+		video.addEventListener("contextmenu", e => e.preventDefault(), false);
+		video.hasAttribute("controls") && video.removeAttribute("controls");
 	});
 }
+initObserver();
+window.addEventListener('resize', initObserver);
 
 $(window).on('scroll', function () {
 	if ($(this).scrollTop() > 0 && $('header').hasClass('watch')) { $('header').addClass('fixed'); }
@@ -115,63 +145,22 @@ $(document).on('afterLoad.fb onSlideChange.fb', function (e, instance, slide) {
 	}
 });
 
-
-function adjustFontSize() {
-	const windowWidth = $(window).width();
-	const padding = windowWidth > 1800 ? 80 : windowWidth > 991 ? 86 : windowWidth > 720 ? 40 : 32;
-	$('[data-adjust]').each(function () {
-		const $parent = $(this);
-		const dataAdjust = $parent.attr('data-adjust');
-		const $span = $parent.find('span');
-		let maxFontSize, lineHeight;
-
-		if (dataAdjust === 'tab' && windowWidth <= 720) {
-			maxFontSize = 202;
-			lineHeight = 160;
-		} else if (dataAdjust === 'tab' && windowWidth <= 991 && windowWidth > 720) {
-			maxFontSize = 340;
-			lineHeight = 270;
-		} else {
-			const isNone = dataAdjust === 'none' || dataAdjust === 'tab';
-			maxFontSize = isNone ? Infinity : windowWidth > 1800 ? 386 : windowWidth > 991 ? 265 : windowWidth > 720 ? 148 : 71;
-			lineHeight = Math.round(maxFontSize * 0.8);
-		}
-
-		let fontSize = parseInt($span.css('font-size'), 10);
-		$span.css({ 'font-size': maxFontSize + 'px', 'line-height': lineHeight + 'px' });
-
-
-		while ($span.outerWidth() >= windowWidth - padding) {
-			fontSize--;
-			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.8) + 'px' });
-		}
-
-		while ($span.outerWidth() < windowWidth - padding && fontSize < maxFontSize) {
-			fontSize++;
-			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.8) + 'px' });
-		}
-	});
-}
-
 $('.description-slider').slick({
 	infinite: true,
 	draggable: false,
 	dots: false,
+	swipe: false,
 	fade: true,
 	arrows: false,
 	slidesToShow: 1,
 	adaptiveHeight: true,
 });
 
-$('.description-nav').slick({
-	infinite: false,
-	variableWidth: true,
-	dots: false,
-	arrows: false, 
-	focusOnSelect: true,
-	asNavFor: '.description-slider',
-	slidesToShow: 8,
+$('.description-navbtn').on('click', function () {
+	$(this).addClass('is_active').siblings().removeClass('is_active');
+	$('.description-slider').slick('slickGoTo', $(this).index());
 });
+
 
 $(document).ready(function () {
 	// $('.example-wrap .item').each(function () {
