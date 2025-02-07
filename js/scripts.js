@@ -71,7 +71,7 @@ $('.sl').slick({
 	fade: true,
 	dots: false,
 	autoplay: true,
-	autoplaySpeed: 1600,
+	autoplaySpeed: 1800,
 	arrows: false,
 	slidesToShow: 1,
 	adaptiveHeight: true,
@@ -118,7 +118,7 @@ $(document).on('afterLoad.fb onSlideChange.fb', function (e, instance, slide) {
 
 function adjustFontSize() {
 	const windowWidth = $(window).width();
-	const padding = windowWidth > 1600 ? 80 : windowWidth > 991 ? 86 : windowWidth > 720 ? 40 : 32;
+	const padding = windowWidth > 1800 ? 80 : windowWidth > 991 ? 86 : windowWidth > 720 ? 40 : 32;
 	$('[data-adjust]').each(function () {
 		const $parent = $(this);
 		const dataAdjust = $parent.attr('data-adjust');
@@ -133,7 +133,7 @@ function adjustFontSize() {
 			lineHeight = 270;
 		} else {
 			const isNone = dataAdjust === 'none' || dataAdjust === 'tab';
-			maxFontSize = isNone ? Infinity : windowWidth > 1600 ? 386 : windowWidth > 991 ? 265 : windowWidth > 720 ? 148 : 71;
+			maxFontSize = isNone ? Infinity : windowWidth > 1800 ? 386 : windowWidth > 991 ? 265 : windowWidth > 720 ? 148 : 71;
 			lineHeight = Math.round(maxFontSize * 0.8);
 		}
 
