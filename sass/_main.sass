@@ -1,5 +1,4 @@
 .main
-	// display: none
 	text-align: center
 	height: calc( 100vh - 56px )
 	background-color: var(--fuchsia)
@@ -36,10 +35,12 @@
 
 	&-wrap
 		height: 100%
+		padding-bottom: 60px
 
 	&__heading
+		text-transform: uppercase
 		position: absolute
-		top: 48%
+		top: 50%
 		left: 50%
 		white-space: nowrap
 		transform: translate(-50%, -50%)
@@ -56,12 +57,14 @@
 		padding: 20px 0 43px
 		height: unset
 		&__heading
+			top: 48%
 
 			i
 				display: block
 
 		&-wrap
 			display: block
+			padding-bottom: 0
 
 		&-item
 			width: 100%
@@ -71,6 +74,9 @@
 			&:last-child
 				margin-bottom: 0
 
+			&>*
+				height: 252%
+
 	@media screen and ( max-width: 720px )
 		&__heading
 			font-size: 202px
@@ -78,13 +84,18 @@
 
 		&-item
 			height: 224px
+			&>*
+				height: 175%
 
 .product
 	&-title
+		width: 45.7%
 		max-width: 60%
 		.h2
 			margin-bottom: 60px
+		
 		p
+			text-transform: uppercase
 			width: 100%
 			max-width: 720px
 			margin: 0 0 0 auto
@@ -169,7 +180,6 @@
 			width: 53.66%
 			margin: 0 auto 28px
 
-.how,
 .included,
 .tec,
 .more
@@ -246,6 +256,10 @@
 					color: var(--fuchsia)
 					text-shadow: none
 					-webkit-text-stroke: unset
+
+	@media screen and ( min-width: 1800px )
+		.container
+			max-width: calc( 1920px - var(--paddingContainer)*2 )
 
 	@media screen and ( max-width: 1800px )
 		&-title
@@ -565,7 +579,7 @@
 				transform: scale(1.1)
 
 	@media screen and ( max-width: 1800px )
-		--itemWidth: 21.704%
+		--itemWidth: 23.373%
 
 		&-wrap
 			max-width: 1198px
@@ -604,6 +618,151 @@
 
 		&-title
 			padding: 12px 24px 24px
+
+.showcase
+	h4
+		text-transform: uppercase
+		font-weight: 400
+
+	.wrap
+		gap: 120px
+
+	.item
+		position: relative
+		z-index: 1
+		&::before
+			content: ''
+			display: block
+			position: absolute
+			top: 30%
+			left: 0
+			width: 4px
+			height: 70%
+			border-left: 4px solid var(--fuchsia)
+			z-index: -11
+
+	.preview
+		width: 100%
+		display: block
+		object-fit: cover
+		border-radius: 8px
+		background-color: var(--white)
+
+	.w400
+		margin: 0 auto
+		width: 400px
+		.preview
+			aspect-ratio: 9/16.2
+
+	.w880
+		width: 880px
+		margin-top: auto
+		.preview
+			aspect-ratio: 16/10.182
+
+	.w640
+		margin: 120px auto 0
+		width: 640px
+
+		.preview
+			aspect-ratio: 9/13.5
+
+	.w1320
+		margin-left: auto
+		width: 1320px
+
+		.preview
+			aspect-ratio: 16/7.7577
+
+	p
+		display: block
+		padding: 20px 0 20px 40px
+
+	@media screen and ( max-width: 1800px )
+		.wrap
+			gap: 80px
+
+		.w400
+			max-width: 70%
+			margin-bottom: 120px
+			width: 363px
+			.preview
+		.w880
+			max-width: 70%
+			width: 781px
+			.preview
+
+		.w640
+			max-width: 70%
+			width: 560px
+			.preview
+
+		.w1320
+			width: 960px
+			.preview
+
+	@media screen and ( max-width: 991px )
+		.item
+			flex-direction: column-reverse
+			&::before
+				bottom: auto
+				top: 0
+
+		p
+			padding: 4px 0 4px 24px
+
+		@media screen and ( min-width: 720px )
+			.wrap
+				gap: 28px
+
+			.w880
+				margin: auto 0
+				width: calc( (100% - 42.308%) - 28px )
+
+			.w640,
+			.w400
+				width: 42.308%
+				margin: 0
+
+			.item
+				order: 1
+				flex-direction: column-reverse
+				&:nth-child(4)
+					order: 3
+					width: 46.154%
+					margin-left: auto
+				&:nth-child(3)
+					order: 4
+					position: relative
+					z-index: 1
+					top: -14vw
+
+				&:last-child
+					order: 5
+					width: 92%
+					margin-top: 32px
+
+	@media screen and ( max-width: 991px )
+		.item
+			width: 100%
+			max-width: 100%
+			margin: 0
+
+		.wrap
+			gap: 16px
+
+		.preview
+			border-radius: 6px
+
+		.w400
+			.preview
+				aspect-ratio: 9/16
+		.w880
+			.preview
+				aspect-ratio: 16/13.1
+		.w1320
+			.preview
+				aspect-ratio: 16/8.6
 
 .description
 
@@ -689,7 +848,7 @@
 	&-info
 		position: absolute
 		z-index: 11
-		transition-property: opacity, visibility
+		transition-property: opacity, visibility, transform
 		transition-duration: .3s
 		transition-timing-function: ease
 		opacity: 0

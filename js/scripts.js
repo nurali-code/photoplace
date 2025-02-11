@@ -11,14 +11,14 @@ function adjustFontSize() {
 
 		if (dataAdjust === 'tab' && windowWidth <= 720) {
 			maxFontSize = 202;
-			lineHeight = 160;
+			lineHeight = 165;
 		} else if (dataAdjust === 'tab' && windowWidth <= 991 && windowWidth > 720) {
 			maxFontSize = 340;
-			lineHeight = 270;
+			lineHeight = 275;
 		} else {
 			const isNone = dataAdjust === 'none' || dataAdjust === 'tab';
 			maxFontSize = isNone ? Infinity : windowWidth > 1800 ? 386 : windowWidth > 991 ? 265 : windowWidth > 720 ? 148 : 71;
-			lineHeight = Math.round(maxFontSize * 0.8);
+			lineHeight = Math.round(maxFontSize * 0.82);
 		}
 
 		let fontSize = parseInt($span.css('font-size'), 10);
@@ -27,12 +27,12 @@ function adjustFontSize() {
 
 		while ($span.outerWidth() >= windowWidth - padding) {
 			fontSize--;
-			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.8) + 'px' });
+			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.82) + 'px' });
 		}
 
 		while ($span.outerWidth() < windowWidth - padding && fontSize < maxFontSize) {
 			fontSize++;
-			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.8) + 'px' });
+			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.82) + 'px' });
 		}
 	});
 }
