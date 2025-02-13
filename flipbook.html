@@ -1,0 +1,573 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>PHOTOPLACE</title>
+	<link rel="preload" as="image" href="img/ball.jpg" type="image/jpg">
+	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSuJk4.woff2" type="font/woff2"
+		crossorigin="anonymous">
+	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSqJk5kkw.woff2"
+		type="font/woff2" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="theme-color" content="#FE00A0">
+
+	<link rel="shortcut icon" href="favicon.svg" type="image/svg">
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+</head>
+
+<body id="home" class="overflow">
+	<div class="loader fx-ac fx-jc">
+		<div class="cont">
+			<div class="loader-img">
+				<span class="loader-wh"></span>
+				<img src="img/ball.jpg" alt="i">
+			</div>
+			<span class="percentage h3">1%</span>
+		</div>
+	</div>
+
+	<header class="header">
+		<div class="container fx-ac">
+			<button class="menu__open" title="Меню"></button>
+			<nav class="header-nav fx-ac fx-jb">
+				<a href="#how">Как работает</a>
+				<a href="#included">Что входит в стоимость</a>
+				<a href="#tec">Тех.требования</a>
+				<a href="#examples">Примеры работ</a>
+			</nav>
+			<div class="header-contact fx-ac">
+				<a href="tel:+79003682363" class="header__call">+7 (900) 368 23 63</a>
+				<a href="https://wa.me/79003682363" target="_blank" class="header__call"><img src="img/wa-f.svg" alt="i"></a>
+				<a href="https://t.me/photoplace32" target="_blank" class="header__call"><img src="img/tg-f.svg" alt="i"></a>
+			</div>
+		</div>
+
+		<div class="header-menu">
+			<div class="container fx-col">
+				<div class="menu-header fx-as fx-jb">
+					<h4 class="menu__heading">МЕНЮ</h4>
+					<button class="menu__close" title="Закрыть меню"></button>
+				</div>
+
+				<ul class="menu-list">
+					<li>
+						<a href="./index.html" class="h3 menu__link fx-ac"><i class="sp"></i> НА ГЛАВНУЮ</a>
+					</li>
+					<li class="fx-ac">
+						<span class="menu__link h3">ИНТЕРАКТИВЫ</span>
+						<div class="menu-submenu fx-ac fx-jb">
+							<a href="./slowmo.html" class="menu__sublink">SLOW MO 360</a>
+							<a href="./photobooth.html" class="menu__sublink">ФОТОБУДКА</a>
+							<a href="./mirror.html" class="menu__sublink">ФОТОЗЕРКАЛО</a>
+							<a href="./aiphotobooth.html" class="menu__sublink">ии фотобудка</a>
+						</div>
+					</li>
+					<li><a href="#examples" class="h3 menu__link">ПРИМЕРЫ РАБОТ</a></li>
+					<li><button data-modal="modal-request" class="h3 menu__link">ОСТАВИТЬ ЗАЯВКУ</button></li>
+				</ul>
+
+				<div class="menu-footer t-btn fx-ac fx-jb">
+					<a href="mailto:photoplace32@mail.ru">photoplace32@mail.ru</a>
+
+					<div class="fx-ac menu-footer__call">
+						<a href="tel:+79003682363">+7 (900) 368 23 63</a>
+						<a href="https://t.me/photoplace32" class="pc-hide" target="_blank"><img src="img/tg.svg" alt="i"></a>
+						<a href="https://wa.me/79003682363" class="pc-hide" target="_blank"><img src="img/wa.svg" alt="i"></a>
+					</div>
+
+					<a href="https://wa.me/79003682363" class="tb-hide" target="_blank">WHATSAPP</a>
+					<a href="https://t.me/photoplace32" class="tb-hide" target="_blank">TELEGRAM</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="main">
+			<h1 class="main__heading" data-adjust="tab">
+				<i>ФЛИП</i><i>БУК</i> <i>СТУДИЯ</i>
+			</h1>
+			<div class="container main-wrap fx-ac fx-jb">
+				<div class="main-item"><img src="img/ex/k-1.jpg" alt="l"></div>
+				<div class="main-item"><video src="img/ex/jk-1.mp4" poster="img/ex/jk-1.jpg" controlsList="nofullscreen"
+						playsinline muted loop class="observ"></video></div>
+				<div class="main-item"><video src="img/ex/l-1.mp4" poster="img/ex/l-1.jpg" controlsList="nofullscreen"
+						playsinline muted loop class="observ"></video></div>
+			</div>
+		</section>
+
+		<script>
+			var main = document.querySelector(".main");
+			var loader = document.querySelector(".loader");
+			var loaderWh = document.querySelector(".loader-wh");
+			var percentage = document.querySelector(".loader .percentage");
+
+			if (main && loader && percentage) {
+				var resources = [...main.querySelectorAll("img"), ...main.querySelectorAll("video")];
+				var resourcesLoaded = 0;
+				var totalResources = resources.length;
+
+				const updateProgress = () => {
+					resourcesLoaded++;
+					var progress = Math.min((resourcesLoaded / totalResources) * 100, 100);
+					percentage.textContent = Math.round(progress) + "%";
+					loaderWh.style.translate = Math.round(progress) + "%";
+
+					if (progress === 100) {
+						setTimeout(() => {
+							loader.classList.add('--hide');
+							setTimeout(() => { main.classList.add('--anim'); }, 300);
+							document.body.classList.remove('overflow');
+						}, 500);
+					}
+				};
+
+				if (totalResources === 0) {
+					loader.classList.add('--hide');
+					setTimeout(() => { main.classList.add('--anim'); }, 300);
+					document.body.classList.remove('overflow');
+				} else {
+					resources.forEach(resource => {
+						if (resource.tagName === 'VIDEO') {
+							var poster = new Image();
+							poster.src = resource.getAttribute("poster");
+							poster.onload = updateProgress;
+							poster.onerror = updateProgress;
+						} else {
+							resource.onload = updateProgress;
+							resource.onerror = updateProgress;
+						}
+						if (resource.complete) updateProgress();
+					});
+				}
+			}
+		</script>
+
+		<section class="product" id="product">
+			<div class="container">
+				<div class="product-wrap fx-ac">
+					<div class="product-title" data-aos="fade-up" data-aos-delay="150">
+						<h2 class="h2">ФЛИПБУК <br> студия</h2>
+						<p class="t-acc">
+							Моментально получить книжку с анимацией из фото с вами в главной роли? Флипбук запросто
+							реализует этот замысел! Ваша задача — позировать и веселиться, а флипбук в сопровождении
+							двух операторов сделает остальную работу :)
+						</p>
+					</div>
+					<div class="product-img" data-aos="fade-up">
+						<img src="img/flipbook/prod-1.png" alt="i" loading="lazy">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="how" id="how">
+			<div class="container how-wrap fx-ac">
+				<div class="how-title">
+					<img src="img/flipbook/prod-1.png" class="how-img" alt="i" loading="lazy">
+					<h2 class="h4">Как работает флипбук студия</h2>
+				</div>
+				<ol class="how-list fx-as fx-je fx-w">
+					<li data-aos="fade-left">
+						<img class="how__prev" src="img/flipbook/how-1.jpg" alt="i" loading="lazy">
+						<p class="t-b1">Выбираете реквизит, становитесь напротив студии, и оператор запускает съёмку</p>
+					</li>
+					<li data-aos="fade-left" data-aos-delay="150">
+						<img class="how__prev" src="img/flipbook/how-2.jpg" alt="i" loading="lazy">
+						<p class="t-b1">Позируете, а студия снимает видео 7 сек., из которого печатает 50 фото</p>
+					</li>
+					<li data-aos="fade-left" data-aos-delay="300">
+						<video src="img/flipbook/book.mp4" poster="img/flipbook/book.jpg" controlsList="nofullscreen"
+							playsinline muted loop class="how__prev observ"></video>
+						<p class="t-b1">Второй оператор подшивает флипбук, пока гости продолжают фотографироваться :)
+						</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+
+		<section class="included" id="included">
+			<div class="container">
+				<h2>ЧТО ВХОДИТ <br class="mob-show"> В СТОИМОСТЬ</h2>
+
+				<div data-aos="fade-up" class="ddown fx-as is_active">
+					<img src="img/ddown-1.svg" alt="i" loading="lazy" class="ddown-ic">
+					<div data-aos="fade-up" class="ddown-title">
+						<button class="ddown__btn h5">Доставка и установка интерактива</button>
+						<p class="ddown-content t-b2">
+							Доставка в пределах города; приедем заранее, установим и подключим оборудование
+						</p>
+					</div>
+				</div>
+				<div data-aos="fade-up" class="ddown fx-as">
+					<img src="img/ddown-1.svg" alt="i" loading="lazy" class="ddown-ic">
+					<div data-aos="fade-up" class="ddown-title">
+						<button class="ddown__btn h5">Работа двух операторов</button>
+						<p class="ddown-content t-b2">
+							Первый оператор помогает гостям с реквизитом и съёмкой, а второй оператор подшивает флипбук
+						</p>
+					</div>
+				</div>
+				<div data-aos="fade-up" class="ddown fx-as">
+					<img src="img/ddown-1.svg" alt="i" loading="lazy" class="ddown-ic">
+					<div data-aos="fade-up" class="ddown-title">
+						<button class="ddown__btn h5">базовый реквизит для съёмки</button>
+						<p class="ddown-content t-b2">
+							В базовый набор входят разные ободки с ушами, бантами, очки — не именной реквизит
+						</p>
+					</div>
+				</div>
+				<div data-aos="fade-up" class="ddown fx-as">
+					<img src="img/ddown-1.svg" alt="i" loading="lazy" class="ddown-ic">
+					<div data-aos="fade-up" class="ddown-title">
+						<button class="ddown__btn h5">Надпись/лого на обложке флипбука</button>
+						<p class="ddown-content t-b2">
+							Оформим переднюю и заднюю часть обложки – выберем фон, надписи, разместим ваш логотип
+						</p>
+					</div>
+				</div>
+
+				<img src="img/discoball.jpg" class="included__ball" alt="i" loading="lazy">
+			</div>
+
+			<div class="included-contact fx-ac fx-jc">
+				<h5>Чтобы узнать цены под ваш запрос, напишите нам <span class="mob-show">Мы всегда на связи!</span>
+				</h5>
+				<div class="fx-ac included-links">
+					<a href="https://wa.me/79003682363" target="_blank"><img src="img/wa.svg" alt="i" loading="lazy"></a>
+					<a href="https://t.me/photoplace32" target="_blank"><img src="img/tg.svg" alt="i" loading="lazy"></a>
+				</div>
+				<h5 class="mob-hide">Мы всегда на связи!</h5>
+			</div>
+		</section>
+
+		<section class="more">
+			<div class="container">
+				<h2>Доп.услуги</h2>
+				<div class="more-wrap fx-js">
+					<div class="more-item" data-aos="fade-up">
+						<img class="more__prev" src="img/flipbook/more-1.jpg" alt="i" loading="lazy">
+						<div class="more-title">
+							<h3 class="h5">Оформление</h3>
+							<p class="t-b2">Оформим стойку, сделаем дизайн обложки флипбука под ваш запрос</p>
+						</div>
+					</div>
+					<div class="more-item" data-aos="fade-up" data-aos-delay="150">
+						<img class="more__prev" src="img/flipbook/more-2.jpg" alt="i" loading="lazy">
+						<div class="more-title">
+							<h3 class="h5">Прессволл</h3>
+							<p class="t-b2">Можем заменить белый фотобокс на брендированный прессволл</p>
+						</div>
+					</div>
+					<div class="more-item" data-aos="fade-up" data-aos-delay="300">
+						<video src="img/slowmo/dimonds.mp4" poster="img/slowmo/dop-4.jpg" controlsList="nofullscreen"
+							playsinline muted loop class="more__prev mob-observ"></video>
+						<div class="more-title">
+							<h3 class="h5">Доп. реквизит</h3>
+							<p class="t-b2">Именной реквизит, деньгомёт, шары, свечи-фейерверки – любое ваше пожелание
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="description">
+			<div class="container fx-ac">
+				<div class="description-img">
+					<div class="description-slider">
+						<img src="img/flipbook/prod-1.png" alt="i" loading="lazy">
+						<img src="img/flipbook/prod-2.png" alt="i" loading="lazy">
+					</div>
+					<div class="description-nav fx-sc">
+						<button class="description-navbtn is_active">
+							<img src="img/nav/def.svg" alt="l" loading="lazy">
+							<p class="description-info t-b2">Стандартное оформление</p>
+						</button>
+						<button class="description-navbtn">
+							<img src="img/nav/pressvoll.svg" alt="l" loading="lazy">
+							<p class="description-info t-b2">Оформление стойки и/или прессволл</p>
+						</button>
+					</div>
+				</div>
+
+				<div class="description-content">
+					<div class="line fx-col fx-jb">
+						<span class="dot"></span>
+						<span class="dot"></span>
+						<span class="dot"></span>
+					</div>
+					<div class="description-col">
+						<h3 class="fx-ac"><span class="h3">2 м</span> <sup class="h5">Высота</sup></h3>
+						<h3 class="fx-ac"><span class="h3">3*3 м</span> <sup class="h5">Диаметр</sup></h3>
+						<h3 class="fx-ac"><img src="img/infinity.svg" alt="i" loading="lazy"> <sup class="h5">Кол-во
+								флипбуков</sup></h3>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="tec" id="tec">
+			<div class="container">
+				<div class="tec-wrap fx-ac">
+					<h4 class="tec__heading h4">Технические <br> требования</h4>
+					<ol class="tec-list fx-ac fx-jb">
+						<li class="t-b1" data-aos="fade-left">30 мин на монтаж/ <br> демонтаж</li>
+						<li class="t-b1" data-aos="fade-left" data-aos-delay="150">Розетка 220В <br> мощностью 1кВт</li>
+						<li class="t-b1" data-aos="fade-left" data-aos-delay="300">Пространство <br> площадью 3х3м</li>
+						<li class="t-b1" data-aos="fade-left" data-aos-delay="450">Установка на сухой <br> и ровный пол
+						</li>
+					</ol>
+				</div>
+				<button class="btn --star" data-modal="modal-request">Забронировать флипбук</button>
+			</div>
+		</section>
+
+		<section class="example" id="examples">
+			<h2 class="h1" data-adjust>ПРИМЕРЫ РАБОТ</h2>
+
+			<div class="container">
+				<div class="example-wrap fx-w">
+					<div class="item" data-aos="fade-up">
+						<div class="item-preview"> <a href="img/ex/jk-1.mp4" data-fancybox="example"> <video
+									controlslist="nofullscreen" playsinline muted loop src="img/ex/jk-1.mp4"
+									poster="img/ex/jk-1.jpg" class="item__img"></video> </a> </div>
+						<div class="item-title t-b2">
+							<p>Моментальная печать книжек с анимацией, где вы главный герой!</p>
+							<p>#флипбук_студия #корпоратив</p>
+						</div>
+					</div>
+					<div class="item" data-aos="fade-up">
+						<div class="item-preview"> <a href="img/ex/k-1.jpg" data-fancybox="example"> <img
+									src="img/ex/k-1.jpg" class="item__img" loading="lazy"> </a> </div>
+						<div class="item-title t-b2">
+							<p>Процесс съёмки анимации — флипбук студия 🫶</p>
+							<p>#флипбук_студия #корпоратив</p>
+						</div>
+					</div>
+					<div class="item" data-aos="fade-up">
+						<div class="item-preview"> <a href="img/ex/l-1.mp4" data-fancybox="example"> <video
+									controlslist="nofullscreen" playsinline muted loop src="img/ex/l-1.mp4"
+									poster="img/ex/l-1.jpg" class="item__img"></video> </a> </div>
+						<div class="item-title t-b2">
+							<p>Вот так просто флипбук студия создаёт классные анимации 🤟</p>
+							<p>#флипбук_студия</p>
+						</div>
+					</div>
+					<div class="item" data-aos="fade-up">
+						<div class="item-preview"> <a href="img/ex/z-1.jpg" data-fancybox="example"> <img
+									src="img/ex/z-1.jpg" class="item__img" loading="lazy"> </a> </div>
+						<div class="item-title t-b2">
+							<p>Съёмка 7 секунд, печать и подшив 3 минуты – быстро и эффектно!</p>
+							<p>#флипбук_студия #корпоратив</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="contact fx-ac">
+					<p class="t-b1">
+						Больше фото и видео
+						<mark>в наших соцсетях</mark>
+					</p>
+					<a href="https://vk.com/budka32" target="_blank"><img src="img/vk-f.svg" alt="i" loading="lazy"></a>
+					<a href="https://instagram.com/photoplace32" target="_blank"><img src="img/inst-f.svg" alt="i"
+							loading="lazy"></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="interactives" id="interactives">
+			<div class="container">
+				<h2 class="h2 t-left" data-aos="fade-up">ДРУГИЕ <br> ИНТЕРАКТИВЫ</h2>
+			</div>
+			<div class="interactives-slider fx-w fx-jc">
+				<div class="item" data-aos="fade-up">
+					<img class="item__preview" src="img/ex/m-1.jpg" alt="i">
+					<h3 class="item__def t-btn">ФОТОЗЕРКАЛО</h3>
+
+					<div class="item-box fx-jb">
+						<div class="item-imgs">
+							<img class="item__slide" src="img/ex/m-1.jpg" loading="lazy" alt="i">
+							<img class="item__slide" src="img/interactiv/mir-2.jpg" loading="lazy" alt="i">
+						</div>
+						<div class="item-title fx-col fx-as">
+							<div class="item-ic"> <img src="img/items/photo-booth.png" loading="lazy" alt="i"></div>
+							<h4 class="item__heading">ФОТО ЗЕРКАЛО</h4>
+							<p class="t-b2">
+								Зеркало с подсветкой или без – на ваш выбор. Делает селфи в полный рост и сразу
+								их печатает
+							</p>
+							<a href="./mirror.html" class="btn --arr">ПОДРОБНЕЕ</a>
+						</div>
+					</div>
+				</div>
+				<div class="item" data-aos="fade-up" data-aos-delay="150">
+					<img class="item__preview" src="img/interactiv/m-1.jpg" alt="i">
+					<h3 class="item__def t-btn">ФОТОБУДКА</h3>
+
+					<div class="item-box fx-jb">
+						<div class="item-imgs">
+							<img class="item__slide" src="img/interactiv/m-1.jpg" loading="lazy" alt="i">
+							<img class="item__slide" src="img/interactiv/m-2.jpg" loading="lazy" alt="i">
+						</div>
+						<div class="item-title fx-col fx-as">
+							<div class="item-ic"> <img src="img/items/photo-booth.png" loading="lazy" alt="i"></div>
+							<h4 class="item__heading">ФОТО<br class="tb-hide">БУДКА</h4>
+							<p class="t-b2">
+								Стенд с ширмой, хромакеем, прессволлом или без всего – на ваш выбор. Делает серию фото
+								и сразу их печатает
+							</p>
+							<a href="./photobooth.html" class="btn --arr">ПОДРОБНЕЕ</a>
+						</div>
+					</div>
+				</div>
+				<div class="item" data-aos="fade-up" data-aos-delay="300">
+					<img class="item__preview" src="img/interactiv/slow-1.jpg" alt="i">
+					<h3 class="item__def t-btn">SLOW MO 360</h3>
+
+					<div class="item-box fx-jb">
+						<div class="item-imgs">
+							<img class="item__slide" src="img/interactiv/slow-1.jpg" loading="lazy" alt="i">
+							<video class="item__slide" src="img/interactiv/costume.mp4" controlsList="nofullscreen"
+								playsinline preload muted loop poster="img/interactiv/slow-2.jpg"></video>
+						</div>
+						<div class="item-title fx-col fx-as">
+							<div class="item-ic"> <img src="img/items/photo-booth.png" loading="lazy" alt="i"></div>
+							<h4 class="item__heading">SLOW MO 360</h4>
+							<p class="t-b2">
+								Подиум с вращающейся по периметру камерой. Создаёт яркие короткие видео за 15 секунд
+							</p>
+							<a href="./slowmo.html" class="btn --arr">ПОДРОБНЕЕ</a>
+						</div>
+					</div>
+				</div>
+				<div class="item" data-aos="fade-up" data-aos-delay="450">
+					<img class="item__preview" src="img/ex/x-1.jpg" alt="i">
+					<h3 class="item__def t-btn">ФОТОБУДКА С ИИ</h3>
+
+					<div class="item-box fx-jb">
+						<div class="item-imgs">
+							<img class="item__slide" src="img/ex/x-1.jpg" loading="lazy" alt="i">
+							<video class="item__slide" controlsList="nofullscreen" playsinline preload muted loop
+								src="img/interactiv/pross.mp4" poster="img/interactiv/ai-2.jpg"></video>
+						</div>
+						<div class="item-title fx-col fx-as">
+							<div class="item-ic"> <img src="img/items/photo-booth.png" loading="lazy" alt="i"></div>
+							<h4 class="item__heading">ФОТОБУДКА С ИИ</h4>
+							<p class="t-b2">
+								Стенд, который делает фото и превращает их в шедевры цифрового искусства с помощью
+								нейросети
+							</p>
+							<a href="./aiphotobooth.html" class="btn --arr">ПОДРОБНЕЕ</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container fx-jb fx-w">
+			<div class="col">
+				<h5 class="footer__heading">ОСТАВИТЬ ЗАЯВКУ</h5>
+				<form>
+					<input type="text" placeholder="Ваше имя" required>
+					<input type="text" placeholder="Email или номер телефона" required>
+					<textarea required placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<a href="#modal-done" type="submit" class="btn --arr --dark">Отправить</a>
+				</form>
+			</div>
+
+			<div class="col fx-col">
+				<p class="t-acc">Брянск · Москва · Орёл · Калуга · Смоленск</p>
+				<p class="t-acc">
+					ИП Комаров Максим Иванович <br>
+					ОГРН 320325600008191 <br>
+					ИНН 325005562155
+				</p>
+				<img src="img/footer-logo.svg" class="footer__logo" alt="i" loading="lazy">
+			</div>
+
+			<div class="fx-ac fx-jb fx-w footer-bottom t-btn">
+				<a href="mailto:photoplace32@mail.ru">PHOTOPLACE32@MAIL.RU</a>
+				<a href="tel:+79003682363">+7 (900) 368 23 63</a>
+				<a href="https://wa.me/79003682363" target="_blank">WHATSAPP</a>
+				<a href="https://t.me/photoplace32" target="_blank">TELEGRAM</a>
+			</div>
+		</div>
+	</footer>
+
+	<div class="connect">
+		<div class="connect-box">
+			<h3 class="t-b2">Свяжитесь с нами</h3>
+			<div class="fx-ac t-acc connect__item">
+				<a href="tel:+79003682363" class="fx-ac">
+					<img src="img/call.svg" class="connect__ic" alt="i">
+					<span>+7 (900) 368 23 63</span>
+				</a>
+				<a href="https://t.me/photoplace32" class="connect__link" target="_blank"><img src="img/tg.svg"
+						alt="i"></a>
+				<a href="https://wa.me/79003682363" class="connect__link" target="_blank"><img src="img/wa.svg"
+						alt="i"></a>
+			</div>
+
+			<a href="mailto:photoplace32@mail.ru" class="fx-ac t-acc connect__item">
+				<img src="img/mail.svg" class="connect__ic" alt="i">
+				<span>photoplace32@mail.ru</span>
+			</a>
+			<h3 class="t-b2">или</h3>
+			<button data-modal="modal-request" class="btn --light --star">Оставить заявку</button>
+		</div>
+		<button class="connect__btn"><img src="img/connect-img.jpg" alt="i"></button>
+	</div>
+
+	<div class="modal" id="modal-request">
+		<div class="modal-content fx-jb">
+			<div class="modal-img"><img src="img/discoball.jpg" alt="i" loading="lazy"></div>
+			<div class="modal-title">
+				<button class="modal__close" title="Закрыть окно"></button>
+				<h4 class="modal__heading">ОСТАВЬТЕ ЗАЯВКУ</h4>
+				<form class="modal-form">
+					<input type="text" placeholder="Ваше имя" required>
+					<input type="text" placeholder="Email или номер телефона" required>
+					<textarea required placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<button data-modal="modal-done" type="submit" class="btn --star">Отправить</button>
+				</form>
+				<p class="modal__subheading">ИЛИ СВЯЖИТЕСЬ С НАМИ</p>
+				<div class="fx-ac fx-jb fx-w modal-footer">
+					<a href="mailto:photoplace32@mail.ru">PHOTOPLACE32@MAIL.RU</a>
+					<div class="fx-jb fx-ac">
+						<a href="tel:+79003682363">+7 (900) 368 23 63</a>
+						<a href="#" target="_blank"><img src="img/tg.svg" alt="i"></a>
+						<a href="#" target="_blank"><img src="img/wa.svg" alt="i"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" id="modal-done">
+		<div class="modal-content fx-ac fx-jb">
+			<div class="modal-img"><img src="img/discoball.jpg" alt="i" loading="lazy"></div>
+			<div class="modal-title">
+				<button class="modal__close" title="Закрыть окно"></button>
+				<h4 class="modal__heading">Готово</h4>
+				<p class="t-b1">Заявка отправлена, мы свяжемся с вами <br> в течение часа</p>
+				<button onclick="hideModals()" class="btn --star">закрыть</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="js/jquery.fancybox.min.js"></script>
+</body>
+
+</html>

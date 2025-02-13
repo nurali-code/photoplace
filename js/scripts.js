@@ -50,7 +50,8 @@ $('.ddown__btn').on('click', function () {
 	$('.ddown-content').not($(this).next()).slideUp(250);
 	$(this).next().slideDown(250);
 	if ($('.ddown').hasClass('is_active')) {
-		setTimeout(() => { $('.ddown').removeClass('is_active') }, 250);
+		setTimeout(() => { $('.ddown').not($(this).parents('.ddown')).removeClass('is_active') }, 250);
+		$(this).parents('.ddown').addClass('is_active');
 	}
 })
 

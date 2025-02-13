@@ -118,7 +118,7 @@
 		max-width: 920px
 		.h2
 			margin-bottom: 60px
-			i 
+			i
 				font-style: normal
 
 		p
@@ -126,6 +126,10 @@
 			width: 100%
 			max-width: 720px
 			margin: 0 auto
+
+		&.--lg
+			width: 56.7%
+			max-width: 1000px
 
 	&-img
 		width: 34.0911%
@@ -159,17 +163,20 @@
 
 		&-title
 			max-width: 660px
+			&.--lg
+				width: 56.7%
+				max-width: 710px
+				p
+					max-width: 590px
 
 			.h2
 				margin-bottom: 48px
-				i 
+				i
 					display: block
 
 			p
 				max-width: 520px
 				margin-right: 0
-
-
 
 	@media screen and ( max-width: 1250px )
 		padding-left: 0
@@ -179,11 +186,21 @@
 		&-title
 			max-width: 66%
 
+		@media screen and ( min-width: 992px )
+			h2
+				font-weight: 600
+				font-size: 80px
+				line-height: 74px
+				letter-spacing: -0.8px
+
 	@media screen and ( max-width: 992px )
 		&-img
 			width: 30.77%
 
 		&-title
+			&.--lg
+				width: 65.4%
+				max-width: 710px
 			.h2
 				margin-bottom: 15px
 
@@ -197,6 +214,10 @@
 		&-title
 			width: 100%
 			max-width: 100%
+			&.--lg
+				width: 100%
+				max-width: 100%
+
 			.h2
 				font-size: 71px
 				font-weight: 700
@@ -527,6 +548,7 @@
 			&__btn
 				&::after
 					transform: rotate(-90deg)
+
 			&-content
 				display: block
 
