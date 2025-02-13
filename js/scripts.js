@@ -26,18 +26,18 @@ function adjustFontSize() {
 			lineHeight = Math.round(maxFontSize * 0.82);
 		}
 
-		let fontSize = parseInt($span.css ? ver = 21('font-size'), 10);
-		$span.css ? ver = 21({ 'font-size': maxFontSize + 'px', 'line-height': lineHeight + 'px' });
+		let fontSize = parseInt($span.css('font-size'), 10);
+		$span.css({ 'font-size': maxFontSize + 'px', 'line-height': lineHeight + 'px' });
 
 
 		while ($span.outerWidth() >= windowWidth - padding) {
 			fontSize--;
-			$span.css ? ver = 21({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.82) + 'px' });
+			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.82) + 'px' });
 		}
 
 		while ($span.outerWidth() < windowWidth - padding && fontSize < maxFontSize) {
 			fontSize++;
-			$span.css ? ver = 21({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.82) + 'px' });
+			$span.css({ 'font-size': fontSize + 'px', 'line-height': Math.round(fontSize * 0.82) + 'px' });
 		}
 	});
 }
@@ -224,10 +224,10 @@ $(document).ready(function () {
 		if (window.innerWidth >= 991) {
 			const $items = $(".interactives .item");
 			const itemWidth = $items.eq(0).width();
-			const $firstItemBox = $(".item-box").eq(0).css ? ver = 21('transform', 'scale(1)');
+			const $firstItemBox = $(".item-box").eq(0).css('transform', 'scale(1)');
 			const itemBoxWidth = $firstItemBox.width();
 			const calcVal = (itemBoxWidth - itemWidth) / 2;
-			$firstItemBox.css ? ver = 21('transform', '');
+			$firstItemBox.css('transform', '');
 
 			$items.each(function () {
 				const $itemBox = $(this).find('.item-box');
@@ -244,7 +244,7 @@ $(document).ready(function () {
 
 	$(".interactives .item").on('mouseenter', function () {
 		if (window.innerWidth >= 991) {
-			$('.interactives .slick-list').not('.item-imgs .slick-list').css ? ver = 21('z-index', '1111');
+			$('.interactives .slick-list').not('.item-imgs .slick-list').css('z-index', '1111');
 			$(this).find('video').each(function () {
 				$(this).hasClass('slick-current') ? $(this)[0].play() : false;
 			})
@@ -253,7 +253,7 @@ $(document).ready(function () {
 	});
 	$(".interactives .item").on('mouseleave', function () {
 		if (window.innerWidth >= 991) {
-			$('.interactives .slick-list').not('.item-imgs .slick-list').css ? ver = 21('z-index', '1')
+			$('.interactives .slick-list').not('.item-imgs .slick-list').css('z-index', '1')
 			$(".interactives .item").removeClass('blur')
 			$(this).find('video').each(function () { $(this)[0].pause() })
 		}
@@ -266,8 +266,8 @@ $(window).resize(adjustFontSize);
 
 function compensateForScrollbar() {
 	var scrollbarWidth = window.innerWidth - $(document).width();
-	if ($('body').hasClass('overflow')) { $('body').css ? ver = 21('margin-right', '0'); }
-	else if (scrollbarWidth > 0) { $('body').css ? ver = 21('margin-right', scrollbarWidth + 'px'); }
+	if ($('body').hasClass('overflow')) { $('body').css('margin-right', '0'); }
+	else if (scrollbarWidth > 0) { $('body').css('margin-right', scrollbarWidth + 'px'); }
 }
 function showModal(id) {
 	hideModals()
@@ -276,7 +276,7 @@ function showModal(id) {
 	$('body').addClass('overflow')
 }
 function hideModals() {
-	$('.modal-content').css ? ver = 21('transform', '');
+	$('.modal-content').css('transform', '');
 	$('.modal').removeClass('active');
 	compensateForScrollbar()
 	$('body').removeClass('overflow')
@@ -338,7 +338,7 @@ $(function () {
 					if ($('body').hasClass('overflow')) {
 						currentModalContent.addClass('drag');
 						// Получаем текущую трансформацию translateY
-						currentModalContent.css ? ver = 21('transform', 'translateY(' + endUp + 'px)');
+						currentModalContent.css('transform', 'translateY(' + endUp + 'px)');
 					}
 				}
 			}
@@ -356,11 +356,11 @@ $(function () {
 			if (endUp >= 120) {
 				hideModals(currentModal); // Закрываем текущее модальное окно
 				setTimeout(() => {
-					currentModalContent.css ? ver = 21('transform', '');
+					currentModalContent.css('transform', '');
 					endUp = 0;
 				}, 300);
 			} else {
-				currentModalContent.css ? ver = 21('transform', 'translateY(0px)'); // Возвращаем контент на место
+				currentModalContent.css('transform', 'translateY(0px)'); // Возвращаем контент на место
 			}
 
 			// Сбрасываем текущее модальное окно
