@@ -174,9 +174,14 @@
         &__ball
             top: 17vw
             width: 36.5vw
-            @media screen and ( min-width: 720px )
+        @media screen and ( min-width: 720px )
+            &__ball
                 transform: none
                 left: 4%
+            &.--anim
+                .hero__ball
+                    opacity: 1
+                    transform: translate(0, 0)
 
     @media screen and ( max-width: 720px )
         padding: 4px 0 36px

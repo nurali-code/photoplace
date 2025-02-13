@@ -47,9 +47,12 @@ $('.menu__open, a.menu__link, .menu__close').on('click', function () {
 })
 
 $('.ddown__btn').on('click', function () {
-	$('.ddown-content').not($(this).next()).slideUp(250);
-	$(this).next().slideDown(250);
-	if ($('.ddown').hasClass('is_active')) {
+	if ($(this).parents('.ddown').hasClass('is_active')) {
+		$(this).parents('.ddown').removeClass('is_active');
+		$('.ddown-content').slideUp(250);
+	} else {
+		$('.ddown-content').not($(this).next()).slideUp(250);
+		$(this).next().slideDown(250);
 		setTimeout(() => { $('.ddown').not($(this).parents('.ddown')).removeClass('is_active') }, 250);
 		$(this).parents('.ddown').addClass('is_active');
 	}
@@ -63,6 +66,7 @@ function initObserver() {
 	document.querySelectorAll('.observe, .mob-observe')
 		.forEach(el => (window.innerWidth < 991 || !el.classList.contains('mob-observe')) && observer.observe(el));
 }
+
 function handleIntersection(entries) {
 	entries.forEach(({ target: video, isIntersecting }) => {
 		video[isIntersecting ? 'play' : 'pause']();
@@ -91,8 +95,6 @@ $('.hero-slides').slick({
 	fade: true,
 	arrows: true,
 	slidesToShow: 1,
-	autoplay: true,
-	autoplaySpeed: 1800,
 	adaptiveHeight: true,
 	responsive: [
 		{
@@ -107,6 +109,8 @@ $('.sl').slick({
 	fade: true,
 	dots: false,
 	arrows: false,
+	autoplay: true,
+	autoplaySpeed: 1500,
 	slidesToShow: 1,
 	adaptiveHeight: true,
 	responsive: [
@@ -168,10 +172,10 @@ $('.description-navbtn').on('click', function () {
 
 
 $(document).ready(function () {
-	// $('.example-wrap .item').each(function () {
-	// 	const pTtag = $(this).find('.item-title p').eq(0).text() + " <br> " + $(this).find('.item-title p').eq(1).text();
-	// 	$(this).find('[data-fancybox]').attr('data-caption', pTtag);
-	// });
+	$('.example-wrap .item').each(function () {
+		const pTtag = $(this).find('.item-title p').eq(0).text() + " <br> " + $(this).find('.item-title p').eq(1).text();
+		$(this).find('[data-fancybox]').attr('data-caption', pTtag);
+	});
 
 
 	$('.interactives-slider').slick({
