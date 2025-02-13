@@ -370,3 +370,21 @@ $(function () {
 
 	}
 });
+
+$("form").submit(function () {
+	$('form .btn').attr('disabled', true)
+	$.ajax({
+		type: "post",
+		method: 'post',
+		url: "send.php",
+		data: $(this).serialize(),
+		success: function (response) {
+
+		},
+		// error: function (error) { console.error(error); }
+	}).done(function () {
+		$('form .btn').removeAttr('disabled');
+		hideModals();
+		showModal('#modal-done');
+	}); return false;
+});

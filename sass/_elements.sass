@@ -53,13 +53,18 @@ html
 		transform: scaleY(0)
 
 	img
-		width: 250px
-		height: 250px
+		width: 270px
+		max-width: 41%
+		aspect-ratio: 1
 		border-radius: 50%
 		object-fit: cover
 		margin: 0 auto
 
+	.cont
+		width: 100%
+
 	&-img
+		width: 100%
 		margin: 0 auto 30px
 		position: relative
 		z-index: 1
@@ -149,6 +154,12 @@ img
 	&-ae
 		align-items: end
 
+output
+	color: red 
+	display: none
+	position: relative
+	top: -10px
+
 input, textarea, select
 	padding: 0 22px
 	height: 64px
@@ -171,6 +182,13 @@ input, textarea, select
 
 	&:placeholder-shown
 		border-color: var(--haiti-50)
+
+	&:user-invalid ~ output
+		display: block
+		
+
+	// &:valid
+	// 	background-color: blue !important
 
 textarea
 	resize: none

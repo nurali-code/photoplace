@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>PHOTOPLACE | Флипбук Cтудия</title>
-	<link rel="preload" as="image" href="img/ball.jpg" type="image/jpg">
+	<link rel="preload" as="image" href="img/discoball.jpg" type="image/jpg">
 	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSuJk4.woff2" type="font/woff2"
 		crossorigin="anonymous">
 	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSqJk5kkw.woff2"
@@ -25,9 +25,9 @@
 		<div class="cont">
 			<div class="loader-img">
 				<span class="loader-wh"></span>
-				<img src="img/ball.jpg" alt="i">
+				<img src="img/discoball.jpg" alt="i">
 			</div>
-			<span class="percentage h3">1%</span>
+			<span class="percentage h2">1%</span>
 		</div>
 	</div>
 
@@ -94,9 +94,9 @@
 			</h1>
 			<div class="container main-wrap fx-ac fx-jb">
 				<div class="main-item"><img src="img/ex/k-1.jpg" alt="l"></div>
-				<div class="main-item"><video src="img/ex/jk-1.mp4" poster="img/ex/jk-1.jpg" controlsList="nofullscreen"
+				<div class="main-item"><video preload src="img/ex/jk-1.mp4" poster="img/ex/jk-1.jpg" controlsList="nofullscreen"
 						playsinline muted loop class="observe"></video></div>
-				<div class="main-item"><video src="img/ex/l-1.mp4" poster="img/ex/l-1.jpg" controlsList="nofullscreen"
+				<div class="main-item"><video preload src="img/ex/l-1.mp4" poster="img/ex/l-1.jpg" controlsList="nofullscreen"
 						playsinline muted loop class="observe"></video></div>
 			</div>
 		</section>
@@ -476,10 +476,10 @@
 			<div class="col">
 				<h5 class="footer__heading">ОСТАВИТЬ ЗАЯВКУ</h5>
 				<form>
-					<input type="text" placeholder="Ваше имя" required>
-					<input type="text" placeholder="Email или номер телефона" required>
-					<textarea required placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
-					<a href="#modal-done" type="submit" class="btn --arr --dark">Отправить</a>
+					<input type="text" name="name" placeholder="Ваше имя" required>
+					<input type="text" name="contact" placeholder="Email или номер телефона" required>
+					<textarea required name="messange" placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<button type="submit" class="btn --arr --dark">Отправить</button>
 				</form>
 			</div>
 
@@ -533,10 +533,10 @@
 				<button class="modal__close" title="Закрыть окно"></button>
 				<h4 class="modal__heading">ОСТАВЬТЕ ЗАЯВКУ</h4>
 				<form class="modal-form">
-					<input type="text" placeholder="Ваше имя" required>
-					<input type="text" placeholder="Email или номер телефона" required>
-					<textarea required placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
-					<button data-modal="modal-done" type="submit" class="btn --star">Отправить</button>
+					<input type="text" name="name" placeholder="Ваше имя" required>
+					<input type="text" name="contact" placeholder="Email или номер телефона" required>
+					<textarea required name="messange" placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<button type="submit" class="btn --star">Отправить</button>
 				</form>
 				<p class="modal__subheading">ИЛИ СВЯЖИТЕСЬ С НАМИ</p>
 				<div class="fx-ac fx-jb fx-w modal-footer">
