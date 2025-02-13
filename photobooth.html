@@ -11,12 +11,12 @@
 	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSqJk5kkw.woff2"
 		type="font/woff2" crossorigin="anonymous">
 
-	<link rel="stylesheet" href="css/aos.css?ver=22">
-	<link rel="stylesheet" href="css/style.css?ver=22">
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/style.css?ver=23">
 	<meta name="theme-color" content="#FE00A0">
 
 	<link rel="shortcut icon" href="favicon.svg" type="image/svg">
-	<link rel="stylesheet" href="css/jquery.fancybox.min.css?ver=22">
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
 
 </head>
 
@@ -162,7 +162,8 @@
 						</p>
 					</div>
 					<div class="product-img" data-aos="fade-up">
-						<img src="img/booth/booth-p.png" alt="i" loading="lazy">
+						<video src="img/booth/prev.mp4" poster="img/booth/prev.jpg"
+						controlsList="nofullscreen" playsinline muted loop class="observe"></video>
 					</div>
 				</div>
 			</div>
@@ -172,7 +173,7 @@
 			<div class="container how-wrap fx-ac">
 				<div class="how-title">
 					<img src="img/booth/booth-p.png" class="how-img" alt="i" loading="lazy">
-					<h2 class="h4">Как работает <br> slow mo <br class="mob-show"> 360</h2>
+					<h2 class="h4">Как работает <br> фотобудка</h2>
 				</div>
 				<ol class="how-list fx-as fx-je fx-w">
 					<li data-aos="fade-left">
@@ -181,7 +182,7 @@
 					</li>
 					<li data-aos="fade-left" data-aos-delay="150">
 						<img class="how__prev" src="img/ex/image-7.jpg" alt="i" loading="lazy">
-						<p class="t-b1">Позируете, видя на экране себя и таймер</p>
+						<p class="t-b1">Позируете, видя на экране себя <br class="mob-hide"> и таймер</p>
 					</li>
 					<li data-aos="fade-left" data-aos-delay="300">
 						<img class="how__prev" src="img/ex/image-2.jpg" alt="i" loading="lazy">
@@ -225,9 +226,9 @@
 				<div data-aos="fade-up" class="ddown fx-as">
 					<img src="img/ddown-7.svg" alt="i" loading="lazy" class="ddown-ic">
 					<div data-aos="fade-up" class="ddown-title">
-						<button class="ddown__btn h5">Надпись/лого на обложке флипбука</button>
+						<button class="ddown__btn h5">Добавление лого / надписи на фото</button>
 						<p class="ddown-content t-b2">
-							Оформим переднюю и заднюю часть обложки – выберем фон, надписи, разместим ваш логотип
+							Надписи и логотипы, не требующие доп.обработки, мы добавим на ваши фото бесплатно
 						</p>
 					</div>
 				</div>
@@ -346,15 +347,15 @@
 							<img src="img/nav/pressvoll.svg" alt="l" loading="lazy">
 							<p class="description-info t-b2">Оформление стойки и/или прессволл</p>
 						</button>
-						<button class="description-navbtn is_active">
+						<button class="description-navbtn">
 							<img src="img/nav/red.svg" alt="l" loading="lazy">
 							<p class="description-info t-b2">Стандартная штора: красная</p>
 						</button>
-						<button class="description-navbtn is_active">
+						<button class="description-navbtn">
 							<img src="img/nav/blue.svg" alt="l" loading="lazy">
 							<p class="description-info t-b2">Стандартная штора: синяя</p>
 						</button>
-						<button class="description-navbtn is_active">
+						<button class="description-navbtn">
 							<img src="img/nav/green.svg" alt="l" loading="lazy">
 							<p class="description-info t-b2">Стандартная штора: зелёная</p>
 						</button>
@@ -384,7 +385,7 @@
 					<ol class="tec-list fx-ac fx-jb">
 						<li class="t-b1" data-aos="fade-left">40 мин на монтаж / <br> демонтаж интерактива</li>
 						<li class="t-b1" data-aos="fade-left" data-aos-delay="150">Розетка 220В <br> мощностью 1кВт</li>
-						<li class="t-b1" data-aos="fade-left" data-aos-delay="300">Пространство площадью <br> 1х2м</li>
+						<li class="t-b1" data-aos="fade-left" data-aos-delay="300">Пространство <br> площадью 1х2м</li>
 					</ol>
 				</div>
 				<button class="btn --star" data-modal="modal-request">Забронировать фотобудку</button>
@@ -392,7 +393,7 @@
 		</section>
 
 		<section class="example" id="examples">
-			<h2 class="h1" data-adjust>ПРИМЕРЫ РАБОТ</h2>
+			<h2 class="h1" data-adjust="none">ПРИМЕРЫ РАБОТ</h2>
 
 			<div class="container">
 				<div class="tab-wrap fx-w">
@@ -562,8 +563,9 @@
 
 					<div class="item-box fx-jb">
 						<div class="item-imgs">
-							<video class="item__slide mob-observe" src="img/interactiv/costume.mp4" controlsList="nofullscreen"
-								playsinline preload muted loop poster="img/interactiv/slow-2.jpg"></video>
+							<video class="item__slide mob-observe" src="img/interactiv/costume.mp4"
+								controlsList="nofullscreen" playsinline preload muted loop
+								poster="img/interactiv/slow-2.jpg"></video>
 							<img class="item__slide" src="img/interactiv/slow-1.jpg" loading="lazy" alt="i">
 						</div>
 						<div class="item-title fx-col fx-as">
@@ -649,7 +651,8 @@
 				<form>
 					<input type="text" name="name" placeholder="Ваше имя" required>
 					<input type="text" name="contact" placeholder="Email или номер телефона" required>
-					<textarea required name="messange" placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<textarea required name="messange"
+						placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
 					<button type="submit" class="btn --arr --dark">Отправить</button>
 				</form>
 			</div>
@@ -706,7 +709,8 @@
 				<form class="modal-form">
 					<input type="text" name="name" placeholder="Ваше имя" required>
 					<input type="text" name="contact" placeholder="Email или номер телефона" required>
-					<textarea required name="messange" placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<textarea required name="messange"
+						placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
 					<button type="submit" class="btn --star">Отправить</button>
 				</form>
 				<p class="modal__subheading">ИЛИ СВЯЖИТЕСЬ С НАМИ</p>
@@ -734,11 +738,11 @@
 		</div>
 	</div>
 
-	<script src="js/jquery.min.js?ver=22"></script>
-	<script src="js/aos.js?ver=22"></script>
-	<script src="js/slick.min.js?ver=22"></script>
-	<script src="js/scripts.js?ver=22"></script>
-	<script src="js/jquery.fancybox.min.js?ver=22"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/scripts.js?ver=23"></script>
+	<script src="js/jquery.fancybox.min.js"></script>
 </body>
 
 </html>
