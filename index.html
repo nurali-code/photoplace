@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>PHOTOPLACE</title>
+	<link rel="preload" as="image" href="img/ball.jpg" type="image/jpg">
 	<link rel="preload" as="image" href="img/hero-text.svg" type="image/svg+xml">
 	<link rel="preload" as="image" href="img/hero-mob-text.svg" type="image/svg+xml">
 	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSuJk4.woff2" type="font/woff2"
@@ -12,6 +13,7 @@
 	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSqJk5kkw.woff2"
 		type="font/woff2" crossorigin="anonymous">
 
+	<link rel="stylesheet" href="./css/aos.css">
 	<link rel="stylesheet" href="./css/style.css">
 	<meta name="theme-color" content="#FE00A0">
 
@@ -20,7 +22,17 @@
 	<link rel="stylesheet" href="./css/jquery.fancybox.min.css">
 </head>
 
-<body id="home">
+<body id="home" class="overflow">
+	<div class="loader fx-ac fx-jc">
+		<div class="cont">
+			<div class="loader-img">
+				<span class="loader-wh"></span>
+				<img src="img/ball.jpg" alt="i">
+			</div>
+			<span class="percentage h3">1%</span>
+		</div>
+	</div>
+
 	<header class="header watch">
 		<div class="container fx-ac">
 			<button class="menu__open" title="Меню"></button>
@@ -49,7 +61,7 @@
 						<div class="menu-submenu fx-ac fx-jb">
 							<a href="./slowmo.html" class="menu__sublink">SLOW MO 360</a>
 							<a href="./photobooth.html" class="menu__sublink">ФОТОБУДКА</a>
-							<a href="#" class="menu__sublink">ФОТОЗЕРКАЛО</a>
+							<a href="./mirror.html" class="menu__sublink">ФОТОЗЕРКАЛО</a>
 							<a href="#" class="menu__sublink">ФЛИПБУК СТУДИЯ</a>
 						</div>
 					</li>
@@ -128,6 +140,53 @@
 			</div>
 		</section>
 
+		<script>
+			var main = document.querySelector(".hero");
+			var loader = document.querySelector(".loader");
+			var loaderWh = document.querySelector(".loader-wh");
+			var percentage = document.querySelector(".loader .percentage");
+
+			if (main && loader && percentage) {
+				var resources = [...main.querySelectorAll("img"), ...main.querySelectorAll("video")];
+				var resourcesLoaded = 0;
+				var totalResources = resources.length;
+
+				const updateProgress = () => {
+					resourcesLoaded++;
+					var progress = Math.min((resourcesLoaded / totalResources) * 100, 100);
+					percentage.textContent = Math.round(progress) + "%";
+					loaderWh.style.translate = Math.round(progress) + "%";
+
+					if (progress === 100) {
+						setTimeout(() => {
+							loader.classList.add('--hide');
+							setTimeout(() => { main.classList.add('--anim'); }, 300);
+							document.body.classList.remove('overflow');
+						}, 500);
+					}
+				};
+
+				if (totalResources === 0) {
+					loader.classList.add('--hide');
+					setTimeout(() => { main.classList.add('--anim'); }, 300);
+					document.body.classList.remove('overflow');
+				} else {
+					resources.forEach(resource => {
+						if (resource.tagName === 'VIDEO') {
+							var poster = new Image();
+							poster.src = resource.getAttribute("poster");
+							poster.onload = updateProgress;
+							poster.onerror = updateProgress;
+						} else {
+							resource.onload = updateProgress;
+							resource.onerror = updateProgress;
+						}
+						if (resource.complete) updateProgress();
+					});
+				}
+			}
+		</script>
+
 		<div class="marquee-section">
 			<div class="marquee fx-ac">
 				<ul class="marquee-content fx-ac">
@@ -168,9 +227,9 @@
 		</div>
 
 		<section class="interactives" id="interactives">
-			<h2 class="h1" data-adjust>ИНТЕРАКТИВЫ</h2>
+			<h2 class="h1" data-adjust data-aos="fade-up">ИНТЕРАКТИВЫ</h2>
 			<div class="interactives-slider fx-w fx-jc">
-				<div class="item">
+				<div class="item" data-aos="fade-up">
 					<img class="item__preview" src="img/ex/m-1.jpg" alt="i">
 					<h3 class="item__def t-btn">ФОТОЗЕРКАЛО</h3>
 
@@ -190,7 +249,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item" data-aos="fade-up" data-aos-delay="100">
 					<img class="item__preview" src="img/interactiv/slow-1.jpg" alt="i">
 					<h3 class="item__def t-btn">SLOW MO 360</h3>
 
@@ -210,7 +269,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item" data-aos="fade-up" data-aos-delay="200">
 					<img class="item__preview" src="img/interactiv/m-1.jpg" alt="i">
 					<h3 class="item__def t-btn">ФОТОБУДКА</h3>
 
@@ -230,7 +289,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item" data-aos="fade-up" data-aos-delay="300">
 					<img class="item__preview" src="img/interactiv/flip-1.jpg" alt="i">
 					<h3 class="item__def t-btn">флипбук студия</h3>
 
@@ -251,7 +310,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item" data-aos="fade-up" data-aos-delay="400">
 					<img class="item__preview" src="img/ex/x-1.jpg" alt="i">
 					<h3 class="item__def t-btn">ФОТОБУДКА С ИИ</h3>
 
@@ -284,14 +343,14 @@
 		</section>
 
 		<section class="process fx-w" id="process">
-			<div class="process-box">
+			<div class="process-box" data-aos="fade-left">
 				<img src="img/violet-ball.png" class="process-ic" alt="i">
 				<h4 class="process__heading">1 — СОГЛАСУЕМ ВСЕ ДЕТАЛИ</h4>
 				<p class="process__text t-b2">
 					<b>поможем выбрать</b> интерактивы, <b>сделаем брендирование</b> по вашему желанию
 				</p>
 			</div>
-			<div class="process-box">
+			<div class="process-box" data-aos="fade-left" data-aos-delay="300">
 				<img src="img/pink-ball.png" class="process-ic" alt="i">
 				<h4 class="process__heading">2 — ПРИВЕЗЁМ И СОПРОВОДИМ ИНТЕРАКТИВ</h4>
 				<p class="process__text t-b2">
@@ -299,7 +358,7 @@
 					подберёт реквизит, создаст нужный настрой
 				</p>
 			</div>
-			<div class="process-box">
+			<div class="process-box" data-aos="fade-left" data-aos-delay="500">
 				<video src="vid/disco-ball.mp4" class="process-ic observe" poster="img/discoball.jpg"
 					controlsList="nofullscreen" playsinline preload muted loop class="hero__ball"></video>
 				<h4 class="process__heading">3 — ПОРАДУЕМ вас КРУТЫМИ ФОТО И ВИДЕО</h4>
@@ -329,7 +388,7 @@
 				</div>
 
 				<div class="example-wrap fx-w">
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/a-1.jpg" data-fancybox="example">
 								<img src="img/ex/a-1.jpg" class="item__img" loading="lazy">
@@ -340,7 +399,7 @@
 							<p>#slow_mo_360 #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/y-1.jpg" data-fancybox="example">
 								<img src="img/ex/y-1.jpg" loading="lazy" alt="i" class="item__img">
@@ -351,7 +410,7 @@
 							<p>#фотозеркало #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/hor-s-1.mp4" data-fancybox="example">
 								<video src="img/ex/hor-s-1.mp4" poster="img/ex/s-1.jpg" controlsList="nofullscreen"
@@ -363,7 +422,7 @@
 							<p>#slow_mo_360 #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/h-1.jpg" data-fancybox="example">
 								<img src="img/ex/h-1.jpg" class="item__img" loading="lazy">
@@ -374,7 +433,7 @@
 							<p>#фотобудка #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/o-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/o-1.mp4"
@@ -386,7 +445,7 @@
 							<p>#slow_mo_360 #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/n-1.jpg" data-fancybox="example">
 								<img src="img/ex/n-1.jpg" class="item__img" loading="lazy">
@@ -397,7 +456,7 @@
 							<p>#фотобудка #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/q-1.jpg" data-fancybox="example">
 								<img src="img/ex/q-1.jpg" loading="lazy" alt="i" class="item__img">
@@ -408,7 +467,7 @@
 							<p>#фотозеркало #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/p-1.jpg" data-fancybox="example">
 								<img src="img/ex/p-1.jpg" class="item__img" loading="lazy">
@@ -419,7 +478,7 @@
 							<p>#slow_mo_360 #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/i-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/i-1.mp4"
@@ -431,12 +490,12 @@
 							<p>#фотозеркало #промо</p>
 						</div>
 					</div>
-					<div class="expo fx-col fx-ac fx-jc">
+					<div class="expo fx-col fx-ac fx-jc" data-aos="fade-up">
 						<h4 class="h4 expo__heading">ИНТЕРЕСНО УЗНАТЬ БОЛЬШЕ?</h4>
 						<button data-modal="modal-request" class="btn --star --dark">Напишите нам</button>
 					</div>
 
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/m-1.jpg" data-fancybox="example">
 								<img src="img/ex/m-1.jpg" loading="lazy" alt="i" class="item__img">
@@ -447,7 +506,7 @@
 							<p>#фотозеркало #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/w-1.jpg" data-fancybox="example">
 								<img src="img/ex/w-1.jpg" loading="lazy" alt="i" class="item__img">
@@ -458,7 +517,7 @@
 							<p>#фотозеркало #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/e-1.jpg" data-fancybox="example">
 								<img src="img/ex/e-1.jpg" loading="lazy" alt="i" class="item__img">
@@ -469,7 +528,7 @@
 							<p>#фотозеркало #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/r-1.jpg" data-fancybox="example">
 								<img src="img/ex/r-1.jpg" loading="lazy" alt="i" class="item__img">
@@ -480,7 +539,7 @@
 							<p>#фотозеркало #день_рождения</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/t-1.jpg" data-fancybox="example">
 								<img src="img/ex/t-1.jpg" loading="lazy" alt="i" class="item__img">
@@ -491,7 +550,7 @@
 							<p>#фотозеркало #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/d-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/d-1.mp4"
@@ -503,7 +562,7 @@
 							<p>#slow_mo_360 #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/f-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/f-1.mp4"
@@ -515,7 +574,7 @@
 							<p>#slow_mo_360 #день_рождения</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/hor-g-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/hor-g-1.mp4"
@@ -527,7 +586,7 @@
 							<p>#slow_mo_360 #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/j-1.jpg" data-fancybox="example">
 								<img src="img/ex/j-1.jpg" class="item__img" loading="lazy">
@@ -538,7 +597,7 @@
 							<p>#фотобудка #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/image-1.jpg" data-fancybox="example">
 								<img src="img/ex/image-1.jpg" class="item__img" loading="lazy">
@@ -549,7 +608,7 @@
 							<p>#фотобудка #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/image-2.jpg" data-fancybox="example">
 								<img src="img/ex/image-2.jpg" class="item__img" loading="lazy">
@@ -560,7 +619,7 @@
 							<p>#фотобудка #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/image-3.jpg" data-fancybox="example">
 								<img src="img/ex/image-3.jpg" class="item__img" loading="lazy">
@@ -571,7 +630,7 @@
 							<p>#фотобудка #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/image-4.jpg" data-fancybox="example">
 								<img src="img/ex/image-4.jpg" class="item__img" loading="lazy">
@@ -582,7 +641,7 @@
 							<p>#фотобудка #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/image-5.jpg" data-fancybox="example">
 								<img src="img/ex/image-5.jpg" class="item__img" loading="lazy">
@@ -593,7 +652,7 @@
 							<p>#фотобудка #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/image-6.jpg" data-fancybox="example">
 								<img src="img/ex/image-6.jpg" class="item__img" loading="lazy">
@@ -604,7 +663,7 @@
 							<p>#фотобудка #выпускной</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/image-7.jpg" data-fancybox="example">
 								<img src="img/ex/image-7.jpg" class="item__img" loading="lazy">
@@ -615,7 +674,7 @@
 							<p>#фотобудка #день_рождения</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/image-8.jpg" data-fancybox="example">
 								<img src="img/ex/image-8.jpg" class="item__img" loading="lazy">
@@ -626,7 +685,7 @@
 							<p>#фотобудка #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/image-9.jpg" data-fancybox="example">
 								<img src="img/ex/image-9.jpg" class="item__img" loading="lazy">
@@ -637,7 +696,7 @@
 							<p>#фотобудка #выпускной</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/jk-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/jk-1.mp4"
@@ -649,7 +708,7 @@
 							<p>#флипбук_студия #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/k-1.jpg" data-fancybox="example">
 								<img src="img/ex/k-1.jpg" class="item__img" loading="lazy">
@@ -660,7 +719,7 @@
 							<p>#флипбук_студия #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/l-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/l-1.mp4"
@@ -672,7 +731,7 @@
 							<p>#флипбук_студия</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/z-1.jpg" data-fancybox="example">
 								<img src="img/ex/z-1.jpg" class="item__img" loading="lazy">
@@ -683,7 +742,7 @@
 							<p>#флипбук_студия #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/x-1.jpg" data-fancybox="example">
 								<img src="img/ex/x-1.jpg" class="item__img" loading="lazy">
@@ -694,7 +753,7 @@
 							<p>#ии_фотобудка #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/c-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/c-1.mp4"
@@ -706,7 +765,7 @@
 							<p>#ии_фотобудка #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/qq-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/qq-1.mp4"
@@ -718,7 +777,7 @@
 							<p>#slow_mo_360 #выпускной</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/u-1.jpg" data-fancybox="example">
 								<img src="img/ex/u-1.jpg" loading="lazy" alt="i" class="item__img">
@@ -729,7 +788,7 @@
 							<p>#фотозеркало #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/v-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/v-1.mp4"
@@ -741,7 +800,7 @@
 							<p>#ии_фотобудка #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/b-1.jpg" data-fancybox="example">
 								<img src="img/ex/b-1.jpg" class="item__img" loading="lazy">
@@ -857,6 +916,7 @@
 	</div>
 
 	<script src="js/jquery.min.js"></script>
+	<script src="js/aos.js"></script>
 	<script src="js/slick.min.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/jquery.fancybox.min.js"></script>

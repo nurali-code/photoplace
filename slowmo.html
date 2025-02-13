@@ -5,12 +5,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>PHOTOPLACE</title>
+	<link rel="preload" as="image" href="img/ball.jpg" type="image/jpg">
 	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSuJk4.woff2" type="font/woff2"
 		crossorigin="anonymous">
 	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSqJk5kkw.woff2"
 		type="font/woff2" crossorigin="anonymous">
 
-
+	<link rel="stylesheet" href="css/aos.css">
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="theme-color" content="#FE00A0">
 
@@ -19,7 +20,17 @@
 
 </head>
 
-<body id="home">
+<body id="home" class="overflow">
+	<div class="loader fx-ac fx-jc">
+		<div class="cont">
+			<div class="loader-img">
+				<span class="loader-wh"></span>
+				<img src="img/ball.jpg" alt="i">
+			</div>
+			<span class="percentage h3">1%</span>
+		</div>
+	</div>
+
 	<header class="header">
 		<div class="container fx-ac">
 			<button class="menu__open" title="Меню"></button>
@@ -52,7 +63,7 @@
 						<div class="menu-submenu fx-ac fx-jb">
 							<a href="./slowmo.html" class="menu__sublink">SLOW MO 360</a>
 							<a href="./photobooth.html" class="menu__sublink">ФОТОБУДКА</a>
-							<a href="#" class="menu__sublink">ФОТОЗЕРКАЛО</a>
+							<a href="./mirror.html" class="menu__sublink">ФОТОЗЕРКАЛО</a>
 							<a href="#" class="menu__sublink">ФЛИПБУК СТУДИЯ</a>
 						</div>
 					</li>
@@ -91,10 +102,57 @@
 			</div>
 		</section>
 
+		<script>
+			var main = document.querySelector(".main");
+			var loader = document.querySelector(".loader");
+			var loaderWh = document.querySelector(".loader-wh");
+			var percentage = document.querySelector(".loader .percentage");
+
+			if (main && loader && percentage) {
+				var resources = [...main.querySelectorAll("img"), ...main.querySelectorAll("video")];
+				var resourcesLoaded = 0;
+				var totalResources = resources.length;
+
+				const updateProgress = () => {
+					resourcesLoaded++;
+					var progress = Math.min((resourcesLoaded / totalResources) * 100, 100);
+					percentage.textContent = Math.round(progress) + "%";
+					loaderWh.style.translate = Math.round(progress) + "%";
+
+					if (progress === 100) {
+						setTimeout(() => {
+							loader.classList.add('--hide');
+							setTimeout(() => { main.classList.add('--anim'); }, 300);
+							document.body.classList.remove('overflow');
+						}, 500);
+					}
+				};
+
+				if (totalResources === 0) {
+					loader.classList.add('--hide');
+					setTimeout(() => { main.classList.add('--anim'); }, 300);
+					document.body.classList.remove('overflow');
+				} else {
+					resources.forEach(resource => {
+						if (resource.tagName === 'VIDEO') {
+							var poster = new Image();
+							poster.src = resource.getAttribute("poster");
+							poster.onload = updateProgress;
+							poster.onerror = updateProgress;
+						} else {
+							resource.onload = updateProgress;
+							resource.onerror = updateProgress;
+						}
+						if (resource.complete) updateProgress();
+					});
+				}
+			}
+		</script>
+
 		<section class="product" id="product">
 			<div class="container">
 				<div class="product-wrap fx-ac">
-					<div class="product-title">
+					<div class="product-title" data-aos="fade-up" data-aos-delay="150">
 						<h2 class="h2">Slow mo 360</h2>
 						<p class="t-acc">
 							Универсальный интерактив для ярких эмоций и классных видео! Подойдёт для любого события,
@@ -102,7 +160,7 @@
 							и позаботится, чтобы всё прошло круто
 						</p>
 					</div>
-					<div class="product-img">
+					<div class="product-img" data-aos="fade-up">
 						<img src="img/product/i-2.png" alt="i" loading="lazy">
 					</div>
 				</div>
@@ -116,15 +174,15 @@
 					<h2 class="h4">Как работает <br> slow mo <br class="mob-show"> 360</h2>
 				</div>
 				<ol class="how-list fx-as fx-je fx-w">
-					<li>
+					<li data-aos="fade-left">
 						<img class="how__prev" src="img/slowmo/p-1.jpg" alt="i" loading="lazy">
 						<p class="t-b1">Встаёте на платформу, оператор помогает вам с выбором реквизита</p>
 					</li>
-					<li>
+					<li data-aos="fade-left" data-aos-delay="150">
 						<img class="how__prev" src="img/slowmo/p-2.jpg" alt="i" loading="lazy">
 						<p class="t-b1">Вы позируете, а камера вращается вокруг вас, записывая видео</p>
 					</li>
-					<li>
+					<li data-aos="fade-left" data-aos-delay="300">
 						<video src="img/slowmo/p-3.mp4" poster="img/slowmo/p-3.jpg" controlsList="nofullscreen"
 							playsinline muted loop class="how__prev observe"></video>
 						<p class="t-b1">Сразу отправляете обработанное видео со стойки с планшетом на свой смартфон</p>
@@ -137,18 +195,18 @@
 			<div class="container">
 				<h2>ЧТО ВХОДИТ <br class="mob-show"> В СТОИМОСТЬ</h2>
 
-				<div class="ddown fx-as is_active">
+				<div data-aos="fade-up" class="ddown fx-as is_active">
 					<img src="img/ddown-1.svg" alt="i" loading="lazy" class="ddown-ic">
-					<div class="ddown-title">
+					<div data-aos="fade-up" class="ddown-title">
 						<button class="ddown__btn h5">Доставка и установка интерактива</button>
 						<p class="ddown-content t-b2">
 							Доставка в пределах города; приедем заранее, установим и подключим оборудование
 						</p>
 					</div>
 				</div>
-				<div class="ddown fx-as">
+				<div data-aos="fade-up" class="ddown fx-as">
 					<img src="img/ddown-2.svg" alt="i" loading="lazy" class="ddown-ic">
-					<div class="ddown-title">
+					<div data-aos="fade-up" class="ddown-title">
 						<button class="ddown__btn h5">Работа оператора</button>
 						<p class="ddown-content t-b2">
 							Оператор поможет гостям с выбором реквизита, использованием интерактива, создаст нужный
@@ -156,18 +214,18 @@
 						</p>
 					</div>
 				</div>
-				<div class="ddown fx-as">
+				<div data-aos="fade-up" class="ddown fx-as">
 					<img src="img/ddown-3.svg" alt="i" loading="lazy" class="ddown-ic">
-					<div class="ddown-title">
+					<div data-aos="fade-up" class="ddown-title">
 						<button class="ddown__btn h5">Световые стойки</button>
 						<p class="ddown-content t-b2">
 							Даже если на локации слабое освещение, световые стойки сделают видео яркими и красивыми
 						</p>
 					</div>
 				</div>
-				<div class="ddown fx-as">
+				<div data-aos="fade-up" class="ddown fx-as">
 					<img src="img/ddown-4.svg" alt="i" loading="lazy" class="ddown-ic">
-					<div class="ddown-title">
+					<div data-aos="fade-up" class="ddown-title">
 						<button class="ddown__btn h5">Базовая обработка видео</button>
 						<p class="ddown-content t-b2">
 							Базовая обработка включает наложение надписи, логотипа и музыки — вы получаете обработанные
@@ -175,9 +233,9 @@
 						</p>
 					</div>
 				</div>
-				<div class="ddown fx-as">
+				<div data-aos="fade-up" class="ddown fx-as">
 					<img src="img/ddown-5.svg" alt="i" loading="lazy" class="ddown-ic">
-					<div class="ddown-title">
+					<div data-aos="fade-up" class="ddown-title">
 						<button class="ddown__btn h5">Планшет для отправки видео</button>
 						<p class="ddown-content t-b2">
 							Гости смогут сразу же отправить себе видео на смартфон
@@ -197,7 +255,6 @@
 				</div>
 				<h5 class="mob-hide">Мы всегда на связи!</h5>
 			</div>
-
 		</section>
 
 		<section class="more">
@@ -246,25 +303,25 @@
 				<h2>SLOW MO 360 СДЕЛАЕТ ЯРЧЕ ЛЮБОЙ ПРАЗДНИК</h2>
 
 				<div class="wrap fx-w fx-jb fx-as">
-					<div class="item fx-col w400">
+					<div data-aos="fade-up" class="item fx-col w400">
 						<video controlslist="nofullscreen" playsinline muted loop src="img/ex/qq-1.mp4"
 							poster="img/ex/qq-1.jpg" class="preview observe"></video>
 						<p class="t-acc">ВЫПУСКНОЙ</p>
 					</div>
-					<div class="item fx-col w880">
+					<div data-aos="fade-up" class="item fx-col w880">
 						<img src="img/showcase/cor-1.jpg" alt="i" class="preview" loading="lazy">
 						<p class="t-acc">КОРПОРАТИВ</p>
 					</div>
-					<div class="item fx-col w640">
+					<div data-aos="fade-up" class="item fx-col w640">
 						<img src="img/ex/p-1.jpg" alt="i" class="preview" loading="lazy">
 						<p class="t-acc">ПРОМО-МЕРОПРИЯТИЕ</p>
 					</div>
-					<div class="item fx-col w400">
+					<div data-aos="fade-up" class="item fx-col w400">
 						<video controlslist="nofullscreen" playsinline muted loop src="img/ex/f-1.mp4"
 							poster="img/ex/f-1.jpg" class="preview observe"></video>
 						<p class="t-acc">ДЕНЬ РОЖДЕНИЯ</p>
 					</div>
-					<div class="item fx-col w1320">
+					<div data-aos="fade-up" class="item fx-col w1320">
 						<video controlslist="nofullscreen" playsinline muted loop src="img/ex/hor-g-1.mp4"
 							poster="img/slowmo/wed.jpg" class="preview observe"></video>
 						<p class="t-acc">СВАДЬБА</p>
@@ -313,9 +370,9 @@
 				<div class="tec-wrap fx-ac">
 					<h4 class="tec__heading h4">Технические <br> требования</h4>
 					<ol class="tec-list fx-ac fx-jb">
-						<li class="t-b1">40 мин на монтаж / <br> демонтаж интерактива</li>
-						<li class="t-b1">Розетка 220В <br> мощностью 1кВт</li>
-						<li class="t-b1">Пространство площадью <br> 3м2 и высотой 2м</li>
+						<li class="t-b1" data-aos="fade-left">40 мин на монтаж / <br> демонтаж интерактива</li>
+						<li class="t-b1" data-aos="fade-left" data-aos-delay="150">Розетка 220В <br> мощностью 1кВт</li>
+						<li class="t-b1" data-aos="fade-left" data-aos-delay="300">Пространство площадью <br> 3м2 и высотой 2м</li>
 					</ol>
 				</div>
 				<button class="btn --star" data-modal="modal-request">Забронировать slow mo 360</button>
@@ -336,7 +393,7 @@
 				</div>
 
 				<div class="example-wrap fx-w">
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/o-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/o-1.mp4"
@@ -348,7 +405,7 @@
 							<p>#slow_mo_360 #свадьба</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/a-1.jpg" data-fancybox="example">
 								<img src="img/ex/a-1.jpg" class="item__img" loading="lazy">
@@ -359,7 +416,7 @@
 							<p>#slow_mo_360 #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/d-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/d-1.mp4"
@@ -371,7 +428,7 @@
 							<p>#slow_mo_360 #корпоратив</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/hor-s-1.mp4" data-fancybox="example">
 								<video src="img/ex/hor-s-1.mp4" poster="img/ex/s-1.jpg" controlsList="nofullscreen"
@@ -383,7 +440,7 @@
 							<p>#slow_mo_360 #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/p-1.jpg" data-fancybox="example">
 								<img src="img/ex/p-1.jpg" class="item__img" loading="lazy">
@@ -394,7 +451,7 @@
 							<p>#slow_mo_360 #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/qq-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/qq-1.mp4"
@@ -407,7 +464,7 @@
 						</div>
 					</div>
 
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/i-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/i-1.mp4"
@@ -419,7 +476,7 @@
 							<p>#slow_mo_360 #промо</p>
 						</div>
 					</div>
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/f-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/f-1.mp4"
@@ -432,7 +489,7 @@
 						</div>
 					</div>
 
-					<div class="item">
+					<div class="item" data-aos="fade-up">
 						<div class="item-preview">
 							<a href="img/ex/hor-g-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/hor-g-1.mp4"
@@ -459,10 +516,10 @@
 
 		<section class="interactives" id="interactives">
 			<div class="container">
-				<h2 class="h2 t-left">ДРУГИЕ <br> ИНТЕРАКТИВЫ</h2>
+				<h2 class="h2 t-left" data-aos="fade-up">ДРУГИЕ <br> ИНТЕРАКТИВЫ</h2>
 			</div>
 			<div class="interactives-slider fx-w fx-jc">
-				<div class="item">
+				<div class="item" data-aos="fade-up">
 					<img class="item__preview" src="img/ex/m-1.jpg" alt="i">
 					<h3 class="item__def t-btn">ФОТОЗЕРКАЛО</h3>
 
@@ -482,7 +539,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item" data-aos="fade-up" data-aos-delay="150">
 					<img class="item__preview" src="img/interactiv/m-1.jpg" alt="i">
 					<h3 class="item__def t-btn">ФОТОБУДКА</h3>
 
@@ -502,7 +559,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item" data-aos="fade-up" data-aos-delay="300">
 					<img class="item__preview" src="img/interactiv/flip-1.jpg" alt="i">
 					<h3 class="item__def t-btn">флипбук студия</h3>
 
@@ -523,7 +580,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item" data-aos="fade-up" data-aos-delay="450">
 					<img class="item__preview" src="img/ex/x-1.jpg" alt="i">
 					<h3 class="item__def t-btn">ФОТОБУДКА С ИИ</h3>
 
@@ -544,14 +601,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="contact fx-ac">
-				<p class="t-b1">
-					Свяжитесь с нами, чтобы узнать
-					<mark>стоимость аренды под ваш запрос</mark>
-				</p>
-				<a href="#"><img src="img/tg.svg" alt="i" loading="lazy"></a>
-				<a href="#"><img src="img/wa.svg" alt="i" loading="lazy"></a>
 			</div>
 		</section>
 	</main>
@@ -647,6 +696,7 @@
 	</div>
 
 	<script src="js/jquery.min.js"></script>
+	<script src="js/aos.js"></script>
 	<script src="js/slick.min.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/jquery.fancybox.min.js"></script>
