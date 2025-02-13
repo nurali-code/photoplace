@@ -1,5 +1,10 @@
 $('[data-adjust]').each(function () { $(this).html(`<span>${$(this).html()}</span>`); });
 
+AOS.init({
+	offset: 150,
+	duration: 1000,
+});
+
 function adjustFontSize() {
 	const windowWidth = $(window).width();
 	const padding = windowWidth > 1800 ? 80 : windowWidth > 991 ? 86 : windowWidth > 720 ? 40 : 32;
@@ -122,6 +127,7 @@ $('.btn-tab').on('click', function () {
 		$(this).toggleClass('is_show', selectedTab === '#all' || hashtags.includes(selectedTab))
 			.toggleClass('is_hide', selectedTab !== '#all' && !hashtags.includes(selectedTab));
 	});
+	AOS.refresh();
 });
 
 $(".example .item, .more-item").on('mouseenter', function () {
@@ -282,24 +288,12 @@ $(function () {
 		if (!(
 			($(e.target).parents('.modal-content').length) ||
 			($(e.target).parents('.btn').length) ||
-			($(e.target).parents('.connect__btn').length) ||
-			($(e.target).hasClass('menu__link')) ||
-			($(e.target).hasClass('connect__btn')) ||
 			($(e.target).hasClass('btn')) ||
 			($(e.target).hasClass('modal-content'))
 		) && $('body').hasClass('overflow')) { hideModals(); }
 	});
 });
 
-$('.connect__btn').on('click', function () {
-	$('.connect-box, .connect__btn').toggleClass('is_active')
-})
-
-$(document).on('click', function (e) {
-	if (!(($(e.target).parents('.connect').length) ||
-		($(e.target).hasClass('connect'))
-	) && $('.connect__btn').hasClass('is_active')) { $('.connect-box, .connect__btn').toggleClass('is_active') }
-});
 
 $(function () {
 	if (window.innerWidth <= 720) {

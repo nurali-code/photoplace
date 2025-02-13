@@ -14,6 +14,8 @@
 		z-index: 1
 		overflow: hidden
 		border-radius: 8px
+		opacity: 0
+		transition: opacity 1s ease
 
 		&::before
 			content: ''
@@ -46,6 +48,9 @@
 		transform: translate(-50%, -50%)
 		z-index: 11
 		text-shadow: 0px 0px 20px #011E2640
+		transition: opacity 1s ease
+		opacity: 0
+
 		i
 			font-style: normal
 
@@ -87,21 +92,43 @@
 			&>*
 				height: 175%
 
+	&.--anim
+		.main__heading
+			transition-delay: 1.5s
+			opacity: 1
+		.main-item
+			opacity: 1
+			&:nth-child(2)
+				transition-delay: .5s
+
+			&:last-child
+				transition-delay: 1s
+
+.included,
+.tec,
+.product,
+.showcase,
+.more
+	@media screen and ( min-width: 1800px )
+		--paddingContainer: 80px
+
 .product
 	&-title
-		width: 45.7%
-		max-width: 60%
+		width: 52.7%
+		max-width: 920px
 		.h2
 			margin-bottom: 60px
-		
+			i 
+				font-style: normal
+
 		p
 			text-transform: uppercase
 			width: 100%
 			max-width: 720px
-			margin: 0 0 0 auto
+			margin: 0 auto
 
 	&-img
-		width: 32.61%
+		width: 34.0911%
 		position: relative
 		z-index: 1
 		aspect-ratio: 1
@@ -127,15 +154,22 @@
 			object-position: center center
 
 	@media screen and ( max-width: 1800px )
-		padding-left: 40px
 		&-img
 			width: 40.625%
 
 		&-title
+			max-width: 660px
+
 			.h2
 				margin-bottom: 48px
+				i 
+					display: block
+
 			p
 				max-width: 520px
+				margin-right: 0
+
+
 
 	@media screen and ( max-width: 1250px )
 		padding-left: 0
@@ -179,12 +213,6 @@
 		&-img
 			width: 53.66%
 			margin: 0 auto 28px
-
-.included,
-.tec,
-.more
-	@media screen and ( min-width: 1800px )
-		--paddingContainer: 80px
 
 .how
 	position: relative
@@ -624,9 +652,6 @@
 		text-transform: uppercase
 		font-weight: 400
 
-	.wrap
-		gap: 120px
-
 	.item
 		position: relative
 		z-index: 1
@@ -678,15 +703,69 @@
 		display: block
 		padding: 20px 0 20px 40px
 
+	.w560
+		width: 560px
+		.preview
+			aspect-ratio: 9/13.5
+
+	.w920
+		width: 920px
+		.preview
+			aspect-ratio: 16/9.0435
+
+	.w600
+		width: 600px
+		.preview
+			aspect-ratio: 9/12.6
+
+	.wrap
+		gap: 120px
+		@media screen and ( min-width: 1800px )
+			&.--booth,
+			&.--mirr
+				gap: 100px
+				&>*
+					max-width: calc( 50% - 50px )
+					&:first-child
+						margin-bottom: 96px
+
+					&:nth-child(2)
+						margin-top: auto
+
+					&:nth-child(3)
+						margin: 0 auto 0 10%
+
+					&:nth-child(4)
+						top: 10vw
+
+					&:last-child
+						margin: 0 auto 0 20%
+
+			&.--mirr
+				&>*
+					&:first-child
+						margin: 0 auto
+
+					&:nth-child(2)
+						top: 10vw
+
+					&:nth-child(3)
+						margin: 0 auto 0 0
+
+					&:nth-child(4)
+						top: 15vw
+
+					&:last-child
+						margin: 0 auto 0 20%
+
 	@media screen and ( max-width: 1800px )
-		.wrap
-			gap: 80px
 
 		.w400
 			max-width: 70%
 			margin-bottom: 120px
 			width: 363px
 			.preview
+
 		.w880
 			max-width: 70%
 			width: 781px
@@ -701,7 +780,70 @@
 			width: 960px
 			.preview
 
+		.wrap
+			gap: 80px
+			&.--booth,
+			&.--mirr
+				@media screen and ( min-width: 991px )
+					&>*
+						--itemW: 363
+						--contW: 1280
+						width: calc(var(--itemW) / var(--contW) * 100%)
+						max-width: 100%
+						&:first-child
+
+						&:nth-child(2)
+							--itemW: 781
+						&:nth-child(3)
+							--itemW: 420
+							margin-top: auto
+						&:nth-child(4)
+							top: 0
+							margin-bottom: 77px
+							--itemW: 440
+						&:last-child
+							--itemW: 480
+							margin: 0 auto
+
+			&.--mirr
+				@media screen and ( min-width: 720px )
+					&>*
+						order: 1
+						&:nth-child(2)
+							order: 4
+							.preview
+								aspect-ratio: 9/14.7275
+
+						&:nth-child(3)
+							order: 2
+						&:nth-child(4)
+							order: 3
+						&:nth-child(5)
+							order: 5
+
+				@media screen and ( min-width: 991px )
+
+					&>*
+
+						&:first-child
+							margin: 0 auto 100px
+
+						&:nth-child(2)
+							--itemW: 440
+							margin: 88px 0 0
+							.preview
+								aspect-ratio: 9/14.7275
+						&:nth-child(3)
+							--itemW: 781
+						&:nth-child(4)
+							--itemW: 420
+
+						&:nth-child(5)
+
 	@media screen and ( max-width: 991px )
+		h2
+			padding-left: 28px
+
 		.item
 			flex-direction: column-reverse
 			&::before
@@ -711,45 +853,74 @@
 		p
 			padding: 4px 0 4px 24px
 
-		@media screen and ( min-width: 720px )
-			.wrap
-				gap: 28px
+		.wrap
+			gap: 28px 0 !important
+			&.--booth
+				&>*
+					&:last-child
+						.preview
+							aspect-ratio: 16/9
 
-			.w880
-				margin: auto 0
-				width: calc( (100% - 42.308%) - 28px )
+			@media screen and ( min-width: 720px )
+				&>*
+					max-width: 100% !important
+					--itemW: 308
+					--contW: 728
+					width: calc(var(--itemW) / var(--contW) * 100%)
+					&:first-child
+						margin: 0 !important
+					&:nth-child(2)
+						--itemW: 392
+						margin: auto 0 auto
 
-			.w640,
-			.w400
-				width: 42.308%
-				margin: 0
+					&:nth-child(3)
+						--itemW: 336
+						margin: 0 auto !important
 
-			.item
-				order: 1
-				flex-direction: column-reverse
-				&:nth-child(4)
-					order: 3
-					width: 46.154%
-					margin-left: auto
-				&:nth-child(3)
-					order: 4
-					position: relative
-					z-index: 1
-					top: -14vw
+					&:nth-child(4)
+						--itemW: 308
+						margin: 0 0 auto !important
+						top: -14vw !important
 
-				&:last-child
-					order: 5
-					width: 92%
-					margin-top: 32px
+					&:last-child
+						margin: 32px 0 0 auto !important
+						--itemW: 672
 
-	@media screen and ( max-width: 991px )
+			&.--mirr
+				@media screen and ( min-width: 720px )
+					&>*
+						&:first-child
+							.preview
+								aspect-ratio: 9/16
+
+						&:nth-child(2)
+							--itemW: 308
+							top: -14vw !important
+						&:nth-child(3)
+							--itemW: 392
+							margin: auto 0 auto !important
+						&:nth-child(4)
+							--itemW: 336
+							margin: 0 auto !important
+							top: 10vw !important
+						&:last-child
+							--itemW: 284
+							margin: 0 0 0 auto !important
+
+	@media screen and ( max-width: 720px )
+		h4
+			font-size: 24px
+			line-height: 32px
+			letter-spacing: 0.2px
+
+		h2
+			padding-left: 0
+
 		.item
 			width: 100%
 			max-width: 100%
-			margin: 0
-
-		.wrap
-			gap: 16px
+			margin: 0 !important
+			top: auto !important
 
 		.preview
 			border-radius: 6px
@@ -909,6 +1080,10 @@
 				width: 12px
 				height: 12px
 
+		&-slider
+			img
+				object-position: center center
+
 		&-col
 			&>*
 				margin-bottom: 64px
@@ -930,8 +1105,9 @@
 					visibility: visible
 
 		&-info
+			text-align: left
 			color: var(--haiti-80)
-			width: calc( 100vw - var(--paddingContainer)*2 )
+			width: 60vw
 			bottom: 0
 			left: 0
 
@@ -940,6 +1116,7 @@
 			display: block
 
 		&-info
+			width: calc( 100vw - var(--paddingContainer)*2 )
 			text-align: center
 
 		&-img

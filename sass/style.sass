@@ -54,10 +54,18 @@
         border-radius: 50%
         object-fit: cover
         left: 50%
-        transform: translateX(-50%)
+        transform: translate(-50%, 10%)
+        opacity: 0
+        transition: all ease .5s
+        transition-delay: .3s
 
     &-row
         padding: 0 120px 0 80px
+
+    &.--anim
+        .hero__ball
+            opacity: 1
+            transform: translate(-50%, 0)
 
     @media screen and ( min-width: 992px )
         &-slides
