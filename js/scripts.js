@@ -106,8 +106,6 @@ $('.sl').slick({
 	draggable: false,
 	fade: true,
 	dots: false,
-	autoplay: true,
-	autoplaySpeed: 1800,
 	arrows: false,
 	slidesToShow: 1,
 	adaptiveHeight: true,
