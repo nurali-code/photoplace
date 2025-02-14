@@ -241,7 +241,9 @@ $(document).ready(function () {
 	$(".interactives .item").on('mouseenter', function () {
 		if (window.innerWidth >= 991) {
 			$('.interactives .slick-list').not('.item-imgs .slick-list').css('z-index', '1111');
-			$(this).find('video').each(function () {
+			$('.interactives .slick-arrow').not('.item-imgs .slick-arrow').addClass('--blur')
+			$(this).find('.item-ic video')[0].play();
+			$(this).find('.item-imgs video').each(function () {
 				$(this).hasClass('slick-current') ? $(this)[0].play() : false;
 			})
 			$(".interactives .item").not($(this)).addClass('blur')
@@ -251,6 +253,7 @@ $(document).ready(function () {
 		if (window.innerWidth >= 991) {
 			$('.interactives .slick-list').not('.item-imgs .slick-list').css('z-index', '1')
 			$(".interactives .item").removeClass('blur')
+			$('.interactives .slick-arrow').not('.item-imgs .slick-arrow').removeClass('--blur')
 			$(this).find('video').each(function () { $(this)[0].pause() })
 		}
 	});
@@ -366,18 +369,21 @@ $(function () {
 });
 
 $("form").submit(function () {
-	$('form .btn').attr('disabled', true)
+	const thisBnt = $(this).find('.btn');
+	$(thisBnt).attr('disabled', true)
 	$.ajax({
 		type: "post",
 		method: 'post',
 		url: "send.php",
 		data: $(this).serialize(),
-		success: function (response) {
-
-		},
+		// success: function (response) {},
 		// error: function (error) { console.error(error); }
 	}).done(function () {
-		$('form .btn').removeAttr('disabled');
+		$(thisBnt)
+			.removeClass('--arr --star')
+			.addClass('--sent')
+			.text('Заявка отправлена');
+			
 		hideModals();
 		showModal('#modal-done');
 	}); return false;

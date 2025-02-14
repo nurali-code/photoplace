@@ -72,6 +72,7 @@ p
 	&:active
 		background-color: var(--fuchsia-pressed)
 
+	&.--sent,
 	&.--arr,
 	&.--star
 		&::after
@@ -120,6 +121,9 @@ p
 		border-color: var(--haiti-15)
 		background-color: var(--haiti-15)
 		pointer-events: none
+
+	&.--sent
+		--sprite-y: 3
 
 .t
 	&-left
