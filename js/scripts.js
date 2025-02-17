@@ -382,7 +382,6 @@ $("form").submit(function () {
 			.removeClass('--arr --star')
 			.addClass('--sent')
 			.text('Заявка отправлена');
-
 		hideModals();
 		showModal('#modal-done');
 	}); return false;
