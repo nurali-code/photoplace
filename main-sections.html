@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>PHOTOPLACE</title>
+	<link rel="preload" as="image" href="img/discoball.jpg" type="image/jpg">
+	<link rel="preload" as="image" href="img/hero-text.svg" type="image/svg+xml">
+	<link rel="preload" as="image" href="img/hero-mob-text.svg" type="image/svg+xml">
+	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSuJk4.woff2" type="font/woff2"
+		crossorigin="anonymous">
+	<link rel="preload" as="font" href="fonts/raxoHjafvdAIOju4GcIfJH0i7zi50X3zRtuLNiMS0fSqJk5kkw.woff2"
+		type="font/woff2" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="./css/aos.css">
+	<link rel="stylesheet" href="./css/style.css?ver=26">
+	<meta name="theme-color" content="#FE00A0">
+
+	<link rel="preload" as="video" href="vid/disco-ball.mp4">
+	<link rel="shortcut icon" href="favicon.svg" type="image/svg">
+	<link rel="stylesheet" href="./css/jquery.fancybox.min.css">
+</head>
+
+<body id="home">
+	<section class="main">
+		<h1 class="main__heading" data-adjust="tab">
+			<i>фото</i><i>зер</i><i>кало</i>
+		</h1>
+		<div class="container main-wrap fx-ac fx-jb">
+			<div class="main-item"><img src="img/mir/mirr-1.jpg" alt="i"></div>
+			<div class="main-item"><img src="img/mir/mirr-2.jpg" alt="i"></div>
+			<div class="main-item"><img src="img/mir/mirr-3.jpg" alt="i"></div>
+		</div>
+	</section>
+
+	<section class="main">
+		<h1 class="main__heading" data-adjust="tab">
+			<i>фото</i><i>буд</i><i>ка</i>
+		</h1>
+		<div class="container main-wrap fx-ac fx-jb">
+			<div class="main-item"><img src="img/ex/image-7.jpg" alt="i"></div>
+			<div class="main-item"><img src="img/booth/booth-3.jpg" alt="i"></div>
+			<div class="main-item"><img src="img/booth/booth-4.jpg" alt="i"></div>
+		</div>
+	</section>
+
+	<section class="main">
+		<h1 class="main__heading" data-adjust="tab">
+			<i>SLOW</i> <i>MO</i> <i>360</i>
+		</h1>
+		<div class="container main-wrap fx-ac fx-jb">
+			<div class="main-item"><video preload src="img/slowmo/v-1.mp4" poster="img/slowmo/v-1.jpg"
+					controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
+			<div class="main-item"><video preload src="img/slowmo/v-2.mp4" poster="img/slowmo/v-2.jpg"
+					controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
+			<div class="main-item"><video preload src="img/slowmo/v-3.mp4" poster="img/slowmo/v-3.jpg"
+					controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
+		</div>
+	</section>
+
+	<section class="main">
+		<h1 class="main__heading" data-adjust="tab">
+			<i>ФЛИП</i><i>БУК</i> <i>СТУДИЯ</i>
+		</h1>
+		<div class="container main-wrap fx-ac fx-jb">
+			<div class="main-item"><img src="img/ex/k-1.jpg" alt="l"></div>
+			<div class="main-item"><video preload src="img/ex/jk-1.mp4" poster="img/ex/jk-1.jpg"
+					controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
+			<div class="main-item"><video preload src="img/ex/l-1.mp4" poster="img/ex/l-1.jpg"
+					controlsList="nofullscreen" playsinline muted loop class="observe"></video></div>
+		</div>
+	</section>
+
+	<section class="main">
+		<h1 class="main__heading" data-adjust="tab">
+			<i>ИИ</i> <i>ФОТО</i><i>Буд<span class="mob-hide">ка</span></i> <i class="mob-show">ка</i>
+		</h1>
+		<div class="container main-wrap fx-ac fx-jb">
+			<div class="main-item"><img src="img/ai/ai-1.jpg" alt="l"></div>
+			<div class="main-item"><img src="img/ex/x-1.jpg" alt="l"></div>
+			<div class="main-item"><img src="img/ai/ai-2.jpg" alt="l"></div>
+		</div>
+	</section>
+
+	<script>
+		var main = document.querySelector(".main");
+		var loader = document.querySelector(".loader");
+		var loaderWh = document.querySelector(".loader-wh");
+		var percentage = document.querySelector(".loader .percentage");
+
+		if (main && loader && percentage) {
+			var resources = [...main.querySelectorAll("img"), ...main.querySelectorAll("video")];
+			var resourcesLoaded = 0;
+			var totalResources = resources.length;
+
+			const updateProgress = () => {
+				resourcesLoaded++;
+				var progress = Math.min((resourcesLoaded / totalResources) * 100, 100);
+				percentage.textContent = Math.round(progress) + "%";
+				loaderWh.style.translate = Math.round(progress) + "%";
+
+				if (progress === 100) {
+					setTimeout(() => {
+						loader.classList.add('--hide');
+						setTimeout(() => { main.classList.add('--anim'); }, 300);
+						document.body.classList.remove('overflow');
+					}, 500);
+				}
+			};
+
+			if (totalResources === 0) {
+				loader.classList.add('--hide');
+				setTimeout(() => { main.classList.add('--anim'); }, 300);
+				document.body.classList.remove('overflow');
+			} else {
+				resources.forEach(resource => {
+					if (resource.tagName === 'VIDEO') {
+						var poster = new Image();
+						poster.src = resource.getAttribute("poster");
+						poster.onload = updateProgress;
+						poster.onerror = updateProgress;
+					} else {
+						resource.onload = updateProgress;
+						resource.onerror = updateProgress;
+					}
+					if (resource.complete) updateProgress();
+				});
+			}
+		}
+	</script>
+
+</body>
+
+</html>

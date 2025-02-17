@@ -14,7 +14,7 @@
 		type="font/woff2" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="./css/aos.css">
-	<link rel="stylesheet" href="./css/style.css?ver=24">
+	<link rel="stylesheet" href="./css/style.css?ver=26">
 	<meta name="theme-color" content="#FE00A0">
 
 	<link rel="preload" as="video" href="vid/disco-ball.mp4">
@@ -60,9 +60,10 @@
 				<ul class="menu-list">
 					<li class="fx-ac">
 						<span class="menu__link h3">ИНТЕРАКТИВЫ</span>
-						<div class="menu-submenu fx-ac fx-w fx-jb">
-							<a href="./slowmo.html" class="menu__sublink">SLOW MO 360</a>
+						<div class="menu-submenu fx-ac fx-w">
 							<a href="./photobooth.html" class="menu__sublink">ФОТОБУДКА</a>
+							<a href="./slowmo.html" class="menu__sublink">SLOW MO 360</a>
+							<a href="./aiphotobooth.html" class="menu__sublink">ИИ фотобудка</a>
 							<a href="./mirror.html" class="menu__sublink">ФОТОЗЕРКАЛО</a>
 							<a href="./flipbook.html" class="menu__sublink">ФЛИПБУК СТУДИЯ</a>
 						</div>
@@ -145,50 +146,7 @@
 		</section>
 
 		<script>
-			var main = document.querySelector(".hero");
-			var loader = document.querySelector(".loader");
-			var loaderWh = document.querySelector(".loader-wh");
-			var percentage = document.querySelector(".loader .percentage");
-
-			if (main && loader && percentage) {
-				var resources = [...main.querySelectorAll("img"), ...main.querySelectorAll("video")];
-				var resourcesLoaded = 0;
-				var totalResources = resources.length;
-
-				const updateProgress = () => {
-					resourcesLoaded++;
-					var progress = Math.min((resourcesLoaded / totalResources) * 100, 100);
-					percentage.textContent = Math.round(progress) + "%";
-					loaderWh.style.translate = Math.round(progress) + "%";
-
-					if (progress === 100) {
-						setTimeout(() => {
-							loader.classList.add('--hide');
-							setTimeout(() => { main.classList.add('--anim'); }, 300);
-							document.body.classList.remove('overflow');
-						}, 500);
-					}
-				};
-
-				if (totalResources === 0) {
-					loader.classList.add('--hide');
-					setTimeout(() => { main.classList.add('--anim'); }, 300);
-					document.body.classList.remove('overflow');
-				} else {
-					resources.forEach(resource => {
-						if (resource.tagName === 'VIDEO') {
-							var poster = new Image();
-							poster.src = resource.getAttribute("poster");
-							poster.onload = updateProgress;
-							poster.onerror = updateProgress;
-						} else {
-							resource.onload = updateProgress;
-							resource.onerror = updateProgress;
-						}
-						if (resource.complete) updateProgress();
-					});
-				}
-			}
+			let e = document.querySelector(".hero video"), t = document.querySelector(".loader"), o = document.querySelector(".loader .percentage"), r = document.querySelector(".loader-wh"), s = new XMLHttpRequest; s.open("GET", e.src, !0), s.responseType = "blob", s.onprogress = e => { if (e.lengthComputable) { let t = Math.round(e.loaded / e.total * 100); o.textContent = `${t}%`, r.style.transform = `translateX(${t}%)` } }, s.onload = () => { 200 === s.status && (e.src = URL.createObjectURL(s.response), setTimeout(() => { document.querySelector(".hero").classList.add("--anim"), t.classList.add("--hide"), document.body.classList.remove("overflow") }, 500)) }, s.send();
 		</script>
 
 		<div class="marquee-section">
@@ -262,9 +220,8 @@
 
 					<div class="item-box fx-jb">
 						<div class="item-imgs">
-							<video class="item__slide mob-observe" src="img/slowmo/vi-1.mp4"
-								controlsList="nofullscreen" playsinline preload muted loop
-								poster="img/interactiv/slow-2.jpg"></video>
+							<video class="item__slide mob-observe" src="img/slowmo/vi-1.mp4" controlsList="nofullscreen"
+								playsinline preload muted loop poster="img/interactiv/slow-2.jpg"></video>
 							<video class="item__slide mob-observe" src="img/interactiv/costume.mp4"
 								controlsList="nofullscreen" playsinline preload muted loop
 								poster="img/interactiv/slow-1.jpg"></video>
@@ -292,7 +249,7 @@
 							<img class="item__slide" src="img/interactiv/m-2.jpg" loading="lazy" alt="i">
 						</div>
 						<div class="item-title fx-col fx-as">
-							<div class="item-ic"> 
+							<div class="item-ic">
 								<video class="mob-observe" src="img/booth/prev.mp4" controlsList="nofullscreen"
 									playsinline preload muted loop poster="img/booth/prev.jpg"></video>
 							</div>
@@ -341,8 +298,8 @@
 						</div>
 						<div class="item-title fx-col fx-as">
 							<div class="item-ic">
-								<video class="mob-observe" src="img/ai/prev.mp4" controlsList="nofullscreen"
-									playsinline preload muted loop poster="img/ai/prev.jpg"></video>
+								<video class="mob-observe" src="img/ai/prev.mp4" controlsList="nofullscreen" playsinline
+									preload muted loop poster="img/ai/prev.jpg"></video>
 							</div>
 							<h4 class="item__heading">ФОТОБУДКА С ИИ</h4>
 							<p class="t-b2">
@@ -388,7 +345,7 @@
 					Гости мероприятия <b>сразу</b> получат свои фото и видео,
 					а после мы отправим вам ссылку на облако со всеми файлами
 				</p>
-				<button data-modal="modal-request" class="btn --light --arr tb-show">СВЯЗАТЬСЯ с нами</button>
+				<button data-modal="modal-request" class="btn --light --arr mob-show">СВЯЗАТЬСЯ с нами</button>
 			</div>
 		</section>
 
@@ -436,7 +393,7 @@
 						<div class="item-preview">
 							<a href="img/ex/hor-s-1.mp4" data-fancybox="example">
 								<video src="img/ex/hor-s-1.mp4" poster="img/ex/s-1.jpg" controlsList="nofullscreen"
-									playsinline muted loop class="item__img"></video>
+									playsinline muted loop class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -459,7 +416,7 @@
 						<div class="item-preview">
 							<a href="img/ex/o-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/o-1.mp4"
-									poster="img/ex/o-1.jpg" class="item__img"></video>
+									poster="img/ex/o-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -504,7 +461,7 @@
 						<div class="item-preview">
 							<a href="img/ex/i-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/i-1.mp4"
-									poster="img/ex/i-1.jpg" class="item__img"></video>
+									poster="img/ex/i-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -576,7 +533,7 @@
 						<div class="item-preview">
 							<a href="img/ex/d-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/d-1.mp4"
-									poster="img/ex/d-1.jpg" class="item__img"></video>
+									poster="img/ex/d-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -588,7 +545,7 @@
 						<div class="item-preview">
 							<a href="img/ex/f-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/f-1.mp4"
-									poster="img/ex/f-1.jpg" class="item__img"></video>
+									poster="img/ex/f-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -600,7 +557,7 @@
 						<div class="item-preview">
 							<a href="img/ex/hor-g-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/hor-g-1.mp4"
-									poster="img/ex/g-1.jpg" class="item__img"></video>
+									poster="img/ex/g-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -722,7 +679,7 @@
 						<div class="item-preview">
 							<a href="img/ex/jk-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/jk-1.mp4"
-									poster="img/ex/jk-1.jpg" class="item__img"></video>
+									poster="img/ex/jk-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -745,7 +702,7 @@
 						<div class="item-preview">
 							<a href="img/ex/l-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/l-1.mp4"
-									poster="img/ex/l-1.jpg" class="item__img"></video>
+									poster="img/ex/l-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -779,7 +736,7 @@
 						<div class="item-preview">
 							<a href="img/ex/c-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/c-1.mp4"
-									poster="img/ex/c-1.jpg" class="item__img"></video>
+									poster="img/ex/c-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -791,7 +748,7 @@
 						<div class="item-preview">
 							<a href="img/ex/qq-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/qq-1.mp4"
-									poster="img/ex/qq-1.jpg" class="item__img"></video>
+									poster="img/ex/qq-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -814,7 +771,7 @@
 						<div class="item-preview">
 							<a href="img/ex/v-1.mp4" data-fancybox="example">
 								<video controlsList="nofullscreen" playsinline muted loop src="img/ex/v-1.mp4"
-									poster="img/ex/v-1.jpg" class="item__img"></video>
+									poster="img/ex/v-1.jpg" class="item__img mob-observe"></video>
 							</a>
 						</div>
 						<div class="item-title t-b2">
@@ -855,8 +812,7 @@
 				<form>
 					<input type="text" name="name" placeholder="Ваше имя" required>
 					<input type="text" name="contact" placeholder="Email или номер телефона" required>
-					<textarea required name="messange"
-						placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<textarea name="messange" placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
 					<button type="submit" class="btn --arr --dark">Отправить</button>
 				</form>
 			</div>
@@ -912,10 +868,8 @@
 				<h4 class="modal__heading">ОСТАВЬТЕ ЗАЯВКУ</h4>
 				<form class="modal-form">
 					<input type="text" name="name" placeholder="Ваше имя" required>
-					<!-- <output>Укажите Ваше имя, чтобы мы могли к вам обратится</output> -->
 					<input type="text" name="contact" placeholder="Email или номер телефона" required>
-					<textarea required name="messange"
-						placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
+					<textarea name="messange" placeholder="Расскажите о мероприятии и ваших пожеланиях"></textarea>
 					<button type="submit" class="btn --star">Отправить</button>
 				</form>
 				<p class="modal__subheading">ИЛИ СВЯЖИТЕСЬ С НАМИ</p>
@@ -946,7 +900,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/aos.js"></script>
 	<script src="js/slick.min.js"></script>
-	<script src="js/scripts.js?ver=24"></script>
+	<script src="js/scripts.js?ver=26"></script>
 	<script src="js/jquery.fancybox.min.js"></script>
 </body>
 

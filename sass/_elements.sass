@@ -44,13 +44,11 @@
 	line-height: 100%
 	transition: all .3s ease
 	transform-origin: 0 0
-	// display: none !important
 	&.--hide
 		transform: scaleY(0)
 
 	img
-		width: 270px
-		max-width: 41%
+		width: 100%
 		aspect-ratio: 1
 		border-radius: 50%
 		object-fit: cover
@@ -60,7 +58,8 @@
 		width: 100%
 
 	&-img
-		width: 100%
+		width: 270px
+		max-width: 41%
 		margin: 0 auto 30px
 		position: relative
 		z-index: 1
@@ -72,8 +71,9 @@
 			z-index: 1111
 			top: 0
 			right: 0
-			width: 100%
+			aspect-ratio: 1
 			height: 100%
+			transition: .2s ease transform
 			opacity: .5
 			background-color: var(--white)
 
@@ -88,6 +88,7 @@
 		justify-content: center
 
 body
+	// width: 100%
 	color: var(--haiti)
 	background-color: var(--light-grey)
 	font-family: "Sofia Sans Extra Condensed", sans-serif
@@ -96,6 +97,8 @@ body
 	font-style: normal
 	padding-top: 80px
 	position: relative
+	display: flex
+	flex-direction: column
 	&.overflow,
 	&.is_active
 		overflow: hidden
@@ -151,7 +154,7 @@ img
 		align-items: end
 
 output
-	color: red 
+	color: red
 	display: none
 	position: relative
 	top: -10px
@@ -181,7 +184,6 @@ input, textarea, select
 
 	&:user-invalid ~ output
 		display: block
-		
 
 	// &:valid
 	// 	background-color: blue !important
@@ -330,6 +332,11 @@ section
 	section
 		padding: 80px 0
 
+@media screen and ( max-width: 1100px )
+	html:not(.no-js)
+		[data-aos=fade-left]
+			transform: translate3d(0,100%,0)
+
 @media screen and ( max-width: 991px )
 	body
 		padding-top: 48px
@@ -345,10 +352,6 @@ section
 
 	section
 		padding: 60px 0
-
-	html:not(.no-js)
-		[data-aos=fade-left]
-			transform: translate3d(0,100%,0)
 
 	.aos-animate
 		transition-delay: 0s !important

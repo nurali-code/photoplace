@@ -1,9 +1,17 @@
 .interactives
     overflow: hidden
-    padding: 120px 0
+    padding-bottom: 80px
     .h1
         text-align: center
         padding: 0 var(--paddingContainer)
+        &:not(.t-left)
+            // padding-top: 1.3vw
+            line-height: 66%
+            span
+                line-height: 60% !important
+
+            // @media screen and ( min-width: 1920px )
+            //     padding-top: 15px
 
     &-slider
         margin: 0 auto
@@ -16,6 +24,8 @@
             filter: blur(6px)
 
     @media screen and ( min-width: 992px )
+        padding-bottom: 40px
+
         .h2, .h1
             margin: 0
 
@@ -25,12 +35,14 @@
 
         .slick-list:not(.item-imgs .slick-list),
         &-slider:not(.slick-initialized)
-            padding: 60px 0 120px
+            padding: 120px 0 120px
 
         @media screen and ( max-width: 1600px )
+            padding-bottom: 20px
+
             .slick-list:not(.item-imgs .slick-list),
             &-slider:not(.slick-initialized)
-                padding: 60px 0 110px
+                padding: 70px 0 110px
 
     .item
         width: 280px
@@ -133,8 +145,10 @@
         .btn
             margin-top: auto
 
-    @media screen and ( max-width: 1600px )
-        padding: 60px 0
+    .contact
+        padding-bottom: 40px
+
+    @media screen and ( max-width: 1800px )
         .slick-list:not(.item-imgs .slick-list),
         &-slider:not(.slick-initialized)
             padding-left: 8px
@@ -143,7 +157,7 @@
         .item
             margin: 0 32px
             &-box
-                top: 53%
+                top: 54%
                 --item-width: 632px
 
             &-title
@@ -161,14 +175,15 @@
                 display: none
 
     @media screen and ( max-width: 992px )
-        padding: 40px 0
+        padding-bottom: 60px
         .h1
             margin-bottom: 40px
             text-align: left
 
         &-slider
             gap: 16px
-            padding: 0 var(--paddingContainer) 40px
+            padding: 0 var(--paddingContainer)
+            justify-content: flex-start
 
         .item
             width: calc( 50% - 8px )
@@ -196,17 +211,25 @@
                 margin-top: 16px
                 width: 100%
 
-    @media screen and ( max-width: 700px )
+        .contact
+            padding-top: 40px
+            padding-bottom: 0
+
+    @media screen and ( max-width: 720px )
+        padding-bottom: 40px
         .h1
             margin-bottom: 24px
             text-align: center
 
         &-slider
             gap: 16px
-            padding-bottom: 56px
+            padding-bottom: 0
 
         .item
             width: 100%
+
+        .contact
+            padding-top: 56px
 
 .contact
     width: fit-content
@@ -227,7 +250,7 @@
         height: 80px
 
     @media screen and ( max-width: 992px )
-        gap: 0
+        gap: 8px
         img
             min-width: 40px
             width: 40px
@@ -239,3 +262,4 @@
     @media screen and ( max-width: 700px )
         mark
             display: inline
+            color: var(--haiti)
