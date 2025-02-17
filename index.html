@@ -100,8 +100,8 @@
 				</picture>
 			</h1>
 
-			<video src="vid/disco-ball.mp4" poster="img/discoball.jpg" controlsList="nofullscreen" autoplay playsinline
-				preload muted loop class="hero__ball observe"></video>
+			<video src="vid/disco-ball.mp4" poster="img/discoball.jpg" controlsList="nofullscreen" playsinline preload
+				muted loop class="hero__ball observe"></video>
 
 			<div class="hero-row fx-jb">
 				<div class="hero-text">
@@ -146,7 +146,7 @@
 		</section>
 
 		<script>
-			let e = document.querySelector(".hero video"), t = document.querySelector(".loader"), o = document.querySelector(".loader .percentage"), r = document.querySelector(".loader-wh"), s = new XMLHttpRequest; s.open("GET", e.src, !0), s.responseType = "blob", s.onprogress = e => { if (e.lengthComputable) { let t = Math.round(e.loaded / e.total * 100); o.textContent = `${t}%`, r.style.transform = `translateX(${t}%)` } }, s.onload = () => { 200 === s.status && (e.src = URL.createObjectURL(s.response), setTimeout(() => { document.querySelector(".hero").classList.add("--anim"), t.classList.add("--hide"), document.body.classList.remove("overflow") }, 500)) }, s.send();
+			let e = document.querySelector(".hero video"), t = document.querySelector(".loader"), o = document.querySelector(".loader .percentage"), r = document.querySelector(".loader-wh"), s = new XMLHttpRequest; s.open("GET", e.src, !0), s.responseType = "blob", s.onprogress = e => { if (e.lengthComputable) { let t = Math.round(e.loaded / e.total * 100); o.textContent = `${t}%`, r.style.transform = `translateX(${t}%)` } }, s.onload = () => { 200 === s.status && (e.src = URL.createObjectURL(s.response), setTimeout(() => { document.querySelector(".hero").classList.add("--anim"), t.classList.add("--hide"), document.body.classList.remove("overflow"); e.play() }, 500)) }, s.send();
 		</script>
 
 		<div class="marquee-section">

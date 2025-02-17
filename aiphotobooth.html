@@ -104,36 +104,35 @@
 					</p>
 				</div>
 				<div class="product-img">
-					<video src="img/ai/prev.mp4" autoplay poster="img/ai/prev.jpg" controlsList="nofullscreen"
-						playsinline muted loop class="observe"></video>
+					<video src="img/ai/prev.mp4" poster="img/ai/prev.jpg" controlsList="nofullscreen" playsinline muted
+						loop class="observe"></video>
 				</div>
 			</div>
 		</section>
 
 		<script>
-			let e = document.querySelector(".product video"), t = document.querySelector(".loader"), o = document.querySelector(".loader .percentage"), r = document.querySelector(".loader-wh"), s = new XMLHttpRequest; s.open("GET", e.src, !0), s.responseType = "blob", s.onprogress = e => { if (e.lengthComputable) { let t = Math.round(e.loaded / e.total * 100); o.textContent = `${t}%`, r.style.transform = `translateX(${t}%)` } }, s.onload = () => { 200 === s.status && (e.src = URL.createObjectURL(s.response), setTimeout(() => { document.querySelector(".product").classList.add("--anim"), t.classList.add("--hide"), document.body.classList.remove("overflow") }, 500)) }, s.send();
+			const video = document.querySelector(".product video"), loader = document.querySelector(".loader"), percentage = document.querySelector(".loader .percentage"), loaderWh = document.querySelector(".loader-wh"), xhr = new XMLHttpRequest; xhr.open("GET", video.src, !0), xhr.responseType = "blob", xhr.onprogress = e => { if (e.lengthComputable) { let r = Math.round(e.loaded / e.total * 100); percentage.textContent = `${r}%`, loaderWh.style.transform = `translateX(${r}%)` } }, xhr.onload = () => { 200 === xhr.status && (video.src = URL.createObjectURL(xhr.response), setTimeout(() => { document.querySelector(".product").classList.add("--anim"), loader.classList.add("--hide"), document.body.classList.remove("overflow"), video.play() }, 500)) }, xhr.send();
 		</script>
 
 		<section class="how" id="how">
 			<div class="container how-wrap fx-ac">
 				<div class="how-title">
 					<img src="img/ai/prod-1.png" class="how-img" alt="i" loading="lazy">
-					<h2 class="h4">Как работает флипбук студия</h2>
+					<h2 class="h4">Как работает <br> ИИ Фотобудка</h2>
 				</div>
 				<ol class="how-list fx-as fx-je fx-w">
 					<li data-aos="fade-left">
 						<video src="img/ai/how-1.mp4" poster="img/ai/how-1.jpg" controlsList="nofullscreen" playsinline
 							muted loop class="how__prev observe"></video>
-						<p class="t-b1">Выбираете реквизит, становитесь напротив студии, и оператор запускает съёмку</p>
+						<p class="t-b1">Нажимаете на экран, выбираете стиль фото и становитесь перед стойкой</p>
 					</li>
 					<li data-aos="fade-left" data-aos-delay="150">
 						<img class="how__prev" src="img/ai/how-2.jpg" alt="i" loading="lazy">
-						<p class="t-b1">Позируете, а студия снимает видео 7 сек., из которого печатает 50 фото</p>
+						<p class="t-b1">Позируете, видя на экране себя и таймер</p>
 					</li>
 					<li data-aos="fade-left" data-aos-delay="300">
 						<img class="how__prev" src="img/ai/how-3.jpg" alt="i" loading="lazy">
-						<p class="t-b1">Второй оператор подшивает флипбук, пока гости продолжают фотографироваться :)
-						</p>
+						<p class="t-b1">Забираете снимки, а электронные фото вам отправит оператор</p>
 					</li>
 				</ol>
 			</div>

@@ -105,13 +105,13 @@
 				</div>
 				<div class="product-img">
 					<video src="img/flipbook/prev.mp4" poster="img/flipbook/prev.jpg" controlsList="nofullscreen"
-						playsinline autoplay muted loop class="observe"></video>
+						playsinline muted loop class="observe"></video>
 				</div>
 			</div>
 		</section>
 
 		<script>
-			let e = document.querySelector(".product video"), t = document.querySelector(".loader"), o = document.querySelector(".loader .percentage"), r = document.querySelector(".loader-wh"), s = new XMLHttpRequest; s.open("GET", e.src, !0), s.responseType = "blob", s.onprogress = e => { if (e.lengthComputable) { let t = Math.round(e.loaded / e.total * 100); o.textContent = `${t}%`, r.style.transform = `translateX(${t}%)` } }, s.onload = () => { 200 === s.status && (e.src = URL.createObjectURL(s.response), setTimeout(() => { document.querySelector(".product").classList.add("--anim"), t.classList.add("--hide"), document.body.classList.remove("overflow") }, 500)) }, s.send();
+			const video = document.querySelector(".product video"), loader = document.querySelector(".loader"), percentage = document.querySelector(".loader .percentage"), loaderWh = document.querySelector(".loader-wh"), xhr = new XMLHttpRequest; xhr.open("GET", video.src, !0), xhr.responseType = "blob", xhr.onprogress = e => { if (e.lengthComputable) { let r = Math.round(e.loaded / e.total * 100); percentage.textContent = `${r}%`, loaderWh.style.transform = `translateX(${r}%)` } }, xhr.onload = () => { 200 === xhr.status && (video.src = URL.createObjectURL(xhr.response), setTimeout(() => { document.querySelector(".product").classList.add("--anim"), loader.classList.add("--hide"), document.body.classList.remove("overflow"), video.play() }, 500)) }, xhr.send();
 		</script>
 
 		<section class="how" id="how">
